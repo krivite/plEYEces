@@ -12,6 +12,10 @@
 		48A944211F98A86D00FD5B2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A9441F1F98A86D00FD5B2E /* Main.storyboard */; };
 		48A944231F98A86D00FD5B2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A944221F98A86D00FD5B2E /* Assets.xcassets */; };
 		48A944261F98A86D00FD5B2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A944241F98A86D00FD5B2E /* LaunchScreen.storyboard */; };
+		D7ECB63C1F991691009FDD71 /* POIBubbleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7ECB63B1F991691009FDD71 /* POIBubbleView.xib */; };
+		D7ECB63E1F9916B8009FDD71 /* POIBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB63D1F9916B8009FDD71 /* POIBubbleView.swift */; };
+		D7ECB6421F99181B009FDD71 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB6411F99181B009FDD71 /* Color.swift */; };
+		D7ECB6451F991B21009FDD71 /* PointOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB6441F991B21009FDD71 /* PointOfInterest.swift */; };
 		FFFF1B21D04EB634E08A0EBB /* Pods_Pleyeces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A151DE6E781E4EE9804C3C1F /* Pods_Pleyeces.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +30,10 @@
 		7FF148AC3BC566BAC99F5EFD /* Pods-Pleyeces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pleyeces.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces.release.xcconfig"; sourceTree = "<group>"; };
 		A151DE6E781E4EE9804C3C1F /* Pods_Pleyeces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pleyeces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEAD955A833B2BBE0D233F9 /* Pods-Pleyeces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pleyeces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces.debug.xcconfig"; sourceTree = "<group>"; };
+		D7ECB63B1F991691009FDD71 /* POIBubbleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = POIBubbleView.xib; sourceTree = "<group>"; };
+		D7ECB63D1F9916B8009FDD71 /* POIBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIBubbleView.swift; sourceTree = "<group>"; };
+		D7ECB6411F99181B009FDD71 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		D7ECB6441F991B21009FDD71 /* PointOfInterest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOfInterest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,8 @@
 		48A9441A1F98A86D00FD5B2E /* Pleyeces */ = {
 			isa = PBXGroup;
 			children = (
+				D7ECB63F1F991809009FDD71 /* Common */,
+				D7ECB6381F991634009FDD71 /* AugumentedReality */,
 				48A9441B1F98A86D00FD5B2E /* AppDelegate.swift */,
 				48A9441D1F98A86D00FD5B2E /* ViewController.swift */,
 				48A9441F1F98A86D00FD5B2E /* Main.storyboard */,
@@ -86,6 +96,48 @@
 				7FF148AC3BC566BAC99F5EFD /* Pods-Pleyeces.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		D7ECB6381F991634009FDD71 /* AugumentedReality */ = {
+			isa = PBXGroup;
+			children = (
+				D7ECB63A1F99165B009FDD71 /* Controllers */,
+				D7ECB6391F991652009FDD71 /* Views */,
+			);
+			path = AugumentedReality;
+			sourceTree = "<group>";
+		};
+		D7ECB6391F991652009FDD71 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D7ECB63D1F9916B8009FDD71 /* POIBubbleView.swift */,
+				D7ECB63B1F991691009FDD71 /* POIBubbleView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D7ECB63A1F99165B009FDD71 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D7ECB63F1F991809009FDD71 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D7ECB6431F991B13009FDD71 /* Models */,
+				D7ECB6411F99181B009FDD71 /* Color.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		D7ECB6431F991B13009FDD71 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D7ECB6441F991B21009FDD71 /* PointOfInterest.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +204,7 @@
 			files = (
 				48A944261F98A86D00FD5B2E /* LaunchScreen.storyboard in Resources */,
 				48A944231F98A86D00FD5B2E /* Assets.xcassets in Resources */,
+				D7ECB63C1F991691009FDD71 /* POIBubbleView.xib in Resources */,
 				48A944211F98A86D00FD5B2E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,7 +264,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -222,7 +275,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				48A9441E1F98A86D00FD5B2E /* ViewController.swift in Sources */,
+				D7ECB6421F99181B009FDD71 /* Color.swift in Sources */,
+				D7ECB6451F991B21009FDD71 /* PointOfInterest.swift in Sources */,
 				48A9441C1F98A86D00FD5B2E /* AppDelegate.swift in Sources */,
+				D7ECB63E1F9916B8009FDD71 /* POIBubbleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B2Z8J357DK;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.kristi.Pleyeces;
@@ -376,6 +433,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B2Z8J357DK;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.kristi.Pleyeces;
