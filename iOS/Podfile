@@ -1,0 +1,10 @@
+platform :ios, '10.0'
+
+target 'Pleyeces' do
+  use_frameworks!
+
+  # Pods for Pleyeces
+	pod 'RealmSwift'
+	pod 'Alamofire', '~> 4.5'
+
+end
