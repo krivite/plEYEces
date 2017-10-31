@@ -24,6 +24,10 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+    <key>NSCameraUsageDescription</key>
+    <string>The camera will be used for Augumented Reality.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>The application will use your location to show nearby places.</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

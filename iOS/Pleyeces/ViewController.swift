@@ -7,17 +7,47 @@
 //
 
 import UIKit
+import ARCL
+import CoreLocation
+
+extension UIImage {
+    class func imageWithView(view: UIView) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0.0)
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img
+    }
+}
 
 class ViewController: UIViewController {
+    var sceneLocationView = SceneLocationView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        sceneLocationView.run()
+        self.view.addSubview(sceneLocationView)
+        
+        let coordinate = CLLocationCoordinate2D(latitude: 46.294095, longitude: 16.365866)
+        let location = CLLocation(coordinate: coordinate, altitude: 177)
+        let view = POIBubbleView.instanceFromNib()
+        view.setPOI(poi: PointOfInterest(name: "Caffe Bar Testis", description: "Ovo je samo test! Bla bla bla, boli me kurac sta ovde piše, al moram napunit ovo s nekim slovima da testiram view."))
+        let image = UIImage.imageWithView(view: view)!
+        
+        let annotationNode = LocationAnnotationNode(location: location, image: image)
+        annotationNode.scaleRelativeToDistance = true
+        sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode);
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        sceneLocationView.frame = view.bounds
     }
 
 
