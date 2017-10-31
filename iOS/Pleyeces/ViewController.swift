@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         sceneLocationView.run()
         self.view.addSubview(sceneLocationView)
         
-        let coordinate = CLLocationCoordinate2D(latitude: 46.294095, longitude: 16.365866)
+        let coordinate = CLLocationCoordinate2D(latitude: 46.308476, longitude: 16.337963)
         let location = CLLocation(coordinate: coordinate, altitude: 177)
         let view = POIBubbleView.instanceFromNib()
         view.setPOI(poi: PointOfInterest(name: "Caffe Bar Testis", description: "Ovo je samo test! Bla bla bla, boli me kurac sta ovde piše, al moram napunit ovo s nekim slovima da testiram view."))
