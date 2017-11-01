@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4898C0EC1FAA5D9B00D4B081 /* POIDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4898C0EB1FAA5D9B00D4B081 /* POIDetailViewController.swift */; };
 		48A9441C1F98A86D00FD5B2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A9441B1F98A86D00FD5B2E /* AppDelegate.swift */; };
 		48A9441E1F98A86D00FD5B2E /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A9441D1F98A86D00FD5B2E /* ARViewController.swift */; };
 		48A944211F98A86D00FD5B2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A9441F1F98A86D00FD5B2E /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4898C0EB1FAA5D9B00D4B081 /* POIDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIDetailViewController.swift; sourceTree = "<group>"; };
 		48A944181F98A86D00FD5B2E /* Pleyeces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pleyeces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A9441B1F98A86D00FD5B2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48A9441D1F98A86D00FD5B2E /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				48A944221F98A86D00FD5B2E /* Assets.xcassets */,
 				48A944241F98A86D00FD5B2E /* LaunchScreen.storyboard */,
 				48A944271F98A86D00FD5B2E /* Info.plist */,
+				4898C0EB1FAA5D9B00D4B081 /* POIDetailViewController.swift */,
 			);
 			path = Pleyeces;
 			sourceTree = "<group>";
@@ -239,15 +242,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARCL.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -284,7 +283,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -296,6 +295,7 @@
 			files = (
 				D7ECB64A1F9A06DB009FDD71 /* DistantPOIBubbleView.swift in Sources */,
 				48A9441E1F98A86D00FD5B2E /* ARViewController.swift in Sources */,
+				4898C0EC1FAA5D9B00D4B081 /* POIDetailViewController.swift in Sources */,
 				D7ECB6421F99181B009FDD71 /* Color.swift in Sources */,
 				D7ECB6451F991B21009FDD71 /* PointOfInterest.swift in Sources */,
 				48A9441C1F98A86D00FD5B2E /* AppDelegate.swift in Sources */,
@@ -441,7 +441,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2Z8J357DK;
+				DEVELOPMENT_TEAM = B2D896836D;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.pleyec;
@@ -460,7 +460,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2Z8J357DK;
+				DEVELOPMENT_TEAM = B2D896836D;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.pleyec;
