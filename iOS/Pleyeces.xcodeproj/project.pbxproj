@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		48A9441C1F98A86D00FD5B2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A9441B1F98A86D00FD5B2E /* AppDelegate.swift */; };
-		48A9441E1F98A86D00FD5B2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A9441D1F98A86D00FD5B2E /* ViewController.swift */; };
+		48A9441E1F98A86D00FD5B2E /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A9441D1F98A86D00FD5B2E /* ARViewController.swift */; };
 		48A944211F98A86D00FD5B2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A9441F1F98A86D00FD5B2E /* Main.storyboard */; };
 		48A944231F98A86D00FD5B2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A944221F98A86D00FD5B2E /* Assets.xcassets */; };
 		48A944261F98A86D00FD5B2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A944241F98A86D00FD5B2E /* LaunchScreen.storyboard */; };
@@ -16,13 +16,16 @@
 		D7ECB63E1F9916B8009FDD71 /* POIBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB63D1F9916B8009FDD71 /* POIBubbleView.swift */; };
 		D7ECB6421F99181B009FDD71 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB6411F99181B009FDD71 /* Color.swift */; };
 		D7ECB6451F991B21009FDD71 /* PointOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB6441F991B21009FDD71 /* PointOfInterest.swift */; };
+		D7ECB6481F99F404009FDD71 /* POIFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB6471F99F404009FDD71 /* POIFetcher.swift */; };
+		D7ECB64A1F9A06DB009FDD71 /* DistantPOIBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB6491F9A06DB009FDD71 /* DistantPOIBubbleView.swift */; };
+		D7ECB64C1F9A06F0009FDD71 /* DistantPOIBubbleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7ECB64B1F9A06F0009FDD71 /* DistantPOIBubbleView.xib */; };
 		FFFF1B21D04EB634E08A0EBB /* Pods_Pleyeces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A151DE6E781E4EE9804C3C1F /* Pods_Pleyeces.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		48A944181F98A86D00FD5B2E /* Pleyeces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pleyeces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A9441B1F98A86D00FD5B2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		48A9441D1F98A86D00FD5B2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		48A9441D1F98A86D00FD5B2E /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		48A944201F98A86D00FD5B2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		48A944221F98A86D00FD5B2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48A944251F98A86D00FD5B2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +37,9 @@
 		D7ECB63D1F9916B8009FDD71 /* POIBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIBubbleView.swift; sourceTree = "<group>"; };
 		D7ECB6411F99181B009FDD71 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D7ECB6441F991B21009FDD71 /* PointOfInterest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOfInterest.swift; sourceTree = "<group>"; };
+		D7ECB6471F99F404009FDD71 /* POIFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIFetcher.swift; sourceTree = "<group>"; };
+		D7ECB6491F9A06DB009FDD71 /* DistantPOIBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistantPOIBubbleView.swift; sourceTree = "<group>"; };
+		D7ECB64B1F9A06F0009FDD71 /* DistantPOIBubbleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistantPOIBubbleView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +78,6 @@
 				D7ECB63F1F991809009FDD71 /* Common */,
 				D7ECB6381F991634009FDD71 /* AugumentedReality */,
 				48A9441B1F98A86D00FD5B2E /* AppDelegate.swift */,
-				48A9441D1F98A86D00FD5B2E /* ViewController.swift */,
 				48A9441F1F98A86D00FD5B2E /* Main.storyboard */,
 				48A944221F98A86D00FD5B2E /* Assets.xcassets */,
 				48A944241F98A86D00FD5B2E /* LaunchScreen.storyboard */,
@@ -112,6 +117,8 @@
 			children = (
 				D7ECB63D1F9916B8009FDD71 /* POIBubbleView.swift */,
 				D7ECB63B1F991691009FDD71 /* POIBubbleView.xib */,
+				D7ECB6491F9A06DB009FDD71 /* DistantPOIBubbleView.swift */,
+				D7ECB64B1F9A06F0009FDD71 /* DistantPOIBubbleView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,6 +126,7 @@
 		D7ECB63A1F99165B009FDD71 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				48A9441D1F98A86D00FD5B2E /* ARViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -126,6 +134,7 @@
 		D7ECB63F1F991809009FDD71 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D7ECB6461F99F1EC009FDD71 /* Services */,
 				D7ECB6431F991B13009FDD71 /* Models */,
 				D7ECB6411F99181B009FDD71 /* Color.swift */,
 			);
@@ -138,6 +147,14 @@
 				D7ECB6441F991B21009FDD71 /* PointOfInterest.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D7ECB6461F99F1EC009FDD71 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D7ECB6471F99F404009FDD71 /* POIFetcher.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +222,7 @@
 				48A944261F98A86D00FD5B2E /* LaunchScreen.storyboard in Resources */,
 				48A944231F98A86D00FD5B2E /* Assets.xcassets in Resources */,
 				D7ECB63C1F991691009FDD71 /* POIBubbleView.xib in Resources */,
+				D7ECB64C1F9A06F0009FDD71 /* DistantPOIBubbleView.xib in Resources */,
 				48A944211F98A86D00FD5B2E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,10 +292,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48A9441E1F98A86D00FD5B2E /* ViewController.swift in Sources */,
+				D7ECB64A1F9A06DB009FDD71 /* DistantPOIBubbleView.swift in Sources */,
+				48A9441E1F98A86D00FD5B2E /* ARViewController.swift in Sources */,
 				D7ECB6421F99181B009FDD71 /* Color.swift in Sources */,
 				D7ECB6451F991B21009FDD71 /* PointOfInterest.swift in Sources */,
 				48A9441C1F98A86D00FD5B2E /* AppDelegate.swift in Sources */,
+				D7ECB6481F99F404009FDD71 /* POIFetcher.swift in Sources */,
 				D7ECB63E1F9916B8009FDD71 /* POIBubbleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

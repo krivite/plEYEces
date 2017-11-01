@@ -9,26 +9,24 @@
 import Foundation
 import UIKit
 
-class POIBubbleView: UIView {
-    
-    var poi: PointOfInterest?
+class DistantPOIBubbleView: UIView {
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    var poi: PointOfInterest?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.frame.size.height = 200
-        self.frame.size.width = 266
+        self.frame.size.height = 50
+        self.frame.size.width = 200
         
         addGradientBackground()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.frame.size.height = 200
-        self.frame.size.width = 266
-    
+        self.frame.size.height = 50
+        self.frame.size.width = 200
+        
         addGradientBackground()
     }
     
@@ -40,7 +38,7 @@ class POIBubbleView: UIView {
         gradient.colors = [Color.colorWithHexString(hex: "FAD961").cgColor, Color.colorWithHexString(hex: "FF9500").cgColor]
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 0)
-        gradient.cornerRadius = 50.0
+        gradient.cornerRadius = 10.0
         gradient.opacity = 0.7
         
         self.layer.insertSublayer(gradient, at: 0)
@@ -50,11 +48,11 @@ class POIBubbleView: UIView {
         self.poi = poi
         
         self.nameLabel.text = poi.name
-        self.descriptionLabel.text = poi.details
     }
     
-    class func instanceFromNib() -> POIBubbleView {
-        return UINib(nibName: "POIBubbleView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! POIBubbleView
+    class func instanceFromNib() -> DistantPOIBubbleView {
+        return UINib(nibName: "DistantPOIBubbleView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! DistantPOIBubbleView
     }
     
 }
+
