@@ -40,8 +40,13 @@ class AccessingPOIsService {
             }
             .responseJSON { response in
                 listOfPOIs=generatePOIModels(resp: response)
+
+        }
+        for poi in listOfPOIs{
+            debugPrint(poi.name)
         }
         return listOfPOIs
+
     }
     
     class func fetchSinglePOI(id: Int)-> Array<PointOfInterest>{
@@ -64,27 +69,26 @@ class AccessingPOIsService {
     
     class func generatePOIModels(resp: DataResponse<Any>) -> Array<PointOfInterest> {
 
-        var POIsList=[PointOfInterest]()
-        let json=resp.result.value as! NSArray
+        var POIsList = [PointOfInterest]()
+        let json = resp.result.value as! NSArray
        
-        for poi in json{
+        for poi in json {
+            let x=poi as! NSDictionary
             
-            
-                let x=poi as! NSDictionary
-            let newPOI = PointOfInterest(name: x.value(forKey: "name") as! String, description: x.value(forKey: "details") as! String/*, id: x.value(forKey: "id") as! Int, address: x.value(forKey: "address") as! String, latitude: x.value(forKey: "latitude") as! Float, longitude: x.value(forKey: "longitude") as! Float, image: x.value(forKey: "image") as! String, workingHours: x.value(forKey: "workingHours") as! String, type: x.value(forKey: "type") as! Int */)
-           
-                POIsList.append(newPOI)
-            
+            let newPOI=PointOfInterest(
+                id: x.value(forKey: "id") as! Int,
+                name: x.value(forKey: "name") as! String,
+                address: x.value(forKey: "address") as! String,
+                details: "",
+                lat: x.value(forKey: "latitude") as! Double,
+                lng: x.value(forKey: "longitude") as! Double
+            )
+            let type = x.value(forKey: "type") as! NSDictionary;
+            newPOI.type = type["id"] as? Int;
+            POIsList.append(newPOI)
         }
-        
        
-        
-
         return POIsList
-      
-        
-        
-
     }
 }
 

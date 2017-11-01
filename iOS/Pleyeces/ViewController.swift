@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode);
         var ll=[PointOfInterest]()
         ll=AccessingPOIsService.fetchAllPOIs()
-       
+               
         
     }
 

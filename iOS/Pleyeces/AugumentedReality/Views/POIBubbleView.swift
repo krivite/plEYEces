@@ -50,7 +50,7 @@ class POIBubbleView: UIView {
         self.poi = poi
         
         self.nameLabel.text = poi.name
-        self.descriptionLabel.text = poi.details
+        self.descriptionLabel.text = poi.description
     }
     
     class func instanceFromNib() -> POIBubbleView {

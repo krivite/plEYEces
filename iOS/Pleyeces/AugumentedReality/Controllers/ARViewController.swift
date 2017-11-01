@@ -36,6 +36,8 @@ class ARViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AccessingPOIsService.fetchAllPOIs();
+        
         sceneLocationView.run()
         self.view.addSubview(sceneLocationView)
         
