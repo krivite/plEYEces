@@ -19,7 +19,6 @@
 		D7ECB6481F99F404009FDD71 /* POIFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB6471F99F404009FDD71 /* POIFetcher.swift */; };
 		D7ECB64A1F9A06DB009FDD71 /* DistantPOIBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB6491F9A06DB009FDD71 /* DistantPOIBubbleView.swift */; };
 		D7ECB64C1F9A06F0009FDD71 /* DistantPOIBubbleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7ECB64B1F9A06F0009FDD71 /* DistantPOIBubbleView.xib */; };
-		E48C91C11FA8E590007F4A0A /* AccessingPOIsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48C91C01FA8E590007F4A0A /* AccessingPOIsService.swift */; };
 		FFFF1B21D04EB634E08A0EBB /* Pods_Pleyeces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A151DE6E781E4EE9804C3C1F /* Pods_Pleyeces.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +40,6 @@
 		D7ECB6471F99F404009FDD71 /* POIFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIFetcher.swift; sourceTree = "<group>"; };
 		D7ECB6491F9A06DB009FDD71 /* DistantPOIBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistantPOIBubbleView.swift; sourceTree = "<group>"; };
 		D7ECB64B1F9A06F0009FDD71 /* DistantPOIBubbleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistantPOIBubbleView.xib; sourceTree = "<group>"; };
-		E48C91C01FA8E590007F4A0A /* AccessingPOIsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessingPOIsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +82,6 @@
 				48A944221F98A86D00FD5B2E /* Assets.xcassets */,
 				48A944241F98A86D00FD5B2E /* LaunchScreen.storyboard */,
 				48A944271F98A86D00FD5B2E /* Info.plist */,
-				E48C91C01FA8E590007F4A0A /* AccessingPOIsService.swift */,
 			);
 			path = Pleyeces;
 			sourceTree = "<group>";
@@ -301,7 +298,6 @@
 				48A9441E1F98A86D00FD5B2E /* ARViewController.swift in Sources */,
 				D7ECB6421F99181B009FDD71 /* Color.swift in Sources */,
 				D7ECB6451F991B21009FDD71 /* PointOfInterest.swift in Sources */,
-				E48C91C11FA8E590007F4A0A /* AccessingPOIsService.swift in Sources */,
 				48A9441C1F98A86D00FD5B2E /* AppDelegate.swift in Sources */,
 				D7ECB6481F99F404009FDD71 /* POIFetcher.swift in Sources */,
 				D7ECB63E1F9916B8009FDD71 /* POIBubbleView.swift in Sources */,

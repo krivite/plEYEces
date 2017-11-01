@@ -7,16 +7,59 @@
 //
 
 import Foundation
+import Alamofire
 
 class POIFetcher {
     
-    // Currently mocked - ToDo: Implement
-    class func getByCurrentLocation(callback: (Array<PointOfInterest>) -> ()) {
-        callback([
-            PointOfInterest(id: 1, name: "The Office Bar", address: "Trg Kralja Tomislava 2, Varaždin", details: "Kava 2+1 GRATIS", lat: 46.3084084, lng: 16.3379733),
-            PointOfInterest(id: 2, name: "Kavana Grofica Marica", address: "Trg Kralja Tomislava 2, Varaždin", details: "Kava + Cedevita 15kn", lat: 46.3082384, lng: 16.3358223),
-            PointOfInterest(id: 3, name: "Kino Gaj", address: "Ul. Ljudevita Gaja 1, 42000, Varaždin", details: "Kava + Cedevita 15kn", lat: 46.3087733, lng: 16.3354629),
-        ])
+    class func fetchByGeolocation(lat: Double, lng: Double, radius: Float, success: @escaping (Array<PointOfInterest>) -> ()) {
+        let parameters: Parameters = ["longitude": lng, "latitude": lat, "radius": radius]
+        Alamofire.request("https://pleyec.es/api/pois/location",method: .get, parameters: parameters,  encoding: URLEncoding(destination: .queryString))
+            .responseJSON { response in
+                success(mapToModel(resp: response))
+            }
+    }
+    
+    class func fetchAll(success: @escaping (Array<PointOfInterest>) -> ()) {
+        Alamofire.request("https://pleyec.es/api/pois",method: .get)
+            .responseJSON { response in
+                success(mapToModel(resp: response))
+                
+        }
+    }
+    
+    class func fetchSinglePOI(id: Int, success: @escaping (Array<PointOfInterest>) -> ()) {
+        let url="https://pleyec.es/api/poi/" + String(id)
+        Alamofire.request(url,method: .get)
+            .responseJSON { response in
+                success(mapToModel(resp: response))
+        }
+    }
+    
+    class func mapToModel(resp: DataResponse<Any>) -> Array<PointOfInterest> {
+        var poiList = [PointOfInterest]()
+        
+        guard resp.result.value != nil else {
+            return []
+        }
+        
+        let pois = resp.result.value as! NSArray
+        for poi in pois {
+            let unpackedPoi = poi as! NSDictionary
+            
+            let model = PointOfInterest(
+                id: unpackedPoi.value(forKey: "id") as! Int,
+                name: unpackedPoi.value(forKey: "name") as! String,
+                address: unpackedPoi.value(forKey: "address") as! String,
+                details: "",
+                lat: unpackedPoi.value(forKey: "latitude") as! Double,
+                lng: unpackedPoi.value(forKey: "longitude") as! Double
+            )
+            let type = unpackedPoi.value(forKey: "type") as! NSDictionary;
+            model.type = type["id"] as? Int;
+            poiList.append(model)
+        }
+        
+        return poiList
     }
     
 }

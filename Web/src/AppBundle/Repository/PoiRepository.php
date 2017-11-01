@@ -7,7 +7,7 @@ use Doctrine\ORM\Query\ResultSetMapping;
 
 class PoiRepository extends EntityRepository
 {
-    public function findInRadius($radianLongitude, $radianLatitude, $radius)
+    public function findInRadius($radianLatitude, $radianLongitude, $radius)
     {
         $rsm = new ResultSetMapping();
         $rsm->addEntityResult(\AppBundle\Entity\Poi::class, 'p');
@@ -26,9 +26,9 @@ class PoiRepository extends EntityRepository
              + cos(?) * cos((p.latitude * PI()) / 180) 
              * cos((p.longitude * PI()) / 180 - (?))) 
              * 6371 <= ?', $rsm)
-            ->setParameter(1, $radianLongitude )
-            ->setParameter(2, $radianLongitude )
-            ->setParameter(3, $radianLatitude )
+            ->setParameter(1, $radianLatitude )
+            ->setParameter(2, $radianLatitude )
+            ->setParameter(3, $radianLongitude )
             ->setParameter(4, $radius )
             ->getResult();
     }

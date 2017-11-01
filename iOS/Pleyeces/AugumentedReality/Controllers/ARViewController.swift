@@ -36,8 +36,6 @@ class ARViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AccessingPOIsService.fetchAllPOIs();
-        
         sceneLocationView.run()
         self.view.addSubview(sceneLocationView)
         
@@ -45,14 +43,23 @@ class ARViewController: UIViewController {
     }
     
     func loadNearbyPOIs() {
-        POIFetcher.getByCurrentLocation { (nearbyPois) in
+        guard sceneLocationView.currentLocation() != nil else {
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { (Timer) in
+                self.loadNearbyPOIs()
+            })
+            return
+        }
+        POIFetcher.fetchByGeolocation(
+            lat: sceneLocationView.currentLocation()!.coordinate.latitude,
+            lng: sceneLocationView.currentLocation()!.coordinate.longitude,
+            radius: 100
+        ) { (nearbyPois) in
             self.nearbyPois = nearbyPois
-            drawPOIs(pois: self.nearbyPois)
+            self.drawPOIs(pois: self.nearbyPois)
         }
     }
     
     func clearAllDrawnNodes() {
-        print(self.shownLocationNodes)
         self.shownLocationNodes.forEach { (node) in
             self.sceneLocationView.removeLocationNode(locationNode: node)
         }

@@ -61,16 +61,16 @@ class PoiController extends FOSRestController
      *     description="Returns pois from database whose distance from the given location is less than radius"
      * )
      * @SWG\Parameter(
-     *     name="longitude",
-     *     in="query",
-     *     type="number",
-     *     description="Longitude of your current location"
-     * )
-     * @SWG\Parameter(
      *     name="latitude",
      *     in="query",
      *     type="number",
      *     description="Latitude of your current location"
+     * )
+     * @SWG\Parameter(
+     *     name="longitude",
+     *     in="query",
+     *     type="number",
+     *     description="Longitude of your current location"
      * )
      * @SWG\Parameter(
      *     name="radius",
@@ -89,9 +89,9 @@ class PoiController extends FOSRestController
         $radianLongitude = ($longitude * pi()) / 180;
         $radianLatitude = ($latitude * pi()) / 180;
 
-        $result = $this->getDoctrine()->getManager()->getRepository(\AppBundle\Entity\Poi::class)->findInRadius($radianLongitude, $radianLatitude, $radius);
+        $result = $this->getDoctrine()->getManager()->getRepository(\AppBundle\Entity\Poi::class)->findInRadius($radianLatitude, $radianLongitude, $radius);
         if ($result === null) {
-            return new View("POI not found!", Response::HTTP_NOT_FOUND);
+            return [];
         }
         return $result;
     }
