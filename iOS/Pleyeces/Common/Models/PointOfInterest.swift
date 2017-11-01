@@ -9,6 +9,7 @@
 import Foundation
 
 class PointOfInterest {
+
     var id: Int
     var name: String
     var address: String
@@ -17,6 +18,7 @@ class PointOfInterest {
     var lng: Double
     var workingHours: String?
     var image: String?
+
     
     init(id: Int, name: String, address: String, details: String, lat: Double, lng: Double) {
         self.id = id
