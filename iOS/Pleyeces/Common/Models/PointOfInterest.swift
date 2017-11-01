@@ -12,14 +12,7 @@ class PointOfInterest {
     
     var name: String
     var description: String
-    /*
-    var id: Int
-    var address: String
-    var latitude: Float
-    var longitude: Float
-    var image: String
-    var workingHours: String
-    var type: Int*/
+    
     
     
     
@@ -27,4 +20,11 @@ class PointOfInterest {
         self.name = name
         self.description = description
     }
+    var id = 0
+    var address = "a"
+    var latitude = 1.1
+    var longitude = 1.1
+    var image = "a"
+    var workingHours = "a"
+    var type = 1
 }

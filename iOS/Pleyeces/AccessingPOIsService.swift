@@ -41,8 +41,13 @@ class AccessingPOIsService {
             }
             .responseJSON { response in
                 listOfPOIs=generatePOIModels(resp: response)
+
+        }
+        for poi in listOfPOIs{
+            debugPrint(poi.name)
         }
         return listOfPOIs
+
     }
     
     class func fetchSinglePOI(id: Int)-> Array<PointOfInterest>{
@@ -72,20 +77,22 @@ class AccessingPOIsService {
             
             
                 let x=poi as! NSDictionary
-            let newPOI=PointOfInterest(name: x.value(forKey: "name") as! String, description: x.value(forKey: "details") as! String/*, id: x.value(forKey: "id") as! Int, address: x.value(forKey: "address") as! String, latitude: x.value(forKey: "latitude") as! Float, longitude: x.value(forKey: "longitude") as! Float, image: x.value(forKey: "image") as! String, workingHours: x.value(forKey: "workingHours") as! String, type: x.value(forKey: "type") as! Int */)
-           
+                let newPOI=PointOfInterest(name: x.value(forKey: "name") as! String, description: x.value(forKey: "details") as! String)
+            
+                newPOI.id = x.value(forKey: "id") as! Int
+                newPOI.address = x.value(forKey: "address") as! String
+                newPOI.latitude = x.value(forKey: "latitude") as! Double
+                newPOI.longitude = x.value(forKey: "longitude") as! Double
+                newPOI.image = x.value(forKey: "image") as! String
+                newPOI.workingHours = x.value(forKey: "working_hours") as! String
+            // TO DO dok netko promijeni poije u bazi kak treba, onda se treba ispod vrijednost promijeniti na tip x.value(forKey: "type") as! Int
+                newPOI.type = 1
+            
                 POIsList.append(newPOI)
             
         }
-        
        
-        
-
         return POIsList
-      
-        
-        
-
     }
 }
 
