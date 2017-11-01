@@ -52,7 +52,7 @@ class ARViewController: UIViewController {
         POIFetcher.fetchByGeolocation(
             lat: sceneLocationView.currentLocation()!.coordinate.latitude,
             lng: sceneLocationView.currentLocation()!.coordinate.longitude,
-            radius: 100
+            radius: 1
         ) { (nearbyPois) in
             self.nearbyPois = nearbyPois
             self.drawPOIs(pois: self.nearbyPois)
