@@ -76,7 +76,7 @@ class PoiController extends FOSRestController
      *     name="radius",
      *     in="query",
      *     type="number",
-     *     description="Radius is distance from your location to the end of your search area"
+     *     description="Radius is distance from your location to the end of your search area. Distance is measured in kilometres"
      * )
      * @SWG\Tag(name="poi")
      */

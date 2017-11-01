@@ -29,12 +29,12 @@ class Poi
     private $address;
 
     /**
-     * @ORM\Column(name="latitude", type="decimal")
+     * @ORM\Column(name="latitude", type="float")
      */
     private $latitude;
 
     /**
-     * @ORM\Column(name="longitude", type="decimal")
+     * @ORM\Column(name="longitude", type="float")
      */
     private $longitude;
 
