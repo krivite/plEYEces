@@ -9,8 +9,19 @@
 import Foundation
 
 class PointOfInterest {
+    
     var name: String
     var description: String
+    /*
+    var id: Int
+    var address: String
+    var latitude: Float
+    var longitude: Float
+    var image: String
+    var workingHours: String
+    var type: Int*/
+    
+    
     
     init(name: String, description: String) {
         self.name = name
