@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Pois list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Details</th>
+                <th>Image</th>
+                <th>Workinghours</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for poi in pois %}
+            <tr>
+                <td><a href="{{ path('admin_poi_show', { 'id': poi.id }) }}">{{ poi.id }}</a></td>
+                <td>{{ poi.name }}</td>
+                <td>{{ poi.address }}</td>
+                <td>{{ poi.latitude }}</td>
+                <td>{{ poi.longitude }}</td>
+                <td>{{ poi.details }}</td>
+                <td>{{ poi.image }}</td>
+                <td>{{ poi.workingHours }}</td>
+                <td>{{ poi.type }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_poi_show', { 'id': poi.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_poi_edit', { 'id': poi.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_poi_new') }}">Create a new poi</a>
+        </li>
+    </ul>
+{% endblock %}

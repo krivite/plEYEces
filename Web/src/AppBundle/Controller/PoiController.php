@@ -2,97 +2,135 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity;
-use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Controller\Annotations as Rest;
-use Symfony\Component\HttpFoundation\Response;
-use Nelmio\ApiDocBundle\Annotation\Model;
-use Swagger\Annotations as SWG;
-use FOS\RestBundle\View\View;
-use Symfony\Component\HttpFoundation\Request;
-use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Poi;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
-class PoiController extends FOSRestController
+/**
+ * Poi controller.
+ *
+ * @Route("admin/poi")
+ */
+class PoiController extends Controller
 {
     /**
-     * @Rest\Get("/api/pois")
-     * @SWG\Response(
-     *     response=200,
-     *     description="Returns pois from database",
-     * )
-     * @SWG\Tag(name="pois")
+     * Lists all poi entities.
+     *
+     * @Route("/", name="admin_poi_index")
+     * @Method("GET")
      */
-    public function getAll()
+    public function indexAction()
     {
-        $result = $this->getDoctrine()->getRepository('AppBundle:Poi')->findAll();
-        if ($result === null || count($result) === 0) {
-            return new View("No POIs found!", Response::HTTP_NOT_FOUND);
-        }
-        return $result;
+        $em = $this->getDoctrine()->getManager();
+
+        $pois = $em->getRepository('AppBundle:Poi')->findAll();
+
+        return $this->render('poi/index.html.twig', array(
+            'pois' => $pois,
+        ));
     }
 
     /**
-     * @Rest\Get("/api/poi/{id}")
-     * @SWG\Response(
-     *     response=200,
-     *     description="Returns a single poi from database",
-     * )
-     * @SWG\Parameter(
-     *     name="id",
-     *     in="path",
-     *     type="integer",
-     *     description="ID of poi whose details you want to see"
-     * )
-     * @SWG\Tag(name="poi")
+     * Creates a new poi entity.
+     *
+     * @Route("/new", name="admin_poi_new")
+     * @Method({"GET", "POST"})
      */
-    public function getAction($id)
+    public function newAction(Request $request)
     {
-        $result = $this->getDoctrine()->getRepository('AppBundle:Poi')->find($id);
-        if ($result === null) {
-            return new View("POI not found!", Response::HTTP_NOT_FOUND);
+        $poi = new Poi();
+        $form = $this->createForm('AppBundle\Form\PoiType', $poi);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($poi);
+            $em->flush();
+
+            return $this->redirectToRoute('admin_poi_show', array('id' => $poi->getId()));
         }
-        return $result;
+
+        return $this->render('poi/new.html.twig', array(
+            'poi' => $poi,
+            'form' => $form->createView(),
+        ));
     }
 
     /**
-     * @Rest\Get("/api/pois/location")
-     * @SWG\Response(
-     *     response=200,
-     *     description="Returns pois from database whose distance from the given location is less than radius"
-     * )
-     * @SWG\Parameter(
-     *     name="latitude",
-     *     in="query",
-     *     type="number",
-     *     description="Latitude of your current location"
-     * )
-     * @SWG\Parameter(
-     *     name="longitude",
-     *     in="query",
-     *     type="number",
-     *     description="Longitude of your current location"
-     * )
-     * @SWG\Parameter(
-     *     name="radius",
-     *     in="query",
-     *     type="number",
-     *     description="Radius is distance from your location to the end of your search area. Distance is measured in kilometres"
-     * )
-     * @SWG\Tag(name="poi")
+     * Finds and displays a poi entity.
+     *
+     * @Route("/{id}", name="admin_poi_show")
+     * @Method("GET")
      */
-    public function getInRadius(Request $request)
+    public function showAction(Poi $poi)
     {
-        $longitude = $request->query->get('longitude');
-        $latitude = $request->query->get('latitude');
-        $radius = $request->query->get('radius');
+        $deleteForm = $this->createDeleteForm($poi);
 
-        $radianLongitude = ($longitude * pi()) / 180;
-        $radianLatitude = ($latitude * pi()) / 180;
+        return $this->render('poi/show.html.twig', array(
+            'poi' => $poi,
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
 
-        $result = $this->getDoctrine()->getManager()->getRepository(\AppBundle\Entity\Poi::class)->findInRadius($radianLatitude, $radianLongitude, $radius);
-        if ($result === null) {
-            return [];
+    /**
+     * Displays a form to edit an existing poi entity.
+     *
+     * @Route("/{id}/edit", name="admin_poi_edit")
+     * @Method({"GET", "POST"})
+     */
+    public function editAction(Request $request, Poi $poi)
+    {
+        $deleteForm = $this->createDeleteForm($poi);
+        $editForm = $this->createForm('AppBundle\Form\PoiType', $poi);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('admin_poi_edit', array('id' => $poi->getId()));
         }
-        return $result;
+
+        return $this->render('poi/edit.html.twig', array(
+            'poi' => $poi,
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Deletes a poi entity.
+     *
+     * @Route("/{id}", name="admin_poi_delete")
+     * @Method("DELETE")
+     */
+    public function deleteAction(Request $request, Poi $poi)
+    {
+        $form = $this->createDeleteForm($poi);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($poi);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('admin_poi_index');
+    }
+
+    /**
+     * Creates a form to delete a poi entity.
+     *
+     * @param Poi $poi The poi entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(Poi $poi)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('admin_poi_delete', array('id' => $poi->getId())))
+            ->setMethod('DELETE')
+            ->getForm()
+        ;
     }
 }

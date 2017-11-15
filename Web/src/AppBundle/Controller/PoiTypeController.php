@@ -10,14 +10,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Poitype controller.
  *
- * @Route("poitype")
+ * @Route("admin/poitype")
  */
 class PoiTypeController extends Controller
 {
     /**
      * Lists all poiType entities.
      *
-     * @Route("/", name="poitype_index")
+     * @Route("/", name="admin_poitype_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -34,7 +34,7 @@ class PoiTypeController extends Controller
     /**
      * Creates a new poiType entity.
      *
-     * @Route("/new", name="poitype_new")
+     * @Route("/new", name="admin_poitype_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -48,7 +48,7 @@ class PoiTypeController extends Controller
             $em->persist($poiType);
             $em->flush();
 
-            return $this->redirectToRoute('poitype_show', array('id' => $poiType->getId()));
+            return $this->redirectToRoute('admin_poitype_show', array('id' => $poiType->getId()));
         }
 
         return $this->render('poitype/new.html.twig', array(
@@ -60,7 +60,7 @@ class PoiTypeController extends Controller
     /**
      * Finds and displays a poiType entity.
      *
-     * @Route("/{id}", name="poitype_show")
+     * @Route("/{id}", name="admin_poitype_show")
      * @Method("GET")
      */
     public function showAction(PoiType $poiType)
@@ -76,7 +76,7 @@ class PoiTypeController extends Controller
     /**
      * Displays a form to edit an existing poiType entity.
      *
-     * @Route("/{id}/edit", name="poitype_edit")
+     * @Route("/{id}/edit", name="admin_poitype_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, PoiType $poiType)
@@ -88,7 +88,7 @@ class PoiTypeController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('poitype_edit', array('id' => $poiType->getId()));
+            return $this->redirectToRoute('admin_poitype_edit', array('id' => $poiType->getId()));
         }
 
         return $this->render('poitype/edit.html.twig', array(
@@ -101,7 +101,7 @@ class PoiTypeController extends Controller
     /**
      * Deletes a poiType entity.
      *
-     * @Route("/{id}", name="poitype_delete")
+     * @Route("/{id}", name="admin_poitype_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, PoiType $poiType)
@@ -115,7 +115,7 @@ class PoiTypeController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('poitype_index');
+        return $this->redirectToRoute('admin_poitype_index');
     }
 
     /**
@@ -128,7 +128,7 @@ class PoiTypeController extends Controller
     private function createDeleteForm(PoiType $poiType)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('poitype_delete', array('id' => $poiType->getId())))
+            ->setAction($this->generateUrl('admin_poitype_delete', array('id' => $poiType->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;
