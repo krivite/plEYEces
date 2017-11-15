@@ -101,12 +101,19 @@ class User implements UserInterface, GroupableInterface
     protected $roles;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Poi")
+     * @ORM\JoinTable(name="poi_user")
+     */
+    private $userOwners;
+
+    /**
      * User constructor.
      */
     public function __construct()
     {
         $this->enabled = false;
         $this->roles = array();
+        $this->userOwners = new ArrayCollection();
     }
 
     /**
@@ -554,4 +561,5 @@ class User implements UserInterface, GroupableInterface
     {
         return (string) $this->getUsername();
     }
+
 }
