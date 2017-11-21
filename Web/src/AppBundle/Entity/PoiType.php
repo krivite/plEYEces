@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use JsonSerializable;
 
 /**
  * PoiType
@@ -11,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="poi_type")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PoiTypeRepository")
  */
-class PoiType
+class PoiType implements JsonSerializable
 {
     /**
      * @var int
@@ -90,6 +91,8 @@ class PoiType
         $this->pois = $pois;
     }
 
-
+    public function jsonSerialize() {
+        return (object) get_object_vars($this);
+    }
 }
 

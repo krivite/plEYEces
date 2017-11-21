@@ -4,17 +4,17 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use JsonSerializable;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PoiRepository")
  * @ORM\Table(name="pois")
  */
-class Poi
+class Poi implements JsonSerializable
 {
     /**
-     * @ORM\Column(name="poi_id", type="integer")
+     * @ORM\Column(name="poi_id", type="string", length=255)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -72,11 +72,19 @@ class Poi
     /**
      * Get id
      *
-     * @return int
+     * @return string
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     /**
@@ -223,5 +231,8 @@ class Poi
         $this->offers = $offers;
     }
 
+    public function jsonSerialize() {
+        return (object) get_object_vars($this);
+    }
 
 }

@@ -3,14 +3,18 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity;
+use AppBundle\Entity\Poi;
+use AppBundle\Entity\PoiType;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use function Sodium\add;
 use Symfony\Component\HttpFoundation\Response;
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Swagger\Annotations as SWG;
 use FOS\RestBundle\View\View;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\Mapping as ORM;
+
 
 class PoiController extends FOSRestController
 {
@@ -82,6 +86,7 @@ class PoiController extends FOSRestController
      */
     public function getInRadius(Request $request)
     {
+        $poiJSONResponse = [];
         $longitude = $request->query->get('longitude');
         $latitude = $request->query->get('latitude');
         $radius = $request->query->get('radius');
@@ -89,10 +94,94 @@ class PoiController extends FOSRestController
         $radianLongitude = ($longitude * pi()) / 180;
         $radianLatitude = ($latitude * pi()) / 180;
 
-        $result = $this->getDoctrine()->getManager()->getRepository(\AppBundle\Entity\Poi::class)->findInRadius($radianLatitude, $radianLongitude, $radius);
+        //TODO: poslati zahtjev na google places api
+
+        $browser = $this->container->get('buzz');
+        $url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?' .
+            'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
+            '&location=' . $latitude . ',' . $longitude .
+            '&radius=' . $radius*1000;
+
+        $response = $browser->get($url)->getContent();
+
+        $response = json_decode($response, true);
+
+        //var_dump($response['results'][0]);
+
+        $poiTypes = $this->getDoctrine()->getManager()->getRepository(PoiType::class)->findAll();
+        //$query = $this->getDoctrine()->getManager()->createQuery('SELECT p.id FROM  \AppBundle\Entity\Poi p');
+        //$poiIds = $query->getResult();
+        //var_dump($poiIds);
+
+        foreach($response['results'] as $result)
+        {
+            //check does current result type matches the one in database
+            $matchType = false;
+            $poiType = null;
+            foreach($poiTypes as $type)
+            {
+                if(in_array($type->getName(), $result['types']))
+                {
+                    $matchType = true;
+                    $poiType = $type;
+                    break;
+                }
+            }
+            if(!$matchType)
+            {
+                continue;
+            }
+
+            $poi = new Poi();
+            $poi->setId($result['id']);
+            $poi->setName($result['name']);
+
+            //getting details
+            $url = 'https://maps.googleapis.com/maps/api/place/details/json?' .
+                'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
+                '&placeid=' . $result['place_id'];
+            $details = $browser->get($url)->getContent();
+            $details = json_decode($details, true);
+
+            $poi->setAddress($details['result']['formatted_address']);
+            $poi->setDetails($details['result']['url']);
+
+            $poi->setImage('https://maps.googleapis.com/maps/api/place/photo?' .
+                'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
+                '&maxwidth=1920' .
+                '&photoreference=' . $details['result']['photos'][0]['photo_reference']);
+
+            $poi->setLatitude($result['geometry']['location']['lat']);
+            $poi->setLongitude($result['geometry']['location']['lng']);
+
+            $workingHours = "";
+            foreach ($details['result']['opening_hours']['weekday_text'] as $day)
+            {
+                $workingHours .= $day . " ";
+            }
+
+            $poi->setWorkingHours($workingHours);
+            $poi->setType($poiType);
+
+            array_push($poiJSONResponse, $poi);
+        }
+
+        $result = new Response(
+            json_encode($poiJSONResponse),
+            Response::HTTP_OK,
+            array('content-type' => 'application/json')
+        );
+
+        return $result;
+
+
+        //TODO: update baze prema vraćenim podatcima
+
+
+        /*$result = $this->getDoctrine()->getManager()->getRepository(\AppBundle\Entity\Poi::class)->findInRadius($radianLatitude, $radianLongitude, $radius);
         if ($result === null) {
             return [];
         }
-        return $result;
+        return $result;*/
     }
 }
