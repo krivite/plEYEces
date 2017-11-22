@@ -49,6 +49,7 @@ class Fixtures extends Fixture
 
         $poiType = new PoiType();
         $poiType->setName('clothing_store');
+
         $manager->persist($poiType);
 
         $poiType = new PoiType();

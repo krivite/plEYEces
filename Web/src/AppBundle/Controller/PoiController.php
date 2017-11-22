@@ -86,85 +86,24 @@ class PoiController extends FOSRestController
      */
     public function getInRadius(Request $request)
     {
-        $poiJSONResponse = [];
+        //get parameters
         $longitude = $request->query->get('longitude');
         $latitude = $request->query->get('latitude');
         $radius = $request->query->get('radius');
 
+        //calculate radians
         $radianLongitude = ($longitude * pi()) / 180;
         $radianLatitude = ($latitude * pi()) / 180;
 
         //TODO: poslati zahtjev na google places api
 
-        $browser = $this->container->get('buzz');
-        $url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?' .
+        $placesApiNearBySearchUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?' .
             'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
             '&location=' . $latitude . ',' . $longitude .
             '&radius=' . $radius*1000;
 
-        $response = $browser->get($url)->getContent();
-
-        $response = json_decode($response, true);
-
-        //var_dump($response['results'][0]);
-
-        $poiTypes = $this->getDoctrine()->getManager()->getRepository(PoiType::class)->findAll();
-        //$query = $this->getDoctrine()->getManager()->createQuery('SELECT p.id FROM  \AppBundle\Entity\Poi p');
-        //$poiIds = $query->getResult();
-        //var_dump($poiIds);
-
-        foreach($response['results'] as $result)
-        {
-            //check does current result type matches the one in database
-            $matchType = false;
-            $poiType = null;
-            foreach($poiTypes as $type)
-            {
-                if(in_array($type->getName(), $result['types']))
-                {
-                    $matchType = true;
-                    $poiType = $type;
-                    break;
-                }
-            }
-            if(!$matchType)
-            {
-                continue;
-            }
-
-            $poi = new Poi();
-            $poi->setId($result['id']);
-            $poi->setName($result['name']);
-
-            //getting details
-            $url = 'https://maps.googleapis.com/maps/api/place/details/json?' .
-                'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
-                '&placeid=' . $result['place_id'];
-            $details = $browser->get($url)->getContent();
-            $details = json_decode($details, true);
-
-            $poi->setAddress($details['result']['formatted_address']);
-            $poi->setDetails($details['result']['url']);
-
-            $poi->setImage('https://maps.googleapis.com/maps/api/place/photo?' .
-                'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
-                '&maxwidth=1920' .
-                '&photoreference=' . $details['result']['photos'][0]['photo_reference']);
-
-            $poi->setLatitude($result['geometry']['location']['lat']);
-            $poi->setLongitude($result['geometry']['location']['lng']);
-
-            $workingHours = "";
-            foreach ($details['result']['opening_hours']['weekday_text'] as $day)
-            {
-                $workingHours .= $day . " ";
-            }
-
-            $poi->setWorkingHours($workingHours);
-            $poi->setType($poiType);
-
-            array_push($poiJSONResponse, $poi);
-        }
+        $nearByPois = $this->getApiResultParametar($placesApiNearBySearchUrl, 'results');
+        $poiJSONResponse = $this->fillArrayOfNearByPois($nearByPois);
 
         $result = new Response(
             json_encode($poiJSONResponse),
@@ -183,5 +122,79 @@ class PoiController extends FOSRestController
             return [];
         }
         return $result;*/
+    }
+
+    //returns result field of response object from given url
+    private function getApiResultParametar($url, $field)
+    {
+        $browser = $this->container->get('buzz');
+        $response = json_decode($browser->get($url)->getContent(), true);
+        return $response[$field];
+    }
+
+    //takes near by pois and fill them in array of pois with data from places api
+    private function fillArrayOfNearByPois($nearByPois)
+    {
+        $poiTypes = $this->getDoctrine()->getManager()->getRepository(PoiType::class)->findAll();
+        $poiJSONResponse = [];
+        foreach($nearByPois as $nearByPoi)
+        {
+            //check does current result type matches the one in database
+            $poiType = $this->matchingPoiType($poiTypes, $nearByPoi);
+            if($poiType == null)
+                continue;
+
+            $poi = new Poi();
+            $poi->setId($nearByPoi['id']);
+            $poi->setName($nearByPoi['name']);
+
+            //getting details
+            $placesApiDetailsUrl = 'https://maps.googleapis.com/maps/api/place/details/json?' .
+                'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
+                '&placeid=' . $nearByPoi['place_id'];
+            $details = $this->getApiResultParametar($placesApiDetailsUrl, 'result');
+
+            $poi->setAddress($details['formatted_address']);
+            $poi->setDetails($details['url']);
+
+            $poi->setImage('https://maps.googleapis.com/maps/api/place/photo?' .
+                'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
+                '&maxwidth=1920' .
+                '&photoreference=' . $details['photos'][0]['photo_reference']);
+
+            $poi->setLatitude($nearByPoi['geometry']['location']['lat']);
+            $poi->setLongitude($nearByPoi['geometry']['location']['lng']);
+
+            $poi->setWorkingHours($this->getWorkingHours($details));
+            $poi->setType($poiType);
+
+            array_push($poiJSONResponse, $poi);
+        }
+        return $poiJSONResponse;
+    }
+
+    //checks if poi type exists in database
+    private function matchingPoiType($poiTypes, $nearByPoi)
+    {
+        $poiType = null;
+        foreach($poiTypes as $type) {
+            if (in_array($type->getName(), $nearByPoi['types'])) {
+                $poiType = $type;
+                break;
+            }
+        }
+        return $poiType;
+    }
+
+    //creates string of working hours
+    private function getWorkingHours($details)
+    {
+        $workingHours = "";
+        foreach ($details['opening_hours']['weekday_text'] as $day)
+        {
+            $workingHours .= $day . " ";
+        }
+
+        return $workingHours;
     }
 }
