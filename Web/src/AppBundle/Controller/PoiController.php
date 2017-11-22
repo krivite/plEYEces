@@ -102,8 +102,9 @@ class PoiController extends FOSRestController
             '&location=' . $latitude . ',' . $longitude .
             '&radius=' . $radius*1000;
 
-        $nearByPois = $this->getApiResultParametar($placesApiNearBySearchUrl, 'results');
-        $poiJSONResponse = $this->fillArrayOfNearByPois($nearByPois);
+        $nearByPois = $this->getApiResultParametar($placesApiNearBySearchUrl);
+        $poiJSONResponse = [];
+        $poiJSONResponse = $this->fillArrayOfNearByPois($nearByPois, $poiJSONResponse);
 
         $result = new Response(
             json_encode($poiJSONResponse),
@@ -116,27 +117,24 @@ class PoiController extends FOSRestController
 
         //TODO: update baze prema vraćenim podatcima
 
-
-        /*$result = $this->getDoctrine()->getManager()->getRepository(\AppBundle\Entity\Poi::class)->findInRadius($radianLatitude, $radianLongitude, $radius);
-        if ($result === null) {
-            return [];
-        }
-        return $result;*/
     }
 
     //returns result field of response object from given url
-    private function getApiResultParametar($url, $field)
+    private function getApiResultParametar($url)
     {
         $browser = $this->container->get('buzz');
         $response = json_decode($browser->get($url)->getContent(), true);
-        return $response[$field];
+        return $response;
     }
 
     //takes near by pois and fill them in array of pois with data from places api
-    private function fillArrayOfNearByPois($nearByPois)
+    private function fillArrayOfNearByPois($nearByPoisResponse, &$poiJSONResponse)
     {
+        echo  'Broj: ' . count($poiJSONResponse);
         $poiTypes = $this->getDoctrine()->getManager()->getRepository(PoiType::class)->findAll();
-        $poiJSONResponse = [];
+
+        $nearByPois = $nearByPoisResponse['results'];
+
         foreach($nearByPois as $nearByPoi)
         {
             //check does current result type matches the one in database
@@ -152,15 +150,16 @@ class PoiController extends FOSRestController
             $placesApiDetailsUrl = 'https://maps.googleapis.com/maps/api/place/details/json?' .
                 'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
                 '&placeid=' . $nearByPoi['place_id'];
-            $details = $this->getApiResultParametar($placesApiDetailsUrl, 'result');
+            $details = ($this->getApiResultParametar($placesApiDetailsUrl))['result'];
 
             $poi->setAddress($details['formatted_address']);
             $poi->setDetails($details['url']);
 
-            $poi->setImage('https://maps.googleapis.com/maps/api/place/photo?' .
-                'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
-                '&maxwidth=1920' .
-                '&photoreference=' . $details['photos'][0]['photo_reference']);
+            if(array_key_exists('photos', $details))
+                $poi->setImage('https://maps.googleapis.com/maps/api/place/photo?' .
+                    'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
+                    '&maxwidth=1920' .
+                    '&photoreference=' . $details['photos'][0]['photo_reference']);
 
             $poi->setLatitude($nearByPoi['geometry']['location']['lat']);
             $poi->setLongitude($nearByPoi['geometry']['location']['lng']);
@@ -170,6 +169,18 @@ class PoiController extends FOSRestController
 
             array_push($poiJSONResponse, $poi);
         }
+
+        if(array_key_exists('next_page_token', $nearByPoisResponse))
+        {
+            $placesApiNextPageNearByUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?' .
+                'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
+                '&pagetoken=' . $nearByPoisResponse['next_page_token'];
+
+            $nearByPoisResponse = $this->getApiResultParametar($placesApiNextPageNearByUrl);
+            $this->fillArrayOfNearByPois($nearByPoisResponse, $poiJSONResponse);
+        }
+
+
         return $poiJSONResponse;
     }
 
