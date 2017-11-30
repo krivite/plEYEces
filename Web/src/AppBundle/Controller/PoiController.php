@@ -18,6 +18,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 class PoiController extends FOSRestController
 {
+
+    private $poiJSONResponse;
     /**
      * @Rest\Get("/api/pois")
      * @SWG\Response(
@@ -103,16 +105,17 @@ class PoiController extends FOSRestController
             '&radius=' . $radius*1000;
 
         $nearByPois = $this->getApiResultParametar($placesApiNearBySearchUrl);
-        $poiJSONResponse = [];
-        $poiJSONResponse = $this->fillArrayOfNearByPois($nearByPois, $poiJSONResponse);
+
+        $this->poiJSONResponse = [];
+        $this->fillArrayOfNearByPois($nearByPois);
 
         $result = new Response(
-            json_encode($poiJSONResponse),
+            json_encode($this->poiJSONResponse),
             Response::HTTP_OK,
             array('content-type' => 'application/json')
         );
 
-        return $result;
+        //return $result;
 
 
         //TODO: update baze prema vraćenim podatcima
@@ -128,12 +131,13 @@ class PoiController extends FOSRestController
     }
 
     //takes near by pois and fill them in array of pois with data from places api
-    private function fillArrayOfNearByPois($nearByPoisResponse, &$poiJSONResponse)
+    private function fillArrayOfNearByPois($nearByPoisResponse)
     {
-        echo  'Broj: ' . count($poiJSONResponse);
         $poiTypes = $this->getDoctrine()->getManager()->getRepository(PoiType::class)->findAll();
 
         $nearByPois = $nearByPoisResponse['results'];
+        //var_dump($nearByPois);
+        //echo '<br>';
 
         foreach($nearByPois as $nearByPoi)
         {
@@ -167,21 +171,15 @@ class PoiController extends FOSRestController
             $poi->setWorkingHours($this->getWorkingHours($details));
             $poi->setType($poiType);
 
-            array_push($poiJSONResponse, $poi);
+            array_push($this->poiJSONResponse, $poi);
         }
 
         if(array_key_exists('next_page_token', $nearByPoisResponse))
         {
-            $placesApiNextPageNearByUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?' .
-                'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
-                '&pagetoken=' . $nearByPoisResponse['next_page_token'];
-
+            $placesApiNextPageNearByUrl = sprintf('https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA&pagetoken=%s', $nearByPoisResponse['next_page_token']);
             $nearByPoisResponse = $this->getApiResultParametar($placesApiNextPageNearByUrl);
-            $this->fillArrayOfNearByPois($nearByPoisResponse, $poiJSONResponse);
+            $this->fillArrayOfNearByPois($nearByPoisResponse);
         }
-
-
-        return $poiJSONResponse;
     }
 
     //checks if poi type exists in database
@@ -191,7 +189,7 @@ class PoiController extends FOSRestController
         foreach($poiTypes as $type) {
             if (in_array($type->getName(), $nearByPoi['types'])) {
                 $poiType = $type;
-                break;
+                return $poiType;
             }
         }
         return $poiType;
@@ -201,9 +199,10 @@ class PoiController extends FOSRestController
     private function getWorkingHours($details)
     {
         $workingHours = "";
-        foreach ($details['opening_hours']['weekday_text'] as $day)
-        {
-            $workingHours .= $day . " ";
+        if(array_key_exists('opening_hours', $details)) {
+            foreach ($details['opening_hours']['weekday_text'] as $day) {
+                $workingHours .= $day . " ";
+            }
         }
 
         return $workingHours;
