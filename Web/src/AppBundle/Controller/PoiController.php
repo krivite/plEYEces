@@ -104,6 +104,7 @@ class PoiController extends FOSRestController
             '&location=' . $latitude . ',' . $longitude .
             '&radius=' . $radius*1000;
 
+
         $nearByPois = $this->getApiResultParametar($placesApiNearBySearchUrl);
 
         $this->poiJSONResponse = [];
@@ -115,7 +116,7 @@ class PoiController extends FOSRestController
             array('content-type' => 'application/json')
         );
 
-        //return $result;
+        return $result;
 
 
         //TODO: update baze prema vraćenim podatcima
@@ -136,8 +137,6 @@ class PoiController extends FOSRestController
         $poiTypes = $this->getDoctrine()->getManager()->getRepository(PoiType::class)->findAll();
 
         $nearByPois = $nearByPoisResponse['results'];
-        //var_dump($nearByPois);
-        //echo '<br>';
 
         foreach($nearByPois as $nearByPoi)
         {
