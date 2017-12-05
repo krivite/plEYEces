@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Poi controller.
  *
- * @Route("admin/poi")
+ * @Route("/poi")
  */
 class PoiController extends Controller
 {

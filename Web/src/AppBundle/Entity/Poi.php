@@ -224,5 +224,8 @@ class Poi
         $this->offers = $offers;
     }
 
-
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }
