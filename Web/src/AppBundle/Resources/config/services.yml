@@ -1,0 +1,4 @@
+services:
+  app.service.google_places_fetcher_service:
+    class: AppBundle\Service\GooglePlacesFetcherService
+    arguments: ['@guzzle.client']

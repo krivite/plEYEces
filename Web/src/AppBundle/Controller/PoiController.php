@@ -82,7 +82,7 @@ class PoiController extends FOSRestController
      *     name="radius",
      *     in="query",
      *     type="number",
-     *     description="Radius is distance from your location to the end of your search area. Distance is measured in kilometres"
+     *     description="Radius is distance from your location to the end of your search area. Distance is measured in meters"
      * )
      * @SWG\Tag(name="poi")
      */
@@ -97,30 +97,13 @@ class PoiController extends FOSRestController
         $radianLongitude = ($longitude * pi()) / 180;
         $radianLatitude = ($latitude * pi()) / 180;
 
-        //TODO: poslati zahtjev na google places api
-
-        $placesApiNearBySearchUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?' .
-            'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
-            '&location=' . $latitude . ',' . $longitude .
-            '&radius=' . $radius*1000;
-
-
-        $nearByPois = $this->getApiResultParametar($placesApiNearBySearchUrl);
-
-        $this->poiJSONResponse = [];
-        $this->fillArrayOfNearByPois($nearByPois);
-
         $result = new Response(
-            json_encode($this->poiJSONResponse),
+            json_encode($this->get('app.service.google_places_fetcher_service')->getByGeolocation($latitude, $longitude, $radius)),
             Response::HTTP_OK,
             array('content-type' => 'application/json')
         );
 
         return $result;
-
-
-        //TODO: update baze prema vraćenim podatcima
-
     }
 
     //returns result field of response object from given url
