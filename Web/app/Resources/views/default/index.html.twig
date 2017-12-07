@@ -3,7 +3,7 @@
 {% block body %}
 
     <div class="home_title">
-        <p>Hi, Igor</p>
+        <p>Hi, {{ '%username%'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</p>
     </div>
 
     <div class="home_picture">
