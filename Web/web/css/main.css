@@ -105,6 +105,8 @@ body {
 
 #profile_container {
     margin-left: 446px;
+    margin-top:20%;
+
 }
 
 .pleyeces_icon {
@@ -137,3 +139,40 @@ body {
     color: black;
     text-decoration: none;
 }
+
+.labelsFOS
+{
+    float:left;
+    text-align: right;
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size:25px;
+
+
+}
+.labelsFOS li {
+    list-style: none;
+}
+
+
+.valuesFOS{
+    margin-left: 40%;
+    font-family: Helvetica;
+    font-size: 22px;
+    text-align: center;
+
+
+}
+.valuesFOS li {
+    list-style: none;
+    border-bottom: 1px solid yellow ;
+
+}
+.fos_user_user_show{
+
+    margin-right: 50%;
+}
+.fos_user_user_show ul{
+    text-decoration: none;
+}
+

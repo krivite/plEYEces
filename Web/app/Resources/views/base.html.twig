@@ -23,7 +23,14 @@
             <li>
                 <a href="/poi">Manage</a>
             </li>
+            <li>
+
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+            </li>
         </ul>
+
         
         <div class="pleyeces_icon">
             <img src="../icon.png">
