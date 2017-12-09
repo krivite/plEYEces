@@ -82,17 +82,21 @@ class PoiRestController extends FOSRestController
      */
     public function getInRadius(Request $request)
     {
+        //get parameters
         $longitude = $request->query->get('longitude');
         $latitude = $request->query->get('latitude');
         $radius = $request->query->get('radius');
 
+        //calculate radians
         $radianLongitude = ($longitude * pi()) / 180;
         $radianLatitude = ($latitude * pi()) / 180;
 
-        $result = $this->getDoctrine()->getManager()->getRepository(\AppBundle\Entity\Poi::class)->findInRadius($radianLatitude, $radianLongitude, $radius);
-        if ($result === null) {
-            return [];
-        }
+        $result = new Response(
+            json_encode($this->get('app.service.google_places_fetcher_service')->getByGeolocation($latitude, $longitude, $radius)),
+            Response::HTTP_OK,
+            array('content-type' => 'application/json')
+        );
+
         return $result;
     }
 }
