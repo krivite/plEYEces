@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new AuthBundle\AuthBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Sensio\Bundle\BuzzBundle\SensioBuzzBundle(),
+            new Emoe\GuzzleBundle\EmoeGuzzleBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
         ];
 

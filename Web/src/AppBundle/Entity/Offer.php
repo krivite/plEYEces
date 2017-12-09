@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 
 /**
  * Offer
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="offers")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\OfferRepository")
  */
-class Offer
+class Offer implements JsonSerializable
 {
     /**
      * @var int
@@ -147,6 +148,13 @@ class Offer
         $this->poi = $poi;
     }
 
-
+    public function jsonSerialize() {
+        return [
+            "id" => $this->id,
+            "description" => $this->description,
+            "startDate" => $this->startDate,
+            "endDate" => $this->endDate
+        ];
+    }
 }
 

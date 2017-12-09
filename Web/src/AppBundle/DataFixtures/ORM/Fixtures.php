@@ -18,36 +18,70 @@ class Fixtures extends Fixture
      */
     public function load(ObjectManager $manager)
     {
-        for ($i = 0; $i < 10; $i++)
-        {
-            $poiType = new PoiType();
-            $poiType->setName('Tip '.$i);
-            $manager->persist($poiType);
-        }
+        //adding types that match to ones on places api
+        $poiType = new PoiType();
+        $poiType->setName('bar');
+        $manager->persist($poiType);
+
+        $poiType = new PoiType();
+        $poiType->setName('cafe');
+        $manager->persist($poiType);
+
+        $poiType = new PoiType();
+        $poiType->setName('meal_delivery');
+        $manager->persist($poiType);
+
+        $poiType = new PoiType();
+        $poiType->setName('meal_takeaway');
+        $manager->persist($poiType);
+
+        $poiType = new PoiType();
+        $poiType->setName('night_club');
+        $manager->persist($poiType);
+
+        $poiType = new PoiType();
+        $poiType->setName('restaurant');
+        $manager->persist($poiType);
+
+        $poiType = new PoiType();
+        $poiType->setName('store');
+        $manager->persist($poiType);
+
+        $poiType = new PoiType();
+        $poiType->setName('clothing_store');
+
+        $manager->persist($poiType);
+
+        $poiType = new PoiType();
+        $poiType->setName('bakery');
+        $manager->persist($poiType);
+
+        $poiType = new PoiType();
+        $poiType->setName('art_gallery');
+        $manager->persist($poiType);
+
         $manager->flush();
 
         $poiTypes = $manager->getRepository(PoiType::class)->findAll();
-        foreach ($poiTypes as $type)
+        for ($i = 0; $i < count($poiTypes); $i++ )
         {
-            for($i = 0; $i < 10; $i++)
-            {
-                $poi = new Poi();
-                $poi->setName($type->getName() . " Objekt " . $i);
-                $poi->setAddress("Adresa " . $type->getName() . " " . $i .", 42000, Varaždin");
-                $poi->setDetails("Opis " . $type->getName() . " " . $i);
-                $poi->setImage("https://scontent.cdninstagram.com/t51.2885-15/e35/14156605_1861358474083745_516665513_n.jpg");
-                $poi->setLatitude(46 + (mt_rand(280000, 324000)/1000000));
-                $poi->setLongitude(16 + (mt_rand(300000, 375000)/1000000));
-                $poi->setWorkingHours("ponedjeljak ". mt_rand(6,12) . "-". mt_rand(20, 24) .
-                    ", utorak ". mt_rand(6,12) . "-". mt_rand(20, 24) .
-                    ", srijeda ". mt_rand(6,12) . "-". mt_rand(20, 24) .
-                    ", četvrtak ". mt_rand(6,12) . "-". mt_rand(20, 24) .
-                    ", petak ". mt_rand(6,12) . "-". mt_rand(20, 24) .
-                    ", subota ". mt_rand(6,12) . "-". mt_rand(20, 24) .
-                    ", nedjelja ". mt_rand(6,12) . "-". mt_rand(20, 24));
-                $poi->setType($type);
-                $manager->persist($poi);
-            }
+            $poi = new Poi();
+            $poi->setId("id" . $i);
+            $poi->setName($poiTypes[$i]->getName() . " Objekt " . $i);
+            $poi->setAddress("Adresa " . $poiTypes[$i]->getName() . " " . $i .", 42000, Varazdin");
+            $poi->setDetails("Opis " . $poiTypes[$i]->getName() . " " . $i);
+            $poi->setImage("https://scontent.cdninstagram.com/t51.2885-15/e35/14156605_1861358474083745_516665513_n.jpg");
+            $poi->setLatitude(46 + (mt_rand(280000, 324000)/1000000));
+            $poi->setLongitude(16 + (mt_rand(300000, 375000)/1000000));
+            $poi->setWorkingHours("ponedjeljak ". mt_rand(6,12) . "-". mt_rand(20, 24) .
+                ", utorak ". mt_rand(6,12) . "-". mt_rand(20, 24) .
+                ", srijeda ". mt_rand(6,12) . "-". mt_rand(20, 24) .
+                ", četvrtak ". mt_rand(6,12) . "-". mt_rand(20, 24) .
+                ", petak ". mt_rand(6,12) . "-". mt_rand(20, 24) .
+                ", subota ". mt_rand(6,12) . "-". mt_rand(20, 24) .
+                ", nedjelja ". mt_rand(6,12) . "-". mt_rand(20, 24));
+            $poi->setType($poiTypes[$i]);
+            $manager->persist($poi);
         }
         $manager->flush();
 

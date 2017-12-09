@@ -4,17 +4,17 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use JsonSerializable;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PoiRepository")
  * @ORM\Table(name="pois")
  */
-class Poi
+class Poi implements JsonSerializable
 {
     /**
-     * @ORM\Column(name="poi_id", type="integer")
+     * @ORM\Column(name="poi_id", type="string", length=255)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
 
     private $id;
@@ -74,11 +74,19 @@ class Poi
     /**
      * Get id
      *
-     * @return int
+     * @return string
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     /**
@@ -217,14 +225,31 @@ class Poi
         return $this->offers;
     }
 
-    /**
-     * @param mixed $offers
-     */
-    public function setOffers($offers)
+    public function addOffer(Offer $offer)
     {
-        $this->offers = $offers;
+        if($this->offers->contains($offer))
+        {
+            return;
+        }
+
+        $this->offers[] = $offer;
+        $offer->setPoi($this);
     }
 
+    public function jsonSerialize() {
+        return [
+            "id" => $this->id,
+            "name" => $this->name,
+            "address" => $this->address,
+            "latitude" => $this->latitude,
+            "longitude" => $this->longitude,
+            "details" => $this->details,
+            "image" => $this->image,
+            "workingHours" => $this->workingHours,
+            "type" => $this->type,
+            "offers" => $this->offers->toArray()
+        ];
+    }
     public function __toString()
     {
         return $this->getName();

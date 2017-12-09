@@ -1,0 +1,7 @@
+services:
+  app.service.google_places_fetcher_service:
+    class: AppBundle\Service\GooglePlacesFetcherService
+    arguments: ['@guzzle.client', '@service_container']
+  app.service.poi_filter_service:
+    class: AppBundle\Service\PoiFilterService
+    arguments: ['@doctrine.orm.entity_manager', '@service_container']

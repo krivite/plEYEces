@@ -14,6 +14,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class PoiController extends Controller
 {
+
+    private $poiJSONResponse;
     /**
      * Lists all poi entities.
      *
