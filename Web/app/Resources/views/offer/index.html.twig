@@ -1,35 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Offers list</h1>
+    <div class="home_title">
+        <p>Offers</p>
+    </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Description</th>
-                <th>Startdate</th>
-                <th>Enddate</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
+    <table class="show_offer">
+        {#<thead>#}
+        {#<tr>#}
+        {#<th>Id</th>#}
+        {#<th>Description</th>#}
+        {#<th>Startdate</th>#}
+        {#<th>Enddate</th>#}
+        {#<th>Actions</th>#}
+        {#</tr>#}
+        {#</thead>#}
         <tbody>
         {% for offer in offers %}
             <tr>
-                <td><a href="{{ path('offer_show', { 'id': offer.id }) }}">{{ offer.id }}</a></td>
-                <td>{{ offer.description }}</td>
-                <td>{% if offer.startDate %}{{ offer.startDate|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if offer.endDate %}{{ offer.endDate|date('Y-m-d') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('offer_show', { 'id': offer.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('offer_edit', { 'id': offer.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
+                <td><a style="font-size: 25px; font-weight: lighter;" href="{{ path('offer_edit', { 'id': offer.id }) }}">Edit this offer</a></td>
+                <td style="font-size: 13px; font-weight: lighter">{{ offer.description }}</td>
+                <td style="font-size: 13px; font-weight: bold">Starting: {% if offer.startDate %}{{ offer.startDate|date('Y-m-d') }}{% endif %}</td>
+                <td style="font-size: 13px; font-weight: bold">Ending: {% if offer.endDate %}{{ offer.endDate|date('Y-m-d') }}{% endif %}</td>
+                {#<td>#}
+                {#<ul>#}
+                {#<li>#}
+                {#<a href="{{ path('offer_show', { 'id': offer.id }) }}">show</a>#}
+                {#</li>#}
+                {#<li>#}
+                {#<a href="{{ path('offer_edit', { 'id': offer.id }) }}">edit</a>#}
+                {#</li>#}
+                {#</ul>#}
+                {#</td>#}
             </tr>
         {% endfor %}
         </tbody>
