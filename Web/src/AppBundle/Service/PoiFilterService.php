@@ -3,8 +3,10 @@
 namespace AppBundle\Service;
 
 
+use AppBundle\Entity\Offer;
 use AppBundle\Entity\Poi;
 use AppBundle\Entity\PoiType;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
 
@@ -60,6 +62,13 @@ class PoiFilterService
             $poi->setWorkingHours($this->getWorkingHours($details));
             $poi->setType($poiType);
 
+            $poiFromDatabase = $this->em->getRepository(Poi::class)->findOneBy(array('id' => $poi->getId()));
+            if(!is_null($poiFromDatabase))
+            {
+                $offers = $this->em->getRepository(Offer::class)->findBy(array('poi' => $poi));
+                foreach ($offers as $offer)
+                    $poi->addOffer($offer);
+            }
             array_push($pois, $poi);
         }
 

@@ -223,16 +223,30 @@ class Poi implements JsonSerializable
         return $this->offers;
     }
 
-    /**
-     * @param mixed $offers
-     */
-    public function setOffers($offers)
+    public function addOffer(Offer $offer)
     {
-        $this->offers = $offers;
+        if($this->offers->contains($offer))
+        {
+            return;
+        }
+
+        $this->offers[] = $offer;
+        $offer->setPoi($this);
     }
 
     public function jsonSerialize() {
-        return (object) get_object_vars($this);
+        return [
+            "id" => $this->id,
+            "name" => $this->name,
+            "address" => $this->address,
+            "latitude" => $this->latitude,
+            "longitude" => $this->longitude,
+            "details" => $this->details,
+            "image" => $this->image,
+            "workingHours" => $this->workingHours,
+            "type" => $this->type,
+            "offers" => $this->offers->toArray()
+        ];
     }
 
 }
