@@ -56,6 +56,7 @@ class Poi
     /**
      * @ORM\ManyToOne(targetEntity="PoiType", inversedBy="pois")
      * @ORM\JoinColumn(name="poi_type_id", referencedColumnName="poi_type_id")
+     * @ORM\Column(name="poi_type_id", type="integer")
      */
     private $type;
 
