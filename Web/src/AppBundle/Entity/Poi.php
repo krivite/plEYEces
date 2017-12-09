@@ -16,6 +16,7 @@ class Poi implements JsonSerializable
      * @ORM\Column(name="poi_id", type="string", length=255)
      * @ORM\Id
      */
+
     private $id;
 
     /**
@@ -56,6 +57,7 @@ class Poi implements JsonSerializable
     /**
      * @ORM\ManyToOne(targetEntity="PoiType", inversedBy="pois")
      * @ORM\JoinColumn(name="poi_type_id", referencedColumnName="poi_type_id")
+   
      */
     private $type;
 
@@ -248,5 +250,8 @@ class Poi implements JsonSerializable
             "offers" => $this->offers->toArray()
         ];
     }
-
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

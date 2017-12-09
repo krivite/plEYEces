@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="home_title">
+        <p>Manage</p>
+    </div>
+
+    <table class="manage-poi-list">
+        <tbody>
+        {% for poi in pois %}
+            <tr>
+                <td><a href="{{ path('admin_poi_edit', { 'id': poi.id }) }}">{{ poi.name }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul class="manage-poi-list" style="list-style: none; padding: 0;">
+        <li>
+            <a href="{{ path('admin_poi_new') }}">Create a new POI</a>
+        </li>
+    </ul>
+{% endblock %}

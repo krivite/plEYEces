@@ -1,5 +1,61 @@
+app_offer:
+    resource: "@AppBundle/Controller/OfferController.php"
+    type:     annotation
+
+app_user:
+    resource: "@AppBundle/Controller/UserController.php"
+    type:     annotation
+
+app_user:
+    resource: "@AppBundle/Controller/UserController.php"
+    type:     annotation
+
+app_user:
+    resource: "@AppBundle/Controller/UserController.php"
+    type:     annotation
+
+app_user:
+    resource: "@AppBundle/Controller/UserController.php"
+    type:     annotation
+
+app_poi:
+    resource: "@AppBundle/Controller/PoiController.php"
+    type:     annotation
+
+app_poi_type:
+    resource: "@AppBundle/Controller/PoiTypeController.php"
+    type:     annotation
+
+app_user:
+    resource: "@AppBundle/Controller/UserController.php"
+    type:     annotation
+
+app_poi:
+    resource: "@AppBundle/Controller/PoiController.php"
+    type:     annotation
+
+app_user:
+    resource: "@AppBundle/Controller/UserController.php"
+    type:     annotation
+
+app_user:
+    resource: "@AppBundle/Controller/UserController.php"
+    type:     annotation
+
+app_user:
+    resource: "@AppBundle/Controller/UserController.php"
+    type:     annotation
+
+app_poi_type:
+    resource: "@AppBundle/Controller/PoiTypeController.php"
+    type:     annotation
+
+app_user:
+    resource: "@AppBundle/Controller/UserController.php"
+    type:     annotation
+
 auth:
-    resource: "@AuthBundle/Controller/"
+    resource: "@AuthBundle/"
     type:     annotation
     prefix:   /
 

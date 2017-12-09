@@ -70,11 +70,13 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: '%mailer_transport%'
-    host: '%mailer_host%'
-    username: '%mailer_user%'
-    password: '%mailer_password%'
-    spool: { type: memory }
+  spool:     { type: memory }
+  transport: smtp
+  host:      smtp.mailtrap.io
+  username:  014c2897fc0583
+  password:  e362fa87dc0b67
+  auth_mode: cram-md5
+  port: 2525
 
 # FOSRest Configuration
 fos_rest:
@@ -105,5 +107,8 @@ fos_user:
     firewall_name: main
     user_class: AppBundle\Entity\User
     from_email:
-        address: "%mailer_user%"
-        sender_name: "%mailer_user%"
+        address: "noreply@pleyec.es"
+        sender_name: "plEYEces"
+    registration:
+        confirmation:
+                    enabled: true

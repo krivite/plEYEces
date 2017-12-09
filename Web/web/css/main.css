@@ -1,0 +1,254 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+
+body {
+    overflow-x: hidden;
+
+}
+
+#wrapper {
+    font-family: "Helvetica";
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#sidebar-wrapper {
+    color: white;
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 280px;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #F03434;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+    /*margin-left: 280px;*/
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.sidebar-nav li {
+    line-height: 40px;
+    font-weight: 200;
+    font-size: 25px;
+    border-bottom: 1px solid white ;
+    padding-top: 50px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active {
+    text-decoration: none;
+    font-weight: 400;
+    border-bottom: 2px solid white ;
+}
+
+.home_title {
+    margin-right: 5%;
+    float: right;
+    margin-top: 5%;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.home_title a {
+    color: black !important;
+    text-decoration: none;
+}
+
+.home_picture {
+    height: auto;
+    bottom: 0;
+    position: fixed;
+    clear: both;
+    width: 90%;
+    right: 0;
+}
+
+.home_picture > img {
+    height: auto;
+    display: block;
+    width: 100%;
+}
+
+#profile_container {
+    margin-left: 446px;
+    margin-top:20%;
+
+}
+
+.pleyeces_icon {
+    margin-left: 40px;
+    margin-bottom: 30px;
+    bottom: 0;
+    position: fixed;
+}
+
+.pleyeces_icon > img {
+    height: 100%;
+    width: 100%;
+}
+
+.manage-poi-list {
+    margin-left: 465px;
+    font-family: Helvetica;
+    font-size: 30px;
+    font-weight: bold;
+    width: 500px;
+    margin-top: 10%;
+}
+
+.manage-poi-list td {
+    border-bottom: solid 1px black;
+    padding-top: 35px;
+}
+
+.manage-poi-list a {
+    color: black;
+    text-decoration: none;
+}
+
+
+.labelsFOS
+{
+    float:left;
+    text-align: right;
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size:25px;
+
+
+}
+.labelsFOS li {
+    list-style: none;
+}
+
+
+.valuesFOS{
+    margin-left: 40%;
+    font-family: Helvetica;
+    font-size: 22px;
+    text-align: center;
+
+
+}
+.valuesFOS li {
+    list-style: none;
+    border-bottom: 1px solid yellow ;
+
+}
+.fos_user_user_show{
+
+    margin-right: 50%;
+}
+.fos_user_user_show ul{
+    text-decoration: none;
+}
+
+
+.show_poi, #appbundle_poi, .edit_poi {
+    margin-left: 465px;
+    font-family: Helvetica;
+    color: black;
+    margin-top: 10%;
+}
+
+.show_poi th {
+    font-size: 22px;
+    padding-top: 40px;
+}
+
+.show_poi td {
+    font-size: 25px;
+    width: 270px;
+    border-bottom: 1px solid #FFB133;
+    text-align: center;
+    padding-top: 40px;
+    font-weight: lighter;
+}
+
+#appbundle_poi, .edit_poi {
+    width: 450px;
+}
+
+#appbundle_poi div {
+    height: 70px;
+    padding-top: 40px;
+    width: 100%;
+}
+
+#appbundle_poi input, textarea {
+    float: right;
+    text-align: center;
+    font-size: 25px;
+    font-weight: lighter;
+    height: 50px;
+    width: 270px;
+    -webkit-appearance: none;
+    outline: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid #FFB133;
+}
+
+#appbundle_poi label {
+    font-size: 22px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.edit_poi input, input[type=submit] {
+    background-color: #F03434;
+    text-transform: uppercase;
+    border-radius: 14px;
+    font-family: Helvetica;
+    font-weight: 500;
+    display: block;
+    position: relative;
+    height: 44px;
+    border: 0px;
+    color: #fff;
+    font-size: 13px;
+    margin-bottom: 60px;
+    margin-top: 70px;
+    -webkit-appearance: none;
+}
+

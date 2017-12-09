@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Offers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Startdate</th>
+                <th>Enddate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offer in offers %}
+            <tr>
+                <td><a href="{{ path('offer_show', { 'id': offer.id }) }}">{{ offer.id }}</a></td>
+                <td>{{ offer.description }}</td>
+                <td>{% if offer.startDate %}{{ offer.startDate|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if offer.endDate %}{{ offer.endDate|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('offer_show', { 'id': offer.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('offer_edit', { 'id': offer.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('offer_new') }}">Create a new offer</a>
+        </li>
+    </ul>
+{% endblock %}
