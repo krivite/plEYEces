@@ -101,12 +101,6 @@ class User implements UserInterface, GroupableInterface
     protected $roles;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Poi")
-     * @ORM\JoinTable(name="poi_user")
-     */
-    private $userOwners;
-
-    /**
      * User constructor.
      */
     public function __construct()
