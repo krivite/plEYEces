@@ -42,7 +42,8 @@ class POIFetcher {
             return []
         }
         
-        let pois = resp.result.value as! NSArray
+        let responseJson = resp.result.value as! NSDictionary
+        let pois = responseJson.value(forKey: <#T##String#>)
         for poi in pois {
             let unpackedPoi = poi as! NSDictionary
             

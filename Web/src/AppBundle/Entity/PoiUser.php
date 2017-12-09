@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * PoiUser
  *
- * @ORM\Table(name="poi_user")
+ * @ORM\Table(name="poi_user_delete_this")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PoiUserRepository")
  */
 class PoiUser
