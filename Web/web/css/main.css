@@ -1,0 +1,139 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+
+body {
+    overflow-x: hidden;
+
+}
+
+#wrapper {
+    font-family: "Helvetica";
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#sidebar-wrapper {
+    color: white;
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 280px;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #F03434;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+    /*margin-left: 280px;*/
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.sidebar-nav li {
+    line-height: 40px;
+    font-weight: 200;
+    font-size: 25px;
+    border-bottom: 1px solid white ;
+    padding-top: 50px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active {
+    text-decoration: none;
+    font-weight: 400;
+    border-bottom: 2px solid white ;
+}
+
+.home_title {
+    margin-right: 5%;
+    float: right;
+    margin-top: 5%;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.home_picture {
+    height: auto;
+    bottom: 0;
+    position: fixed;
+    clear: both;
+    width: 90%;
+    right: 0;
+}
+
+.home_picture > img {
+    height: auto;
+    display: block;
+    width: 100%;
+}
+
+#profile_container {
+    margin-left: 446px;
+}
+
+.pleyeces_icon {
+    margin-left: 40px;
+    margin-bottom: 30px;
+    bottom: 0;
+    position: fixed;
+}
+
+.pleyeces_icon > img {
+    height: 100%;
+    width: 100%;
+}
+
+.manage-poi-list {
+    margin-left: 465px;
+    font-family: Helvetica;
+    font-size: 30px;
+    font-weight: bold;
+    width: 500px;
+    margin-top: 10%;
+}
+
+.manage-poi-list td {
+    border-bottom: solid 1px black;
+    padding-top: 35px;
+}
+
+.manage-poi-list a {
+    color: black;
+    text-decoration: none;
+}
