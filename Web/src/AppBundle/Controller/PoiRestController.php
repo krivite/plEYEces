@@ -99,4 +99,24 @@ class PoiRestController extends FOSRestController
 
         return $result;
     }
+
+    /**
+     * @Rest\Get("/api/categories")
+     * @SWG\Response(
+     *     response=200,
+     *     description="Returns categories from database",
+     * )
+     * @SWG\Tag(name="categories")
+     */
+    public function getAllCategories()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $query=$em->createQuery('SELECT a.id, a.name FROM AppBundle:PoiType a');
+        $result=$query->getResult();
+
+        if ($result === null || count($result) === 0) {
+            return new View("No Categories found!", Response::HTTP_NOT_FOUND);
+        }
+        return $result;
+    }
 }
