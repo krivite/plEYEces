@@ -32,4 +32,11 @@ class PoiRepository extends EntityRepository
             ->setParameter(4, $radius )
             ->getResult();
     }
+
+    public function GetPoisWithOffers()
+    {
+        $qb = $this->createQueryBuilder('Poi')
+            ->innerJoin('poi.offer', 'offer');
+        return $qb;
+    }
 }

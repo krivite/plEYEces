@@ -119,4 +119,21 @@ class PoiRestController extends FOSRestController
         }
         return $result;
     }
+
+    /**
+     * @Rest\Get("/api/offers")
+     * @SWG\Response(
+     *     response=200,
+     *     description="Returns only pois with offer from database",
+     * )
+     * @SWG\Tag(name="offers")
+     */
+    public function getAllOffers()
+    {
+        $result = $this->getDoctrine()->getRepository('AppBundle:Offer')->findAll();
+        if ($result === null || count($result) === 0) {
+            return new View("No POIs found!", Response::HTTP_NOT_FOUND);
+        }
+        return $result;
+    }
 }
