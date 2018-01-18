@@ -42,9 +42,8 @@ class POIFetcher {
             return []
         }
         
-        let responseJson = resp.result.value as! NSDictionary
-        let pois = responseJson.value(forKey: <#T##String#>)
-        for poi in pois {
+        let responseJson = resp.result.value as! NSArray
+        for poi in responseJson {
             let unpackedPoi = poi as! NSDictionary
             
             let model = PointOfInterest(
