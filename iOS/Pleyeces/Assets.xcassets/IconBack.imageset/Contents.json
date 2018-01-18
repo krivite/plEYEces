@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "start_img.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "donald-tang-328920.png",
+      "filename" : "Icon.png",
       "scale" : "2x"
     },
     {
