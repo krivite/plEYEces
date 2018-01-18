@@ -37,6 +37,14 @@ class PoiType implements JsonSerializable
 
      * @var string
      *
+     * @ORM\Column(name="places_id", type="string", length=255)
+     */
+    private $placesId;
+
+    /**
+
+     * @var string
+     *
      * @ORM\Column(name="color", type="string", length=7)
      */
     private $color;
@@ -128,6 +136,7 @@ class PoiType implements JsonSerializable
 
     /**
      * @param mixed $color
+     * @return PoiType
      */
     public function setColor($color)
     {
@@ -145,11 +154,28 @@ class PoiType implements JsonSerializable
 
     /**
      * @param mixed $icon
+     * @return PoiType
      */
     public function setIcon($icon)
     {
         $this->icon = $icon;
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlacesId()
+    {
+        return $this->placesId;
+    }
+
+    /**
+     * @param string $placesId
+     */
+    public function setPlacesId($placesId)
+    {
+        $this->placesId = $placesId;
     }
 }
 
