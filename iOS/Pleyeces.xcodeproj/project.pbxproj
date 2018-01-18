@@ -22,6 +22,8 @@
 		D7ECB6481F99F404009FDD71 /* POIFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB6471F99F404009FDD71 /* POIFetcher.swift */; };
 		D7ECB64A1F9A06DB009FDD71 /* DistantPOIBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB6491F9A06DB009FDD71 /* DistantPOIBubbleView.swift */; };
 		D7ECB64C1F9A06F0009FDD71 /* DistantPOIBubbleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7ECB64B1F9A06F0009FDD71 /* DistantPOIBubbleView.xib */; };
+		E4334A8520110F1900C059FD /* ExplorePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4334A8420110F1900C059FD /* ExplorePageController.swift */; };
+		E4334A892011140800C059FD /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4334A882011140800C059FD /* CategoryCell.swift */; };
 		FFFF1B21D04EB634E08A0EBB /* Pods_Pleyeces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A151DE6E781E4EE9804C3C1F /* Pods_Pleyeces.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		D7ECB6471F99F404009FDD71 /* POIFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIFetcher.swift; sourceTree = "<group>"; };
 		D7ECB6491F9A06DB009FDD71 /* DistantPOIBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistantPOIBubbleView.swift; sourceTree = "<group>"; };
 		D7ECB64B1F9A06F0009FDD71 /* DistantPOIBubbleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistantPOIBubbleView.xib; sourceTree = "<group>"; };
+		E4334A8420110F1900C059FD /* ExplorePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePageController.swift; sourceTree = "<group>"; };
+		E4334A882011140800C059FD /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		48A9441A1F98A86D00FD5B2E /* Pleyeces */ = {
 			isa = PBXGroup;
 			children = (
+				E4334A86201113D300C059FD /* Explore */,
 				D7ECB63F1F991809009FDD71 /* Common */,
 				D7ECB6381F991634009FDD71 /* AugumentedReality */,
 				48A9441B1F98A86D00FD5B2E /* AppDelegate.swift */,
@@ -164,6 +169,23 @@
 				D7ECB6471F99F404009FDD71 /* POIFetcher.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		E4334A86201113D300C059FD /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				E4334A87201113E500C059FD /* Controller */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		E4334A87201113E500C059FD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E4334A8420110F1900C059FD /* ExplorePageController.swift */,
+				E4334A882011140800C059FD /* CategoryCell.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,7 +332,9 @@
 				D7ECB6451F991B21009FDD71 /* PointOfInterest.swift in Sources */,
 				48A9441C1F98A86D00FD5B2E /* AppDelegate.swift in Sources */,
 				D7ECB6481F99F404009FDD71 /* POIFetcher.swift in Sources */,
+				E4334A8520110F1900C059FD /* ExplorePageController.swift in Sources */,
 				D7ECB63E1F9916B8009FDD71 /* POIBubbleView.swift in Sources */,
+				E4334A892011140800C059FD /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,7 +475,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2D896836D;
+				DEVELOPMENT_TEAM = 458MH9WMKG;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Bahsdjas;
@@ -470,7 +494,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2D896836D;
+				DEVELOPMENT_TEAM = 458MH9WMKG;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Bahsdjas;
