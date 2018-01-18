@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "db8e585d54e022a185ba79a8defbe3b9",
+    "content-hash": "42995664b13c6a0b21d7ab154ee6c1b5",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -2043,7 +2043,7 @@
                 "documentation",
                 "rest"
             ],
-            "time": "2017-10-22 15:36:16"
+            "time": "2017-10-22T15:36:16+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -2597,6 +2597,70 @@
                 "simple-cache"
             ],
             "time": "2017-01-02T13:31:39+00:00"
+        },
+        {
+            "name": "richsage/rms-push-notifications-bundle",
+            "version": "0.2.3",
+            "target-dir": "RMS/PushNotificationsBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/richsage/RMSPushNotificationsBundle.git",
+                "reference": "850363ec6eeaf296dad19d74061ffbb2f3c9554b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/richsage/RMSPushNotificationsBundle/zipball/850363ec6eeaf296dad19d74061ffbb2f3c9554b",
+                "reference": "850363ec6eeaf296dad19d74061ffbb2f3c9554b",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/buzz": "*",
+                "php": ">=5.3.0",
+                "psr/log": "^1.0"
+            },
+            "require-dev": {
+                "symfony/symfony": "^2.0 || ^3.0"
+            },
+            "suggest": {
+                "symfony/symfony": "To use as a bundle"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "RMS\\PushNotificationsBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rich Sage",
+                    "email": "rich.sage@gmail.com",
+                    "homepage": "http://www.richsage.co.uk/"
+                }
+            ],
+            "description": "Push notifications/messages for mobile devices",
+            "homepage": "https://github.com/richsage/RMSPushNotificationsBundle",
+            "keywords": [
+                "apns",
+                "blackberry",
+                "bundle",
+                "c2dm",
+                "gcm",
+                "ios",
+                "mpns",
+                "notification",
+                "push",
+                "windowsphone"
+            ],
+            "time": "2017-03-01T10:05:38+00:00"
         },
         {
             "name": "sensio/buzz-bundle",

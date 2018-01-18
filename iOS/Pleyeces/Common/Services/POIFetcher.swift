@@ -54,9 +54,8 @@ class POIFetcher {
                 lat: unpackedPoi.value(forKey: "latitude") as! Double,
                 lng: unpackedPoi.value(forKey: "longitude") as! Double
             )
-            /*
             let type = unpackedPoi.value(forKey: "type") as! NSDictionary;
-            model.type = type["id"] as? Int;*/
+            model.type = PoiTypeFetcher.mapToModel(data: type)
             poiList.append(model)
         }
         

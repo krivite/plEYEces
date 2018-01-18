@@ -16,7 +16,7 @@ class PointOfInterest {
     var lng: Double
     var image: String?
     var workingHours: String?
-    var type: Int?
+    var type: PoiType?
     var name: String
     var description: String
     
