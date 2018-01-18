@@ -24,12 +24,36 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="EL4-Mp-tJ4">
+            <objects>
+                <viewController id="Lo6-h3-eld" customClass="MapViewController" customModule="Pleyeces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8S8-YS-zuF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OjZ-M7-r3X">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="uvA-J6-e3q"/>
+                    </view>
+                    <connections>
+                        <outlet property="Map" destination="OjZ-M7-r3X" id="tfr-1A-Phv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JS4-9n-lGm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1114" y="940"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ARViewController" customModule="Pleyeces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2Hw-JP-aPF">
@@ -42,12 +66,28 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="bRH-qb-8Oe" appends="YES" id="jtS-Kc-KMI"/>
+                            <outletCollection property="gestureRecognizers" destination="3hw-di-6jY" appends="YES" id="aN2-GK-31W"/>
+                        </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="GqW-ur-Jdc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="bRH-qb-8Oe">
+                    <connections>
+                        <segue destination="Uxp-eE-yHv" kind="show" id="Qr6-5A-Mb4"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="3hw-di-6jY">
+                    <connections>
+                        <segue destination="Lo6-h3-eld" kind="show" id="9f1-Nc-nDp"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="140" y="98.50074962518741"/>
+            <point key="canvasLocation" x="-351" y="942"/>
         </scene>
         <!--Preferences View Controller-->
         <scene sceneID="SiV-xz-LRP">
@@ -114,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ty9-Os-KnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="912.79999999999995" y="98.50074962518741"/>
+            <point key="canvasLocation" x="534" y="99"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="dYR-hw-kb5">
@@ -142,7 +182,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="4NU-dP-kbZ"/>
+                                    <segue destination="MZ1-cJ-UET" kind="show" id="4NU-dP-kbZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -152,18 +192,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C27-8Z-D2M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-647" y="99"/>
+            <point key="canvasLocation" x="-1199" y="99"/>
         </scene>
         <!--Explore Page Controller-->
         <scene sceneID="NOx-Db-KeP">
             <objects>
                 <viewController id="Uxp-eE-yHv" customClass="ExplorePageController" customModule="Pleyeces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9cM-VI-8v6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Lj-Nj-Hne">
-                                <rect key="frame" x="0.0" y="93" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="73" width="375" height="530"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rnZ-w4-Lcr">
                                     <size key="itemSize" width="200" height="198"/>
@@ -221,13 +261,14 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPV-O6-FUf">
-                                <rect key="frame" x="18" y="44" width="339" height="39.5"/>
+                                <rect key="frame" x="18" y="24" width="339" height="39.5"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="34"/>
                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="0Lj-Nj-Hne" firstAttribute="leading" secondItem="ybQ-k2-Zt0" secondAttribute="leading" id="4zi-z8-X6Z"/>
                             <constraint firstItem="nPV-O6-FUf" firstAttribute="top" secondItem="ybQ-k2-Zt0" secondAttribute="top" constant="24" id="r39-V6-YJY"/>
@@ -238,11 +279,15 @@
                             <constraint firstItem="0Lj-Nj-Hne" firstAttribute="top" secondItem="nPV-O6-FUf" secondAttribute="bottom" constant="9.5" id="zOf-jV-is1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ybQ-k2-Zt0"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="kkh-fZ-pbo" appends="YES" id="sVs-IA-39S"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6zH-fe-JoA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="kkh-fZ-pbo"/>
             </objects>
-            <point key="canvasLocation" x="140" y="866.71664167916049"/>
+            <point key="canvasLocation" x="534" y="943"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="11Z-sT-kWA">
@@ -339,7 +384,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4w-mO-YsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1017" y="867"/>
+            <point key="canvasLocation" x="1970" y="941"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xsq-iv-3Rr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MZ1-cJ-UET" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="a1N-aT-FdT">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="eM2-oJ-HPE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YnS-SO-AGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-351" y="99"/>
         </scene>
     </scenes>
     <resources>
