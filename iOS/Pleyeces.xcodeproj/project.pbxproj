@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		487BA9FD2010FF7500C549C8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */; };
+		487BA9FF2011051000C549C8 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487BA9FE2011051000C549C8 /* PreferencesViewController.swift */; };
 		4898C0EC1FAA5D9B00D4B081 /* POIDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4898C0EB1FAA5D9B00D4B081 /* POIDetailViewController.swift */; };
 		48A9441C1F98A86D00FD5B2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A9441B1F98A86D00FD5B2E /* AppDelegate.swift */; };
 		48A9441E1F98A86D00FD5B2E /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A9441D1F98A86D00FD5B2E /* ARViewController.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		487BA9FE2011051000C549C8 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		4898C0EB1FAA5D9B00D4B081 /* POIDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIDetailViewController.swift; sourceTree = "<group>"; };
 		48A944181F98A86D00FD5B2E /* Pleyeces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pleyeces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A9441B1F98A86D00FD5B2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 				48A944241F98A86D00FD5B2E /* LaunchScreen.storyboard */,
 				48A944271F98A86D00FD5B2E /* Info.plist */,
 				4898C0EB1FAA5D9B00D4B081 /* POIDetailViewController.swift */,
+				487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */,
+				487BA9FE2011051000C549C8 /* PreferencesViewController.swift */,
 			);
 			path = Pleyeces;
 			sourceTree = "<group>";
@@ -291,7 +297,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -301,12 +307,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				487BA9FD2010FF7500C549C8 /* WelcomeViewController.swift in Sources */,
 				D7ECB64A1F9A06DB009FDD71 /* DistantPOIBubbleView.swift in Sources */,
 				48A9441E1F98A86D00FD5B2E /* ARViewController.swift in Sources */,
 				D795606420110417007B75AA /* PoiType.swift in Sources */,
 				4898C0EC1FAA5D9B00D4B081 /* POIDetailViewController.swift in Sources */,
 				D795606620110649007B75AA /* PoiTypeFetcher.swift in Sources */,
 				D7ECB6421F99181B009FDD71 /* Color.swift in Sources */,
+				487BA9FF2011051000C549C8 /* PreferencesViewController.swift in Sources */,
 				D7ECB6451F991B21009FDD71 /* PointOfInterest.swift in Sources */,
 				48A9441C1F98A86D00FD5B2E /* AppDelegate.swift in Sources */,
 				D7ECB6481F99F404009FDD71 /* POIFetcher.swift in Sources */,
@@ -451,10 +459,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2Z8J357DK;
+				DEVELOPMENT_TEAM = B2D896836D;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = es.pleyec;
+				PRODUCT_BUNDLE_IDENTIFIER = Bahsdjas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -470,10 +478,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2Z8J357DK;
+				DEVELOPMENT_TEAM = B2D896836D;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = es.pleyec;
+				PRODUCT_BUNDLE_IDENTIFIER = Bahsdjas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

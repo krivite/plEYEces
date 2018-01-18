@@ -111,7 +111,7 @@ class PoiRestController extends FOSRestController
     public function getAllCategories()
     {
         $em=$this->getDoctrine()->getManager();
-        $query=$em->createQuery('SELECT a.id, a.name FROM AppBundle:PoiType a');
+        $query=$em->createQuery('SELECT a.id, a.name, a.color, a.icon FROM AppBundle:PoiType a');
         $result=$query->getResult();
 
         if ($result === null || count($result) === 0) {

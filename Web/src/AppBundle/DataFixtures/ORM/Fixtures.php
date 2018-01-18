@@ -20,45 +20,37 @@ class Fixtures extends Fixture
     {
         //adding types that match to ones on places api
         $poiType = new PoiType();
-        $poiType->setName('bar');
+        $poiType->setName('Shops');
+        $poiType->setColor('#e74c3c');
+        $poiType->setIcon('https://i.imgur.com/QIa7sxb.png');
+        $manager->persist($poiType);
+
+
+        $poiType = new PoiType();
+        $poiType->setName('Restaurants');
+        $poiType->setColor('#1abc9c');
+        $poiType->setIcon('https://i.imgur.com/2nVoh20.png');
         $manager->persist($poiType);
 
         $poiType = new PoiType();
-        $poiType->setName('cafe');
+        $poiType->setName('Clubs');
+        $poiType->setColor('#9b59b6');
+        $poiType->setIcon('https://i.imgur.com/GJDWwN7.png');
         $manager->persist($poiType);
 
         $poiType = new PoiType();
-        $poiType->setName('meal_delivery');
+        $poiType->setName('Caffe bars');
+        $poiType->setColor('#e67e22');
+        $poiType->setIcon('https://i.imgur.com/JujM5SW.png');
         $manager->persist($poiType);
 
         $poiType = new PoiType();
-        $poiType->setName('meal_takeaway');
+        $poiType->setName('Bakeries');
+        $poiType->setColor('#f1c40f');
+        $poiType->setIcon('https://i.imgur.com/QkQfzJM.png');
         $manager->persist($poiType);
 
-        $poiType = new PoiType();
-        $poiType->setName('night_club');
-        $manager->persist($poiType);
 
-        $poiType = new PoiType();
-        $poiType->setName('restaurant');
-        $manager->persist($poiType);
-
-        $poiType = new PoiType();
-        $poiType->setName('store');
-        $manager->persist($poiType);
-
-        $poiType = new PoiType();
-        $poiType->setName('clothing_store');
-
-        $manager->persist($poiType);
-
-        $poiType = new PoiType();
-        $poiType->setName('bakery');
-        $manager->persist($poiType);
-
-        $poiType = new PoiType();
-        $poiType->setName('art_gallery');
-        $manager->persist($poiType);
 
         $manager->flush();
 

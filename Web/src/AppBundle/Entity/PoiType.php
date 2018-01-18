@@ -34,6 +34,26 @@ class PoiType implements JsonSerializable
     private $name;
 
     /**
+
+     * @var string
+     *
+     * @ORM\Column(name="color", type="string", length=7)
+     */
+    private $color;
+
+    /**
+
+     * @var text
+     *
+     * @ORM\Column(name="icon", type="text")
+     */
+    private $icon;
+
+
+
+
+
+    /**
      * @ORM\OneToMany(targetEntity="Poi", mappedBy="type")
      */
     private $pois;
@@ -96,6 +116,40 @@ class PoiType implements JsonSerializable
 
     public function jsonSerialize() {
         return (object) get_object_vars($this);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /**
+     * @param mixed $color
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * @param mixed $icon
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+        return $this;
     }
 }
 
