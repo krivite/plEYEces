@@ -20,16 +20,12 @@ class POIBubbleView: UIView {
         super.init(frame: frame)
         self.frame.size.height = 200
         self.frame.size.width = 266
-        
-        addGradientBackground()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.frame.size.height = 200
         self.frame.size.width = 266
-    
-        addGradientBackground()
     }
     
     func addGradientBackground() {
@@ -37,7 +33,7 @@ class POIBubbleView: UIView {
         let gradient = CAGradientLayer()
         gradient.backgroundColor = nil
         gradient.frame = self.bounds
-        gradient.colors = [Color.colorWithHexString(hex: "FAD961").cgColor, Color.colorWithHexString(hex: "FF9500").cgColor]
+        gradient.colors = [self.poi!.type!.color.cgColor, self.poi!.type!.color.cgColor]
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 0)
         gradient.cornerRadius = 50.0
@@ -51,6 +47,7 @@ class POIBubbleView: UIView {
         
         self.nameLabel.text = poi.name
         self.descriptionLabel.text = poi.description
+        addGradientBackground()
     }
     
     class func instanceFromNib() -> POIBubbleView {

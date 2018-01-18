@@ -15,6 +15,8 @@
 		48A944211F98A86D00FD5B2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A9441F1F98A86D00FD5B2E /* Main.storyboard */; };
 		48A944231F98A86D00FD5B2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A944221F98A86D00FD5B2E /* Assets.xcassets */; };
 		48A944261F98A86D00FD5B2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A944241F98A86D00FD5B2E /* LaunchScreen.storyboard */; };
+		D795606420110417007B75AA /* PoiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D795606320110416007B75AA /* PoiType.swift */; };
+		D795606620110649007B75AA /* PoiTypeFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D795606520110649007B75AA /* PoiTypeFetcher.swift */; };
 		D7ECB63C1F991691009FDD71 /* POIBubbleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7ECB63B1F991691009FDD71 /* POIBubbleView.xib */; };
 		D7ECB63E1F9916B8009FDD71 /* POIBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB63D1F9916B8009FDD71 /* POIBubbleView.swift */; };
 		D7ECB6421F99181B009FDD71 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB6411F99181B009FDD71 /* Color.swift */; };
@@ -41,6 +43,8 @@
 		7FF148AC3BC566BAC99F5EFD /* Pods-Pleyeces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pleyeces.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces.release.xcconfig"; sourceTree = "<group>"; };
 		A151DE6E781E4EE9804C3C1F /* Pods_Pleyeces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pleyeces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEAD955A833B2BBE0D233F9 /* Pods-Pleyeces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pleyeces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces.debug.xcconfig"; sourceTree = "<group>"; };
+		D795606320110416007B75AA /* PoiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiType.swift; sourceTree = "<group>"; };
+		D795606520110649007B75AA /* PoiTypeFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiTypeFetcher.swift; sourceTree = "<group>"; };
 		D7ECB63B1F991691009FDD71 /* POIBubbleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = POIBubbleView.xib; sourceTree = "<group>"; };
 		D7ECB63D1F9916B8009FDD71 /* POIBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIBubbleView.swift; sourceTree = "<group>"; };
 		D7ECB6411F99181B009FDD71 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				D7ECB6441F991B21009FDD71 /* PointOfInterest.swift */,
+				D795606320110416007B75AA /* PoiType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				D7ECB6471F99F404009FDD71 /* POIFetcher.swift */,
+				D795606520110649007B75AA /* PoiTypeFetcher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -326,7 +332,9 @@
 				487BA9FD2010FF7500C549C8 /* WelcomeViewController.swift in Sources */,
 				D7ECB64A1F9A06DB009FDD71 /* DistantPOIBubbleView.swift in Sources */,
 				48A9441E1F98A86D00FD5B2E /* ARViewController.swift in Sources */,
+				D795606420110417007B75AA /* PoiType.swift in Sources */,
 				4898C0EC1FAA5D9B00D4B081 /* POIDetailViewController.swift in Sources */,
+				D795606620110649007B75AA /* PoiTypeFetcher.swift in Sources */,
 				D7ECB6421F99181B009FDD71 /* Color.swift in Sources */,
 				487BA9FF2011051000C549C8 /* PreferencesViewController.swift in Sources */,
 				D7ECB6451F991B21009FDD71 /* PointOfInterest.swift in Sources */,

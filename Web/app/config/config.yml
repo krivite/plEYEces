@@ -111,4 +111,11 @@ fos_user:
         sender_name: "plEYEces"
     registration:
         confirmation:
-                    enabled: true
+            enabled: true
+
+rms_push_notifications:
+  ios:
+      timeout: 60 # Seconds to wait for connection timeout, default is 60
+      sandbox: false
+      pem: config/config.yml
+      passphrase: <string_apns_certificate_passphrase>
