@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class PoiTypeFetcher {
     class func mapToModel(data: NSDictionary) -> PoiType? {
@@ -19,5 +20,22 @@ class PoiTypeFetcher {
         )
         
         return model
+    }
+    
+   
+    
+    class func fetchAll(success: @escaping (Array<PoiType>) -> ()) {
+        Alamofire.request("https://pleyec.es/api/categories",method: .get)
+            .responseJSON { response in
+                var poiTypes: Array<PoiType> = []
+                let responseJson = response.result.value as! NSArray
+                for poiJson in responseJson{
+                    let poiType = poiJson as! NSDictionary
+                    poiTypes.append(self.mapToModel(data: poiType)!)
+                   
+                }
+                success(poiTypes)
+                
+        }
     }
 }

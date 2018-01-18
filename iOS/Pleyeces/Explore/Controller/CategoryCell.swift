@@ -11,4 +11,8 @@ import UIKit
 
 class CategoryCell: UICollectionViewCell{
     
+    @IBOutlet weak var poiAmountlbl: UILabel!
+    
+    @IBOutlet weak var poiNamelbl: UILabel!
+    
 }
