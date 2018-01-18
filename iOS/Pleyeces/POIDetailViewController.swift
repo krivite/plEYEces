@@ -25,7 +25,7 @@ class POIDetailViewController: UIViewController {
         super.viewDidLoad()
         
         
-        let urlString = "http://pleyec.es/api/poi/1"
+        let urlString = "http://pleyec.es/api/poi/id1"
         
         if let url = NSURL(string: urlString) {
             
