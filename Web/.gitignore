@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/symfony,composer,phpstorm
 
+## Cert
+Web/app/apns_cert.pem
+
 ### Composer ###
 composer.phar
 /vendor/

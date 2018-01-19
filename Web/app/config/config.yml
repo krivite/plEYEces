@@ -117,5 +117,5 @@ rms_push_notifications:
   ios:
       timeout: 60 # Seconds to wait for connection timeout, default is 60
       sandbox: false
-      pem: config/config.yml
-      passphrase: <string_apns_certificate_passphrase>
+      pem: apns_cert.yml
+      passphrase: ""
