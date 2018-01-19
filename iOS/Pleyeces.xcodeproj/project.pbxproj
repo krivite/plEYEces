@@ -17,6 +17,7 @@
 		48A944231F98A86D00FD5B2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A944221F98A86D00FD5B2E /* Assets.xcassets */; };
 		48A944261F98A86D00FD5B2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A944241F98A86D00FD5B2E /* LaunchScreen.storyboard */; };
 		48B738A020121AE100FE1DEE /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B7389F20121AE100FE1DEE /* RootPageViewController.swift */; };
+		48B738A72012639700FE1DEE /* PreferencesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B738A62012639700FE1DEE /* PreferencesCell.swift */; };
 		D700F19C2011FA6400CB0BE8 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700F19B2011FA6400CB0BE8 /* Offer.swift */; };
 		D700F19F2011FB9D00CB0BE8 /* OfferMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700F19E2011FB9D00CB0BE8 /* OfferMapper.swift */; };
 		D795606420110417007B75AA /* PoiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D795606320110416007B75AA /* PoiType.swift */; };
@@ -46,6 +47,7 @@
 		48A944251F98A86D00FD5B2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48A944271F98A86D00FD5B2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48B7389F20121AE100FE1DEE /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
+		48B738A62012639700FE1DEE /* PreferencesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesCell.swift; sourceTree = "<group>"; };
 		7FF148AC3BC566BAC99F5EFD /* Pods-Pleyeces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pleyeces.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces.release.xcconfig"; sourceTree = "<group>"; };
 		A151DE6E781E4EE9804C3C1F /* Pods_Pleyeces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pleyeces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEAD955A833B2BBE0D233F9 /* Pods-Pleyeces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pleyeces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		48A9441A1F98A86D00FD5B2E /* Pleyeces */ = {
 			isa = PBXGroup;
 			children = (
+				48B738A42012635600FE1DEE /* Preferences */,
 				E4334A86201113D300C059FD /* Explore */,
 				D7ECB63F1F991809009FDD71 /* Common */,
 				D7ECB6381F991634009FDD71 /* AugumentedReality */,
@@ -107,11 +110,27 @@
 				48A944271F98A86D00FD5B2E /* Info.plist */,
 				4898C0EB1FAA5D9B00D4B081 /* POIDetailViewController.swift */,
 				487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */,
-				487BA9FE2011051000C549C8 /* PreferencesViewController.swift */,
 				48825D4C20111BB000753E0D /* MapViewController.swift */,
 				48B7389F20121AE100FE1DEE /* RootPageViewController.swift */,
 			);
 			path = Pleyeces;
+			sourceTree = "<group>";
+		};
+		48B738A42012635600FE1DEE /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				48B738A52012636700FE1DEE /* Controller */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		48B738A52012636700FE1DEE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				487BA9FE2011051000C549C8 /* PreferencesViewController.swift */,
+				48B738A62012639700FE1DEE /* PreferencesCell.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		64778807E5553A2BBC838AFC /* Frameworks */ = {
@@ -351,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48B738A72012639700FE1DEE /* PreferencesCell.swift in Sources */,
 				487BA9FD2010FF7500C549C8 /* WelcomeViewController.swift in Sources */,
 				D700F19F2011FB9D00CB0BE8 /* OfferMapper.swift in Sources */,
 				D7ECB64A1F9A06DB009FDD71 /* DistantPOIBubbleView.swift in Sources */,
