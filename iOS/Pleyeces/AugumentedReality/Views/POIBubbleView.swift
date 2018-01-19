@@ -33,7 +33,7 @@ class POIBubbleView: UIView {
         let gradient = CAGradientLayer()
         gradient.backgroundColor = nil
         gradient.frame = self.bounds
-        gradient.colors = [self.poi!.type!.color.cgColor, self.poi!.type!.color.cgColor]
+        gradient.colors = [self.poi!.type!.color.cgColor, Color.darken(color: self.poi!.type!.color)!.cgColor]
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 0)
         gradient.cornerRadius = 50.0
@@ -46,7 +46,7 @@ class POIBubbleView: UIView {
         self.poi = poi
         
         self.nameLabel.text = poi.name
-        self.descriptionLabel.text = poi.description
+        self.descriptionLabel.text = poi.offers.first?.text
         addGradientBackground()
     }
     

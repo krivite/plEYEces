@@ -18,16 +18,12 @@ class DistantPOIBubbleView: UIView {
         super.init(frame: frame)
         self.frame.size.height = 50
         self.frame.size.width = 200
-        
-        addGradientBackground()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.frame.size.height = 50
         self.frame.size.width = 200
-        
-        addGradientBackground()
     }
     
     func addGradientBackground() {
@@ -35,7 +31,7 @@ class DistantPOIBubbleView: UIView {
         let gradient = CAGradientLayer()
         gradient.backgroundColor = nil
         gradient.frame = self.bounds
-        gradient.colors = [Color.colorWithHexString(hex: "FAD961").cgColor, Color.colorWithHexString(hex: "FF9500").cgColor]
+        gradient.colors = [self.poi!.type!.color.cgColor, Color.darken(color: self.poi!.type!.color)!.cgColor]
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 0)
         gradient.cornerRadius = 10.0
@@ -48,6 +44,7 @@ class DistantPOIBubbleView: UIView {
         self.poi = poi
         
         self.nameLabel.text = poi.name
+        addGradientBackground()
     }
     
     class func instanceFromNib() -> DistantPOIBubbleView {
