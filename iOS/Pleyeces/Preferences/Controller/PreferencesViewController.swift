@@ -28,6 +28,15 @@ class PreferencesViewController: UIViewController, UICollectionViewDelegate,UICo
         cell.poiBtn.layer.cornerRadius = 0.5 * cell.poiBtn.bounds.size.width
         cell.poiBtn.clipsToBounds = true
         
+        let imageUrl = URL(string: "\(types[indexPath.item].image)")
+        if let data = try? Data(contentsOf: imageUrl!)
+        {
+            let image: UIImage = UIImage(data: data)!
+            cell.poiBtn.setImage(image, for: UIControlState.normal)
+        }
+        
+        cell.poiBtn.imageEdgeInsets = UIEdgeInsetsMake(15,15,15,15)
+        
         return cell
     }
     
