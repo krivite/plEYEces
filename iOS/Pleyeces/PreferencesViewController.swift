@@ -10,10 +10,17 @@ import UIKit
 
 class PreferencesViewController: UIViewController {
 
+    
+    @IBOutlet weak var radiusText: UITextField!
+    @IBOutlet weak var radiusSlider: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        radiusText.layer.cornerRadius = 11.0
+        radiusText.text = "\(Int(radiusSlider.value)) meters"
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +28,9 @@ class PreferencesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        let value = Int(radiusSlider.value)
+        radiusText.text = "\(value) meters"
     }
-    */
 
 }
