@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\Common\Collections\ArrayCollection;
 use JsonSerializable;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -56,10 +58,6 @@ class PoiType implements JsonSerializable
      * @ORM\Column(name="icon", type="text")
      */
     private $icon;
-
-
-
-
 
     /**
      * @ORM\OneToMany(targetEntity="Poi", mappedBy="type")
@@ -177,5 +175,8 @@ class PoiType implements JsonSerializable
     {
         $this->placesId = $placesId;
     }
+
+
+
 }
 
