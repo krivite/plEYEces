@@ -18,7 +18,6 @@ class PreferencesViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         radiusText.layer.cornerRadius = 11.0
         radiusText.text = "\(Int(radiusSlider.value)) meters"
     }
