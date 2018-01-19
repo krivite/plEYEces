@@ -47,7 +47,7 @@ class POIFetcher {
             let unpackedPoi = poi as! NSDictionary
             
             let model = PointOfInterest(
-                id: unpackedPoi.value(forKey: "id") as! Int,
+                id: unpackedPoi.value(forKey: "id") as! String,
                 name: unpackedPoi.value(forKey: "name") as! String,
                 address: unpackedPoi.value(forKey: "address") as! String,
                 details: "",
@@ -56,6 +56,7 @@ class POIFetcher {
             )
             let type = unpackedPoi.value(forKey: "type") as! NSDictionary;
             model.type = PoiTypeFetcher.mapToModel(data: type)
+            model.offers = OfferMapper.mapToModelArray(data: unpackedPoi.value(forKey: "offers") as! NSArray)
             poiList.append(model)
         }
         
