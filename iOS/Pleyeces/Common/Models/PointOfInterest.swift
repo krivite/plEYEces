@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ARCL
 
 class PointOfInterest {
 
@@ -20,6 +21,7 @@ class PointOfInterest {
     var offers: Array<Offer> = []
     var name: String
     var description: String
+    var arNode: LocationAnnotationNode?
     
     
     init(id: String, name: String, address: String, details: String, lat: Double, lng: Double) {

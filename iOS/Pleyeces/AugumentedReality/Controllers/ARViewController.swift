@@ -91,6 +91,8 @@ class ARViewController: UIViewController {
         let annotationNode = LocationAnnotationNode(location: location, image: image)
         
         self.shownLocationNodes.append(annotationNode)
+        poi.arNode = annotationNode
+        
         sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode);
     }
     
@@ -103,6 +105,8 @@ class ARViewController: UIViewController {
         let annotationNode = LocationAnnotationNode(location: location, image: image)
         
         self.shownLocationNodes.append(annotationNode)
+        poi.arNode = annotationNode
+        
         sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode);
     }
 
@@ -129,6 +133,27 @@ class ARViewController: UIViewController {
         
         // Show the navigation bar on other view controllers
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        guard let touch = touches.first
+            else { return }
+        
+        guard let result = self.sceneLocationView.hitTest(touch.location(in: sceneLocationView), options: nil).first
+            else {return}
+        
+        for poi in nearbyPois
+        {
+            if (poi.arNode?.annotationNode.contains(result.node))!
+            {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewScreen") as! POIDetailViewController
+                vc.setPoi(poi: poi)
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
     }
 }
 

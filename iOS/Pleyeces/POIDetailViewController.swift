@@ -20,38 +20,26 @@ class POIDetailViewController: UIViewController {
     @IBOutlet weak var poiInfo: UITextView!
     @IBOutlet weak var poiOfferInfo: UITextView!
     
+    var poi: PointOfInterest?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        let urlString = "http://pleyec.es/api/poi/id1"
-        
-        if let url = NSURL(string: urlString) {
-            
-            if let data = try? NSData(contentsOf: url as URL, options: []) {
-                
-                let json = JSON(data: data as Data)
-                
-                print(json)
-        
-                let name = json["name"].stringValue
-                let address = json["address"].stringValue
-                let workingHours = json["working_hours"].stringValue
-//                let poiInfo = json["details"].stringValue
-//                let offerInfo = json["offers"].stringValue
-                
-                poiName.text = name
-                poiAddress.text = address
-                poiHours.text = workingHours
-                
-                
-            }
-        }
+        self.poiName.text = poi?.name
+        self.poiAddress.text = poi?.address
+        self.poiHours.text = poi?.workingHours
+    }
+    
+    func setPoi(poi: PointOfInterest) {
+        self.poi = poi
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
+    @IBAction func doneButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
