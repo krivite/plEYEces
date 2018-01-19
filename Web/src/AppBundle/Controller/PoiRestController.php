@@ -136,7 +136,7 @@ class PoiRestController extends FOSRestController
      */
     public function getAllOffers()
     {
-        $result = $this->getDoctrine()->getRepository('AppBundle:Offers')->findAll();
+        $result = $this->getDoctrine()->getRepository('AppBundle:Offer')->findAll();
         if ($result === null || count($result) === 0) {
             return new View("No POIs found!", Response::HTTP_NOT_FOUND);
         }
