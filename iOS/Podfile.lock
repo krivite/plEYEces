@@ -2,20 +2,17 @@ PODS:
   - Alamofire (4.5.1)
   - ARCL (1.0.1)
   - SwiftyJSON (3.1.4)
-  - SwipeableTabBarController (1.0.8)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - ARCL
   - SwiftyJSON
-  - SwipeableTabBarController
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   ARCL: 193b108d6fd5277ce742be3af92ccf81bbdd2f3b
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  SwipeableTabBarController: a5ac23b96e96aa35b857799e431f605f9350105a
 
-PODFILE CHECKSUM: 3e407e135cb304f2507165732f26ae5c952d80bf
+PODFILE CHECKSUM: eb683df1985f5d2373fb2951fa3b9fbfafe11726
 
-COCOAPODS: 1.4.0.beta.2
+COCOAPODS: 1.2.1.beta.1

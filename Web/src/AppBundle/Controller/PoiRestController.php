@@ -112,14 +112,14 @@ class PoiRestController extends FOSRestController
     {
         $em=$this->getDoctrine()->getManager();
         $query=$em->createQueryBuilder()
-            ->select('p.id,p.name,p.color,p.icon,COUNT(a.id ) as poiCount')
+            ->select('p.id,p.name,p.color,p.icon,(COUNT(a.id )) as poiCount')
             ->from('AppBundle:PoiType','p')
             ->innerJoin('p.pois','a')
             ->groupBy('p.id');
         $result=$query->getQuery()->getResult();
-
-
-
+        foreach($result as &$row){
+            $row['poiCount']=intval($row['poiCount']);
+        }
         if ($result === null || count($result) === 0) {
             return new View("No Categories found!", Response::HTTP_NOT_FOUND);
         }

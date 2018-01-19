@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="swv-Zj-zsz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oIF-jB-ySB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -52,34 +52,45 @@
         <!--Root Page View Controller-->
         <scene sceneID="qJJ-iR-1qA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="h0M-Xu-T9w" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pageViewController storyboardIdentifier="MyPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="dub-f5-3Pc" customClass="RootPageViewController" customModule="Pleyeces" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h0M-Xu-T9w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2322" y="2072"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="AR" id="BYZ-38-t0r" customClass="ARViewController" customModule="Pleyeces" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ARViewController" customModule="Pleyeces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BI-Uz-qQi">
+                                <rect key="frame" x="336" y="74" width="29" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="29" id="cPh-O7-jU9"/>
+                                    <constraint firstAttribute="height" constant="29" id="oUh-I4-Zi2"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="SettingsIcon"/>
+                                <connections>
+                                    <segue destination="swv-Zj-zsz" kind="show" id="qZN-0r-wVs"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="8BI-Uz-qQi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="EM6-fj-QGX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8BI-Uz-qQi" secondAttribute="trailing" constant="10" id="jGZ-o5-hKl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zoa-Ii-tAm">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" image="SettingsIcon" id="jeI-6w-weU">
-                            <connections>
-                                <segue destination="swv-Zj-zsz" kind="show" id="pmK-Iq-625"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="zoa-Ii-tAm"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2313" y="2847"/>
+            <point key="canvasLocation" x="-2314.4000000000001" y="2846.6266866566721"/>
         </scene>
         <!--Preferences View Controller-->
         <scene sceneID="SiV-xz-LRP">
@@ -435,7 +446,7 @@
         <!--Navigation Controller-->
         <scene sceneID="LwJ-0X-CJp">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="trv-hy-aMz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AR" automaticallyAdjustsScrollViewInsets="NO" id="trv-hy-aMz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3Rz-Ny-Fn7" customClass="Pre">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

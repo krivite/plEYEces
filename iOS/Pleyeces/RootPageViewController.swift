@@ -8,6 +8,22 @@
 
 import UIKit
 
+extension UIPageViewController {
+    
+    func goToNextPage(animated: Bool = true) {
+        guard let currentViewController = self.viewControllers?.first else { return }
+        guard let nextViewController = dataSource?.pageViewController(self, viewControllerAfter: currentViewController) else { return }
+        setViewControllers([nextViewController], direction: .forward, animated: animated, completion: nil)
+    }
+    
+    func goToPreviousPage(animated: Bool = true) {
+        guard let currentViewController = self.viewControllers?.first else { return }
+        guard let previousViewController = dataSource?.pageViewController(self, viewControllerBefore: currentViewController) else { return }
+        setViewControllers([previousViewController], direction: .reverse, animated: animated, completion: nil)
+    }
+    
+}
+
 class RootPageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
     lazy var viewControllerList:[UIViewController] = {
@@ -25,9 +41,8 @@ class RootPageViewController: UIPageViewController, UIPageViewControllerDataSour
 
         self.dataSource = self
         
-        if let firstViewController = viewControllerList.first {
-            self.setViewControllers([firstViewController], direction: .forward, animated: false, completion: nil)
-        }
+        self.setViewControllers([viewControllerList.first!], direction: .forward, animated: false, completion: nil)
+        self.goToNextPage(animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,7 +91,7 @@ class RootPageViewController: UIPageViewController, UIPageViewControllerDataSour
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return 0
+        return 1
     }
 
 }

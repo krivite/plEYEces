@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/symfony,composer,phpstorm
 
+## Cert
+app/apns_cert.pem
+
 ### Composer ###
 composer.phar
 /vendor/
@@ -110,7 +113,6 @@ fabric.properties
 
 # PHPUnit
 /app/phpunit.xml
-/phpunit.xml
 
 # Build data
 /build/
