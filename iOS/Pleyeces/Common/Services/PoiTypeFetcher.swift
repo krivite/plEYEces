@@ -16,7 +16,8 @@ class PoiTypeFetcher {
             id: data.value(forKey: "id") as! Int,
             name: data.value(forKey: "name") as! String,
             color: Color.colorWithHexString(hex: data.value(forKey: "color") as! String),
-            image: data.value(forKey: "icon") as! String
+            image: data.value(forKey: "icon") as! String,
+            poiCount: data.value(forKey: "poiCount") as! String
         )
         
         return model

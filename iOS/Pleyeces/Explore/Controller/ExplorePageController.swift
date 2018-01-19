@@ -21,7 +21,7 @@ class ExplorePageController: UIViewController, UICollectionViewDelegate,UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "typeCell", for: indexPath) as! CategoryCell
-        cell.poiAmountlbl.text = "0"
+        cell.poiAmountlbl.text = types[indexPath.item].poiCount
         cell.poiNamelbl.text = types[indexPath.item].name
         cell.poiAmountlbl.textColor = types[indexPath.item].color
         cell.contentView.backgroundColor = types[indexPath.item].color
