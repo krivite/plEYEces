@@ -16,6 +16,7 @@
 		48A944211F98A86D00FD5B2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A9441F1F98A86D00FD5B2E /* Main.storyboard */; };
 		48A944231F98A86D00FD5B2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A944221F98A86D00FD5B2E /* Assets.xcassets */; };
 		48A944261F98A86D00FD5B2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A944241F98A86D00FD5B2E /* LaunchScreen.storyboard */; };
+		48B7389E20120A7600FE1DEE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B7389D20120A7600FE1DEE /* TabBarController.swift */; };
 		D700F19C2011FA6400CB0BE8 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700F19B2011FA6400CB0BE8 /* Offer.swift */; };
 		D700F19F2011FB9D00CB0BE8 /* OfferMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700F19E2011FB9D00CB0BE8 /* OfferMapper.swift */; };
 		D795606420110417007B75AA /* PoiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D795606320110416007B75AA /* PoiType.swift */; };
@@ -44,6 +45,7 @@
 		48A944221F98A86D00FD5B2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48A944251F98A86D00FD5B2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48A944271F98A86D00FD5B2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48B7389D20120A7600FE1DEE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		7FF148AC3BC566BAC99F5EFD /* Pods-Pleyeces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pleyeces.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces.release.xcconfig"; sourceTree = "<group>"; };
 		A151DE6E781E4EE9804C3C1F /* Pods_Pleyeces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pleyeces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEAD955A833B2BBE0D233F9 /* Pods-Pleyeces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pleyeces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */,
 				487BA9FE2011051000C549C8 /* PreferencesViewController.swift */,
 				48825D4C20111BB000753E0D /* MapViewController.swift */,
+				48B7389D20120A7600FE1DEE /* TabBarController.swift */,
 			);
 			path = Pleyeces;
 			sourceTree = "<group>";
@@ -294,12 +297,14 @@
 				"${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeableTabBarController/SwipeableTabBarController.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARCL.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeableTabBarController.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -336,7 +341,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -349,6 +354,7 @@
 				487BA9FD2010FF7500C549C8 /* WelcomeViewController.swift in Sources */,
 				D700F19F2011FB9D00CB0BE8 /* OfferMapper.swift in Sources */,
 				D7ECB64A1F9A06DB009FDD71 /* DistantPOIBubbleView.swift in Sources */,
+				48B7389E20120A7600FE1DEE /* TabBarController.swift in Sources */,
 				D700F19C2011FA6400CB0BE8 /* Offer.swift in Sources */,
 				48A9441E1F98A86D00FD5B2E /* ARViewController.swift in Sources */,
 				D795606420110417007B75AA /* PoiType.swift in Sources */,
