@@ -111,8 +111,14 @@ class PoiRestController extends FOSRestController
     public function getAllCategories()
     {
         $em=$this->getDoctrine()->getManager();
-        $query=$em->createQuery('SELECT a.id, a.name, a.color, a.icon FROM AppBundle:PoiType a');
-        $result=$query->getResult();
+        $query=$em->createQueryBuilder()
+            ->select('p.id,p.name,p.color,p.icon,COUNT(a.id ) as poiCount')
+            ->from('AppBundle:PoiType','p')
+            ->innerJoin('p.pois','a')
+            ->groupBy('p.id');
+        $result=$query->getQuery()->getResult();
+
+
 
         if ($result === null || count($result) === 0) {
             return new View("No Categories found!", Response::HTTP_NOT_FOUND);
@@ -130,7 +136,7 @@ class PoiRestController extends FOSRestController
      */
     public function getAllOffers()
     {
-        $result = $this->getDoctrine()->getRepository('AppBundle:Offer')->findAll();
+        $result = $this->getDoctrine()->getRepository('AppBundle:Offers')->findAll();
         if ($result === null || count($result) === 0) {
             return new View("No POIs found!", Response::HTTP_NOT_FOUND);
         }

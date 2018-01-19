@@ -15,12 +15,14 @@ class PoiType {
     var name: String
     var color: UIColor
     var image: String
+    var poiCount: String
     
     
-    init(id: Int, name: String, color: UIColor, image: String) {
+    init(id: Int, name: String, color: UIColor, image: String, poiCount: String) {
         self.id = id
         self.name = name
         self.color = color
         self.image = image
+        self.poiCount = poiCount
     }
 }

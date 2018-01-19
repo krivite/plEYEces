@@ -21,6 +21,7 @@ class Fixtures extends Fixture
         //adding types that match to ones on places api
         $poiType = new PoiType();
         $poiType->setName('Shops');
+        $poiType->setPlacesId('store');
         $poiType->setColor('#e74c3c');
         $poiType->setIcon('https://i.imgur.com/QIa7sxb.png');
         $manager->persist($poiType);
@@ -28,29 +29,31 @@ class Fixtures extends Fixture
 
         $poiType = new PoiType();
         $poiType->setName('Restaurants');
+        $poiType->setPlacesId('restaurant');
         $poiType->setColor('#1abc9c');
         $poiType->setIcon('https://i.imgur.com/2nVoh20.png');
         $manager->persist($poiType);
 
         $poiType = new PoiType();
         $poiType->setName('Clubs');
+        $poiType->setPlacesId('night_club');
         $poiType->setColor('#9b59b6');
         $poiType->setIcon('https://i.imgur.com/GJDWwN7.png');
         $manager->persist($poiType);
 
         $poiType = new PoiType();
         $poiType->setName('Caffe bars');
+        $poiType->setPlacesId('cafe');
         $poiType->setColor('#e67e22');
         $poiType->setIcon('https://i.imgur.com/JujM5SW.png');
         $manager->persist($poiType);
 
         $poiType = new PoiType();
         $poiType->setName('Bakeries');
+        $poiType->setPlacesId('bakery');
         $poiType->setColor('#f1c40f');
         $poiType->setIcon('https://i.imgur.com/QkQfzJM.png');
         $manager->persist($poiType);
-
-
 
         $manager->flush();
 

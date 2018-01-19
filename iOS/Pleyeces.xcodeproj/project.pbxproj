@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		487BA9FD2010FF7500C549C8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */; };
 		487BA9FF2011051000C549C8 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487BA9FE2011051000C549C8 /* PreferencesViewController.swift */; };
+		48825D4D20111BB000753E0D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48825D4C20111BB000753E0D /* MapViewController.swift */; };
 		4898C0EC1FAA5D9B00D4B081 /* POIDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4898C0EB1FAA5D9B00D4B081 /* POIDetailViewController.swift */; };
 		48A9441C1F98A86D00FD5B2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A9441B1F98A86D00FD5B2E /* AppDelegate.swift */; };
 		48A9441E1F98A86D00FD5B2E /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A9441D1F98A86D00FD5B2E /* ARViewController.swift */; };
@@ -26,12 +27,15 @@
 		D7ECB6481F99F404009FDD71 /* POIFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB6471F99F404009FDD71 /* POIFetcher.swift */; };
 		D7ECB64A1F9A06DB009FDD71 /* DistantPOIBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECB6491F9A06DB009FDD71 /* DistantPOIBubbleView.swift */; };
 		D7ECB64C1F9A06F0009FDD71 /* DistantPOIBubbleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7ECB64B1F9A06F0009FDD71 /* DistantPOIBubbleView.xib */; };
+		E4334A8520110F1900C059FD /* ExplorePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4334A8420110F1900C059FD /* ExplorePageController.swift */; };
+		E4334A892011140800C059FD /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4334A882011140800C059FD /* CategoryCell.swift */; };
 		FFFF1B21D04EB634E08A0EBB /* Pods_Pleyeces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A151DE6E781E4EE9804C3C1F /* Pods_Pleyeces.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		487BA9FE2011051000C549C8 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		48825D4C20111BB000753E0D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		4898C0EB1FAA5D9B00D4B081 /* POIDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIDetailViewController.swift; sourceTree = "<group>"; };
 		48A944181F98A86D00FD5B2E /* Pleyeces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pleyeces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A9441B1F98A86D00FD5B2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 		D7ECB6471F99F404009FDD71 /* POIFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIFetcher.swift; sourceTree = "<group>"; };
 		D7ECB6491F9A06DB009FDD71 /* DistantPOIBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistantPOIBubbleView.swift; sourceTree = "<group>"; };
 		D7ECB64B1F9A06F0009FDD71 /* DistantPOIBubbleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistantPOIBubbleView.xib; sourceTree = "<group>"; };
+		E4334A8420110F1900C059FD /* ExplorePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePageController.swift; sourceTree = "<group>"; };
+		E4334A882011140800C059FD /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,7 @@
 		48A9441A1F98A86D00FD5B2E /* Pleyeces */ = {
 			isa = PBXGroup;
 			children = (
+				E4334A86201113D300C059FD /* Explore */,
 				D7ECB63F1F991809009FDD71 /* Common */,
 				D7ECB6381F991634009FDD71 /* AugumentedReality */,
 				48A9441B1F98A86D00FD5B2E /* AppDelegate.swift */,
@@ -99,6 +106,7 @@
 				4898C0EB1FAA5D9B00D4B081 /* POIDetailViewController.swift */,
 				487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */,
 				487BA9FE2011051000C549C8 /* PreferencesViewController.swift */,
+				48825D4C20111BB000753E0D /* MapViewController.swift */,
 			);
 			path = Pleyeces;
 			sourceTree = "<group>";
@@ -184,6 +192,23 @@
 				D795606520110649007B75AA /* PoiTypeFetcher.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		E4334A86201113D300C059FD /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				E4334A87201113E500C059FD /* Controller */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		E4334A87201113E500C059FD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E4334A8420110F1900C059FD /* ExplorePageController.swift */,
+				E4334A882011140800C059FD /* CategoryCell.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,7 +359,10 @@
 				D7ECB6451F991B21009FDD71 /* PointOfInterest.swift in Sources */,
 				48A9441C1F98A86D00FD5B2E /* AppDelegate.swift in Sources */,
 				D7ECB6481F99F404009FDD71 /* POIFetcher.swift in Sources */,
+				E4334A8520110F1900C059FD /* ExplorePageController.swift in Sources */,
 				D7ECB63E1F9916B8009FDD71 /* POIBubbleView.swift in Sources */,
+				48825D4D20111BB000753E0D /* MapViewController.swift in Sources */,
+				E4334A892011140800C059FD /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

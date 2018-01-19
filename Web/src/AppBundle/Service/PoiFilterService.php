@@ -79,7 +79,7 @@ class PoiFilterService
     {
         $poiType = null;
         foreach($poiTypes as $type) {
-            if (in_array($type->getName(), $nearByPoi['types'])) {
+            if (in_array($type->getPlacesId(), $nearByPoi['types'])) {
                 $poiType = $type;
                 return $poiType;
             }
