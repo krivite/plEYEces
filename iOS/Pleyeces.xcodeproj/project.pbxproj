@@ -18,6 +18,7 @@
 		48A944261F98A86D00FD5B2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A944241F98A86D00FD5B2E /* LaunchScreen.storyboard */; };
 		48B738A020121AE100FE1DEE /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B7389F20121AE100FE1DEE /* RootPageViewController.swift */; };
 		48B738A72012639700FE1DEE /* PreferencesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B738A62012639700FE1DEE /* PreferencesCell.swift */; };
+		BDF994A320129245001754C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF994A220129245001754C7 /* LocationService.swift */; };
 		D700F19C2011FA6400CB0BE8 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700F19B2011FA6400CB0BE8 /* Offer.swift */; };
 		D700F19F2011FB9D00CB0BE8 /* OfferMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700F19E2011FB9D00CB0BE8 /* OfferMapper.swift */; };
 		D795606420110417007B75AA /* PoiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D795606320110416007B75AA /* PoiType.swift */; };
@@ -50,6 +51,7 @@
 		48B738A62012639700FE1DEE /* PreferencesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesCell.swift; sourceTree = "<group>"; };
 		7FF148AC3BC566BAC99F5EFD /* Pods-Pleyeces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pleyeces.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces.release.xcconfig"; sourceTree = "<group>"; };
 		A151DE6E781E4EE9804C3C1F /* Pods_Pleyeces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pleyeces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDF994A220129245001754C7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		BEEAD955A833B2BBE0D233F9 /* Pods-Pleyeces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pleyeces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces.debug.xcconfig"; sourceTree = "<group>"; };
 		D700F19B2011FA6400CB0BE8 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		D700F19E2011FB9D00CB0BE8 /* OfferMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferMapper.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			children = (
 				D7ECB6471F99F404009FDD71 /* POIFetcher.swift */,
 				D795606520110649007B75AA /* PoiTypeFetcher.swift */,
+				BDF994A220129245001754C7 /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			files = (
 				48B738A72012639700FE1DEE /* PreferencesCell.swift in Sources */,
 				487BA9FD2010FF7500C549C8 /* WelcomeViewController.swift in Sources */,
+				BDF994A320129245001754C7 /* LocationService.swift in Sources */,
 				D700F19F2011FB9D00CB0BE8 /* OfferMapper.swift in Sources */,
 				D7ECB64A1F9A06DB009FDD71 /* DistantPOIBubbleView.swift in Sources */,
 				D700F19C2011FA6400CB0BE8 /* Offer.swift in Sources */,
