@@ -118,7 +118,6 @@ class ARViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         sceneLocationView.frame = view.bounds
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -154,6 +153,6 @@ class ARViewController: UIViewController {
                 self.present(vc, animated: true, completion: nil)
             }
         }
-    }
+    }    
 }
 
