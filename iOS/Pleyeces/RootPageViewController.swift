@@ -13,9 +13,9 @@ class RootPageViewController: UIPageViewController, UIPageViewControllerDataSour
     lazy var viewControllerList:[UIViewController] = {
         let sb = UIStoryboard(name:"Main", bundle: nil)
         
-        let vc1 = sb.instantiateViewController(withIdentifier: "Explore")
+        let vc1 = sb.instantiateViewController(withIdentifier: "Map")
         let vc2 = sb.instantiateViewController(withIdentifier: "AR")
-        let vc3 = sb.instantiateViewController(withIdentifier: "Map")
+        let vc3 = sb.instantiateViewController(withIdentifier: "Explore")
         
         return [vc1, vc2, vc3]
     }()
@@ -65,9 +65,9 @@ class RootPageViewController: UIPageViewController, UIPageViewControllerDataSour
     
     private func setupPageControl() {
         let appearance = UIPageControl.appearance()
-        appearance.pageIndicatorTintColor = UIColor.white
+        appearance.pageIndicatorTintColor = UIColor.red.withAlphaComponent(0.3)
         appearance.currentPageIndicatorTintColor = UIColor.red
-        appearance.backgroundColor = UIColor.darkGray
+        appearance.backgroundColor = UIColor(hue: 0.9972, saturation: 0, brightness: 0.97, alpha: 1.0)
     }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
