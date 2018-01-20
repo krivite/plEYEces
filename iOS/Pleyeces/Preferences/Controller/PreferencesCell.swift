@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftyUserDefaults
 
 class PreferencesCell: UICollectionViewCell {
     
@@ -21,10 +22,13 @@ class PreferencesCell: UICollectionViewCell {
         if(isEnabled) {
             isEnabled = false
             poiBtn.backgroundColor = UIColor.lightGray
+            Defaults[.disabledCategoryIds].append((poiType?.id)!)
+            
         }
         else {
             isEnabled = true
             poiBtn.backgroundColor = poiType!.color
+            Defaults[.disabledCategoryIds].remove(at: Defaults[.disabledCategoryIds].index(of: (poiType?.id)!)!)
         }
     }
     
