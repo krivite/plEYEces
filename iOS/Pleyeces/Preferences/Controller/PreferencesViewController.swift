@@ -17,6 +17,9 @@ class PreferencesViewController: UIViewController, UICollectionViewDelegate,UICo
     @IBOutlet weak var radiusText: UITextField!
     @IBOutlet weak var radiusSlider: UISlider!
     var types: Array<PoiType> = []
+    @IBAction func dismissButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return types.count
@@ -26,6 +29,7 @@ class PreferencesViewController: UIViewController, UICollectionViewDelegate,UICo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "preferencesCell", for: indexPath) as! PreferencesCell
         cell.poiType = types[indexPath.item]
         cell.poiNameLbl.text = types[indexPath.item].name
+
         if Defaults[.disabledCategoryIds].contains(types[indexPath.item].id){
             cell.setEnabled(isEnabled: false)
         }
@@ -34,6 +38,9 @@ class PreferencesViewController: UIViewController, UICollectionViewDelegate,UICo
         }
         
         cell.poiBtn.layer.cornerRadius = 0.5 * cell.poiBtn.bounds.size.width
+     
+        cell.poiBtn.layer.cornerRadius = 0.5 * cell.poiBtn.frame.size.width
+
         cell.poiBtn.clipsToBounds = true
         
         let imageUrl = URL(string: "\(types[indexPath.item].image)")
@@ -52,7 +59,7 @@ class PreferencesViewController: UIViewController, UICollectionViewDelegate,UICo
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width/3-9, height: collectionView.frame.size.width/3-9)
+        return CGSize(width: collectionView.frame.size.width/3-9, height: collectionView.frame.size.width/3+20)
     }
     
     
