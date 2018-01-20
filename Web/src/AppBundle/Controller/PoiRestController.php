@@ -150,4 +150,37 @@ class PoiRestController extends FOSRestController
         }
         return $result;
     }
+
+    /**
+     * @Rest\Get("/api/poisByType")
+     * @SWG\Response(
+     *     response=200,
+     *     description="Returns pois with certain type from database",
+     * )
+     * *
+     * @SWG\Parameter(
+     *     name="type",
+     *     in="query",
+     *     type="integer",
+     *     description="ID of poi type whose pois you want to see"
+     * )
+     * @SWG\Tag(name="poisByType")
+     */
+    public function getByType(Request $request)
+    {
+        $type = $request->query->get('type');
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQueryBuilder()
+            ->select('p')
+            ->from('AppBundle:Poi','p')
+            ->where('p.type = :type')
+            ->setParameter(":type", $type)
+            ->getQuery();
+
+        $result  =$query->getResult();
+        if ($result === null || count($result) === 0) {
+            return new View("No POIs found!", Response::HTTP_NOT_FOUND);
+        }
+        return $result;
+    }
 }
