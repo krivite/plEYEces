@@ -8,6 +8,8 @@
 
 import Foundation
 import Alamofire
+import SwiftyUserDefaults
+
 
 class POIFetcher {
     
@@ -41,7 +43,7 @@ class POIFetcher {
         guard resp.result.value != nil else {
             return []
         }
-        
+        var deactivatedCategory:Bool = false
         let responseJson = resp.result.value as! NSArray
         for poi in responseJson {
             let unpackedPoi = poi as! NSDictionary
@@ -57,7 +59,17 @@ class POIFetcher {
             let type = unpackedPoi.value(forKey: "type") as! NSDictionary;
             model.type = PoiTypeFetcher.mapToModel(data: type)
             model.offers = OfferMapper.mapToModelArray(data: unpackedPoi.value(forKey: "offers") as! NSArray)
-            poiList.append(model)
+            for id in Defaults[.disabledCategoryIds]
+            {
+                print (Defaults[.disabledCategoryIds])
+                if (id==model.type!.id){
+                    deactivatedCategory=true
+                }
+            }
+            if (deactivatedCategory==false){
+                poiList.append(model)
+            }
+            deactivatedCategory = false
         }
         
         return poiList

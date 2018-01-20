@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftyUserDefaults
 
 class PreferencesViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
@@ -49,7 +50,8 @@ class PreferencesViewController: UIViewController, UICollectionViewDelegate,UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        radiusSlider.setValue(Float(Defaults[.radius]), animated: true)
+        //Defaults[.disabledCategoryIds].append(1)
         PoiTypeFetcher.fetchAll { (poiTypes) in
             self.types = poiTypes
             self.collectionView.reloadData()
@@ -67,8 +69,9 @@ class PreferencesViewController: UIViewController, UICollectionViewDelegate,UICo
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
-        let value = Int(radiusSlider.value)
-        radiusText.text = "\(value) meters"
+        
+        Defaults[.radius] = Int(radiusSlider.value)
+        radiusText.text = "\(Defaults[.radius]) meters"
     }
 
 }

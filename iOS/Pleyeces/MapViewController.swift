@@ -25,8 +25,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
         Map.setRegion(region, animated: true)
 
-        print(location.altitude)
-        print(location.speed)
+      
 
         self.Map.showsUserLocation = true
     }

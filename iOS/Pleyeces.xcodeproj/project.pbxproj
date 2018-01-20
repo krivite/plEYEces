@@ -32,6 +32,7 @@
 		D7ECB64C1F9A06F0009FDD71 /* DistantPOIBubbleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7ECB64B1F9A06F0009FDD71 /* DistantPOIBubbleView.xib */; };
 		E4334A8520110F1900C059FD /* ExplorePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4334A8420110F1900C059FD /* ExplorePageController.swift */; };
 		E4334A892011140800C059FD /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4334A882011140800C059FD /* CategoryCell.swift */; };
+		E4F7D33420138C66005C3ECF /* StorageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7D33320138C66005C3ECF /* StorageController.swift */; };
 		FFFF1B21D04EB634E08A0EBB /* Pods_Pleyeces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A151DE6E781E4EE9804C3C1F /* Pods_Pleyeces.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		D7ECB64B1F9A06F0009FDD71 /* DistantPOIBubbleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistantPOIBubbleView.xib; sourceTree = "<group>"; };
 		E4334A8420110F1900C059FD /* ExplorePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePageController.swift; sourceTree = "<group>"; };
 		E4334A882011140800C059FD /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		E4F7D33320138C66005C3ECF /* StorageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		48A9441A1F98A86D00FD5B2E /* Pleyeces */ = {
 			isa = PBXGroup;
 			children = (
+				E4F7D33220138C40005C3ECF /* Storage */,
 				48B738A42012635600FE1DEE /* Preferences */,
 				E4334A86201113D300C059FD /* Explore */,
 				D7ECB63F1F991809009FDD71 /* Common */,
@@ -236,6 +239,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		E4F7D33220138C40005C3ECF /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				E4F7D33320138C66005C3ECF /* StorageController.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -319,12 +330,14 @@
 				"${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARCL.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -376,6 +389,7 @@
 				BDF994A320129245001754C7 /* LocationService.swift in Sources */,
 				D700F19F2011FB9D00CB0BE8 /* OfferMapper.swift in Sources */,
 				D7ECB64A1F9A06DB009FDD71 /* DistantPOIBubbleView.swift in Sources */,
+				E4F7D33420138C66005C3ECF /* StorageController.swift in Sources */,
 				D700F19C2011FA6400CB0BE8 /* Offer.swift in Sources */,
 				48A9441E1F98A86D00FD5B2E /* ARViewController.swift in Sources */,
 				D795606420110417007B75AA /* PoiType.swift in Sources */,
@@ -531,10 +545,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2D896836D;
+				DEVELOPMENT_TEAM = 458MH9WMKG;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pleyeces;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pleyeces-sola";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -550,10 +564,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2D896836D;
+				DEVELOPMENT_TEAM = 458MH9WMKG;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pleyeces;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pleyeces-sola";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

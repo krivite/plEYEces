@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oIF-jB-ySB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dub-f5-3Pc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -201,7 +201,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="dYR-hw-kb5">
             <objects>
-                <viewController id="oIF-jB-ySB" customClass="WelcomeViewController" customModule="Pleyeces" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oIF-jB-ySB" customClass="WelcomeViewController" customModule="Pleyeces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xdI-mq-ZIw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -347,9 +347,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7c-B7-6hn">
-                                <rect key="frame" x="312" y="27" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7c-B7-6hn">
+                                <rect key="frame" x="322" y="28" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="doneButtonTapped:" destination="fhW-P7-Rbb" eventType="touchUpInside" id="6Le-Xd-FUF"/>
@@ -429,6 +428,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="M7c-B7-6hn" firstAttribute="top" secondItem="cn8-pq-4sU" secondAttribute="top" constant="8" id="lC3-db-Nix"/>
+                            <constraint firstItem="cn8-pq-4sU" firstAttribute="trailing" secondItem="M7c-B7-6hn" secondAttribute="trailing" constant="16" id="oQY-Xu-Mnw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cn8-pq-4sU"/>
                     </view>
                     <connections>

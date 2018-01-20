@@ -2,17 +2,20 @@ PODS:
   - Alamofire (4.5.1)
   - ARCL (1.0.1)
   - SwiftyJSON (3.1.4)
+  - SwiftyUserDefaults (3.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - ARCL
   - SwiftyJSON
+  - SwiftyUserDefaults
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   ARCL: 193b108d6fd5277ce742be3af92ccf81bbdd2f3b
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
-PODFILE CHECKSUM: eb683df1985f5d2373fb2951fa3b9fbfafe11726
+PODFILE CHECKSUM: 284f2b2982dfc06bb007e365f2b2dc2001478572
 
 COCOAPODS: 1.4.0.beta.2
