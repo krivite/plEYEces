@@ -24,8 +24,9 @@ class PreferencesViewController: UIViewController, UICollectionViewDelegate,UICo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "preferencesCell", for: indexPath) as! PreferencesCell
+        cell.poiType = types[indexPath.item]
         cell.poiNameLbl.text = types[indexPath.item].name
-        cell.poiBtn.backgroundColor = types[indexPath.item].color
+        cell.poiBtn.backgroundColor = self.types[indexPath.item].color
         cell.poiBtn.layer.cornerRadius = 0.5 * cell.poiBtn.bounds.size.width
         cell.poiBtn.clipsToBounds = true
         
@@ -37,9 +38,10 @@ class PreferencesViewController: UIViewController, UICollectionViewDelegate,UICo
         }
         
         cell.poiBtn.imageEdgeInsets = UIEdgeInsetsMake(15,15,15,15)
-        
+
         return cell
     }
+
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -50,8 +52,10 @@ class PreferencesViewController: UIViewController, UICollectionViewDelegate,UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         radiusSlider.setValue(Float(Defaults[.radius]), animated: true)
         //Defaults[.disabledCategoryIds].append(1)
+
         PoiTypeFetcher.fetchAll { (poiTypes) in
             self.types = poiTypes
             self.collectionView.reloadData()
