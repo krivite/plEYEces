@@ -54,7 +54,6 @@ class PreferencesViewController: UIViewController, UICollectionViewDelegate,UICo
         super.viewDidLoad()
         
         radiusSlider.setValue(Float(Defaults[.radius]), animated: true)
-        //Defaults[.disabledCategoryIds].append(1)
 
         PoiTypeFetcher.fetchAll { (poiTypes) in
             self.types = poiTypes
