@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		485B89CE2014A7E800DAE6C1 /* BottomMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B89CD2014A7E800DAE6C1 /* BottomMapViewController.swift */; };
+		485B89D22014AD0500DAE6C1 /* BottomMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 485B89D12014AD0500DAE6C1 /* BottomMapViewController.xib */; };
 		487BA9FD2010FF7500C549C8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */; };
 		487BA9FF2011051000C549C8 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487BA9FE2011051000C549C8 /* PreferencesViewController.swift */; };
 		48825D4D20111BB000753E0D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48825D4C20111BB000753E0D /* MapViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		485B89CD2014A7E800DAE6C1 /* BottomMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMapViewController.swift; sourceTree = "<group>"; };
+		485B89D12014AD0500DAE6C1 /* BottomMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomMapViewController.xib; sourceTree = "<group>"; };
 		487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		487BA9FE2011051000C549C8 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		48825D4C20111BB000753E0D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 				487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */,
 				48825D4C20111BB000753E0D /* MapViewController.swift */,
 				48B7389F20121AE100FE1DEE /* RootPageViewController.swift */,
+				485B89CD2014A7E800DAE6C1 /* BottomMapViewController.swift */,
+				485B89D12014AD0500DAE6C1 /* BottomMapViewController.xib */,
 			);
 			path = Pleyeces;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				485B89D22014AD0500DAE6C1 /* BottomMapViewController.xib in Resources */,
 				48A944261F98A86D00FD5B2E /* LaunchScreen.storyboard in Resources */,
 				48A944231F98A86D00FD5B2E /* Assets.xcassets in Resources */,
 				D7ECB63C1F991691009FDD71 /* POIBubbleView.xib in Resources */,
@@ -384,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				485B89CE2014A7E800DAE6C1 /* BottomMapViewController.swift in Sources */,
 				48B738A72012639700FE1DEE /* PreferencesCell.swift in Sources */,
 				487BA9FD2010FF7500C549C8 /* WelcomeViewController.swift in Sources */,
 				BDF994A320129245001754C7 /* LocationService.swift in Sources */,
