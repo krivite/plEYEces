@@ -29,8 +29,10 @@ class RootPageViewController: UIPageViewController, UIPageViewControllerDataSour
     lazy var viewControllerList:[UIViewController] = {
         let sb = UIStoryboard(name:"Main", bundle: nil)
         
-        let vc1 = sb.instantiateViewController(withIdentifier: "Map")
-        let vc2 = sb.instantiateViewController(withIdentifier: "AR")
+        let vc1 = sb.instantiateViewController(withIdentifier: "Map") as! UIViewController & POIDisplayView
+        vc1.loadNearbyPOIs()
+        let vc2 = sb.instantiateViewController(withIdentifier: "AR") as! UIViewController & POIDisplayView
+        vc2.loadNearbyPOIs()
         let vc3 = sb.instantiateViewController(withIdentifier: "Explore")
         
         return [vc1, vc2, vc3]

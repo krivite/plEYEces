@@ -11,7 +11,9 @@ import MapKit
 import CoreLocation
 import SwiftyUserDefaults
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, POIDisplayView {
+    
+    var displayPois: Array<PointOfInterest> = []
 
     @IBOutlet weak var Map: MKMapView!
     
@@ -19,7 +21,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     let manager = CLLocationManager()
     var points: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
-    var nearbyPois: Array<PointOfInterest> = []
     
     var isZoomed = false
     
@@ -47,20 +48,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-        
+    }
+    
+    func loadNearbyPOIs() {
         POIFetcher.fetchByGeolocation(
             lat: (manager.location?.coordinate.latitude)!,
             lng: (manager.location?.coordinate.longitude)!,
             radius: Float(Defaults[DefaultsKeys.radius])
         ) { (nearbyPois) in
-            self.nearbyPois = nearbyPois
-            for poi in nearbyPois {
-                let annotation = POIMapAnnotation()
-                annotation.coordinate = CLLocationCoordinate2D(latitude: poi.lat, longitude: poi.lng)
-                annotation.title = poi.name
-                annotation.poi = poi
-                self.Map.addAnnotation(annotation)
-            }
+            self.displayPois = nearbyPois
+            self.displayPOIs()
+        }
+    }
+    
+    func displayPOIs() {
+        for poi in self.displayPois {
+            let annotation = POIMapAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: poi.lat, longitude: poi.lng)
+            annotation.title = poi.name
+            annotation.poi = poi
+            self.Map.addAnnotation(annotation)
         }
     }
     

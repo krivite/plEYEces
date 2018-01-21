@@ -12,7 +12,7 @@ import SwiftyJSON
 class POIDetailViewController: UIViewController {
 
     var dict = NSDictionary()
-    
+
     @IBOutlet weak var poiName: UILabel!
     @IBOutlet weak var poiImage: UIImageView!
     @IBOutlet weak var poiAddress: UILabel!
@@ -20,23 +20,30 @@ class POIDetailViewController: UIViewController {
     @IBOutlet weak var poiInfo: UITextView!
     @IBOutlet weak var poiOfferInfo: UITextView!
     @IBOutlet weak var doneButton: UIButton!
-    
+
     var poi: PointOfInterest?
     var hideButton = false;
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.poiName.text = poi?.name
-        self.poiAddress.text = poi?.address
-        self.poiHours.text = poi?.workingHours
-        doneButton.isHidden = hideButton
-        
-    }
-    
+
     func setPoi(poi: PointOfInterest) {
         self.poi = poi
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.poiName.text = poi?.name
+        self.poiAddress.text = poi?.address
+        self.poiHours.text = "Working hours: " + (poi?.workingHours)!
+        self.poiInfo.text = poi?.description
+
+        let url = URL(string: "\(poi!.image ?? "")")
+        let data = try? Data(contentsOf: url!)
+        if(data != nil) {
+        self.poiImage.image = UIImage(data: data!)
+        }
+
+        doneButton.isHidden = hideButton
+
     }
 
     override func didReceiveMemoryWarning() {
