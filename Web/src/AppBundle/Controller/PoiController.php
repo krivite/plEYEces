@@ -50,6 +50,13 @@ class PoiController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $user = $this->container->get('security.token_storage')->getToken()->getUser();
+
+            $poi->setUserId($user);
+
+            $sql="select count(p) from AppBundle:Poi as p";
+            $poiId= $em->createQuery($sql)->getResult();
+            $poi->setId("id".(string)$poiId[0][1]);
             $em->persist($poi);
             $em->flush();
 

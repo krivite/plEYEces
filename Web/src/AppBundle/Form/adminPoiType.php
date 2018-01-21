@@ -13,7 +13,7 @@ class adminPoiType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('address')->add('latitude')->add('longitude')->add('details')->add('image')->add('workingHours')->add('type');
+        $builder->add('name')->add('address')->add('latitude')->add('longitude')->add('details')->add('image')->add('workingHours')->add('type')->add('userId');
     }
     
     /**
