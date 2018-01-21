@@ -87,10 +87,6 @@ class PoiRestController extends FOSRestController
         $latitude = $request->query->get('latitude');
         $radius = $request->query->get('radius');
 
-        //calculate radians
-        $radianLongitude = ($longitude * pi()) / 180;
-        $radianLatitude = ($latitude * pi()) / 180;
-
         $result = new Response(
             json_encode($this->get('app.service.google_places_fetcher_service')->getByGeolocation($latitude, $longitude, $radius)),
             Response::HTTP_OK,
