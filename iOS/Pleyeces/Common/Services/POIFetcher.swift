@@ -69,7 +69,6 @@ class POIFetcher {
             model.offers = OfferMapper.mapToModelArray(data: unpackedPoi.value(forKey: "offers") as! NSArray)
             for id in Defaults[.disabledCategoryIds]
             {
-                print (id)
                 if (id==model.type!.id){
                     deactivatedCategory=true
                 }

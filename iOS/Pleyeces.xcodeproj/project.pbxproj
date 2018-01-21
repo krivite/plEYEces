@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		485B89CE2014A7E800DAE6C1 /* BottomMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B89CD2014A7E800DAE6C1 /* BottomMapViewController.swift */; };
 		485B89D22014AD0500DAE6C1 /* BottomMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 485B89D12014AD0500DAE6C1 /* BottomMapViewController.xib */; };
+		485B89D42014D91500DAE6C1 /* POIMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B89D32014D91500DAE6C1 /* POIMapAnnotation.swift */; };
 		487BA9FD2010FF7500C549C8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */; };
 		487BA9FF2011051000C549C8 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487BA9FE2011051000C549C8 /* PreferencesViewController.swift */; };
 		48825D4D20111BB000753E0D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48825D4C20111BB000753E0D /* MapViewController.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		485B89CD2014A7E800DAE6C1 /* BottomMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMapViewController.swift; sourceTree = "<group>"; };
 		485B89D12014AD0500DAE6C1 /* BottomMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomMapViewController.xib; sourceTree = "<group>"; };
+		485B89D32014D91500DAE6C1 /* POIMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIMapAnnotation.swift; sourceTree = "<group>"; };
 		487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		487BA9FE2011051000C549C8 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		48825D4C20111BB000753E0D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		485B89D52014DFE200DAE6C1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				485B89D82014E05A00DAE6C1 /* Annotations */,
+				485B89D72014E04300DAE6C1 /* Views */,
+				485B89D62014DFFF00DAE6C1 /* Controllers */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		485B89D62014DFFF00DAE6C1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				485B89CD2014A7E800DAE6C1 /* BottomMapViewController.swift */,
+				48825D4C20111BB000753E0D /* MapViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		485B89D72014E04300DAE6C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				485B89D12014AD0500DAE6C1 /* BottomMapViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		485B89D82014E05A00DAE6C1 /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				485B89D32014D91500DAE6C1 /* POIMapAnnotation.swift */,
+			);
+			path = Annotations;
+			sourceTree = "<group>";
+		};
 		48A9440F1F98A86D00FD5B2E = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +148,7 @@
 		48A9441A1F98A86D00FD5B2E /* Pleyeces */ = {
 			isa = PBXGroup;
 			children = (
+				485B89D52014DFE200DAE6C1 /* Map */,
 				E4F7D33220138C40005C3ECF /* Storage */,
 				48B738A42012635600FE1DEE /* Preferences */,
 				E4334A86201113D300C059FD /* Explore */,
@@ -125,10 +163,7 @@
 				48A944271F98A86D00FD5B2E /* Info.plist */,
 				4898C0EB1FAA5D9B00D4B081 /* POIDetailViewController.swift */,
 				487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */,
-				48825D4C20111BB000753E0D /* MapViewController.swift */,
 				48B7389F20121AE100FE1DEE /* RootPageViewController.swift */,
-				485B89CD2014A7E800DAE6C1 /* BottomMapViewController.swift */,
-				485B89D12014AD0500DAE6C1 /* BottomMapViewController.xib */,
 			);
 			path = Pleyeces;
 			sourceTree = "<group>";
@@ -400,6 +435,7 @@
 				485B89CE2014A7E800DAE6C1 /* BottomMapViewController.swift in Sources */,
 				48B738A72012639700FE1DEE /* PreferencesCell.swift in Sources */,
 				487BA9FD2010FF7500C549C8 /* WelcomeViewController.swift in Sources */,
+				485B89D42014D91500DAE6C1 /* POIMapAnnotation.swift in Sources */,
 				BD27BF852013E36E00115503 /* PoiTableViewController.swift in Sources */,
 				BDF994A320129245001754C7 /* LocationService.swift in Sources */,
 				D700F19F2011FB9D00CB0BE8 /* OfferMapper.swift in Sources */,
@@ -561,10 +597,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 458MH9WMKG;
+				DEVELOPMENT_TEAM = B2D896836D;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pleyeces-sola";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pleyeces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -580,10 +616,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 458MH9WMKG;
+				DEVELOPMENT_TEAM = B2D896836D;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pleyeces-sola";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pleyeces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
