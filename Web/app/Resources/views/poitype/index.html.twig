@@ -1,39 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Poitypes list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
+    <div class="home_title">
+        <p>PoiTypes List</p>
+    </div>
+
+    <table class="manage-poi-list">
+
         <tbody>
         {% for poiType in poiTypes %}
             <tr>
-                <td><a href="{{ path('admin_poitype_show', { 'id': poiType.id }) }}">{{ poiType.id }}</a></td>
-                <td>{{ poiType.name }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('admin_poitype_show', { 'id': poiType.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_poitype_edit', { 'id': poiType.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
+                <td><a href="{{ path('admin_poitype_edit', { 'id': poiType.id }) }}">{{ poiType.name }}</a></td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
+    <ul class="manage-poi-list" style="list-style: none; padding: 0;">
         <li>
             <a href="{{ path('admin_poitype_new') }}">Create a new poiType</a>
         </li>
     </ul>
+
 {% endblock %}

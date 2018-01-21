@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="home_title">
+        <p>Admin Panel</p>
+    </div>
+
+    <table class="manage-poi-list">
+
+        <tbody>
+
+            <tr>
+                <td><a href="/admin/user">Users</td>
+            </tr>
+            <tr>
+                <td><a href="/admin/poi">Pois</td>
+            </tr>
+            <tr>
+                <td><a href="/admin/poitype">Poi Types</td>
+            </tr>
+            <tr>
+                <td><a href="/admin/offer">Offers</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

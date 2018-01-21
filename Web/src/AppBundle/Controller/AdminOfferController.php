@@ -8,37 +8,26 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Offer controller.
+ * adminOffer controller.
  *
- * @Route("/offer")
+ * @Route("/admin/offer")
  */
-class OfferController extends Controller
+class AdminOfferController extends Controller
 {
     /**
      * Lists all offer entities.
      *
-     * @Route("/", name="offer_index")
+     * @Route("/", name="admin_offer_index")
      * @Method("GET")
      */
     public function indexAction()
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $offers = $em->getRepository('AppBundle:Offer')->findAll();
 
 
-        $user = $this->container->get('security.token_storage')->getToken()->getUser();
-        $userId = $user->getId();
-
-
-        $em=$this->getDoctrine()->getManager();
-        $query=$em->createQueryBuilder()
-            ->select('o')
-            ->from('AppBundle:Offer','o')
-            ->innerJoin('o.poi','a')
-            ->where("a.userId='{$userId}'");
-
-        $offers=$query->getQuery()->getResult();
-
-
-        return $this->render('offer/index.html.twig', array(
+        return $this->render('adminOffer/index.html.twig', array(
             'offers' => $offers,
         ));
     }
@@ -46,7 +35,7 @@ class OfferController extends Controller
     /**
      * Creates a new offer entity.
      *
-     * @Route("/new", name="offer_new")
+     * @Route("/new", name="admin_offer_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -60,10 +49,10 @@ class OfferController extends Controller
             $em->persist($offer);
             $em->flush();
 
-            return $this->redirectToRoute('offer_show', array('id' => $offer->getId()));
+            return $this->redirectToRoute('admin_offer_show', array('id' => $offer->getId()));
         }
 
-        return $this->render('offer/new.html.twig', array(
+        return $this->render('adminOffer/new.html.twig', array(
             'offer' => $offer,
             'form' => $form->createView(),
         ));
@@ -72,14 +61,14 @@ class OfferController extends Controller
     /**
      * Finds and displays a offer entity.
      *
-     * @Route("/{id}", name="offer_show")
+     * @Route("/{id}", name="admin_offer_show")
      * @Method("GET")
      */
     public function showAction(Offer $offer)
     {
         $deleteForm = $this->createDeleteForm($offer);
 
-        return $this->render('offer/show.html.twig', array(
+        return $this->render('adminOffer/show.html.twig', array(
             'offer' => $offer,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -88,7 +77,7 @@ class OfferController extends Controller
     /**
      * Displays a form to edit an existing offer entity.
      *
-     * @Route("/{id}/edit", name="offer_edit")
+     * @Route("/{id}/edit", name="admin_offer_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Offer $offer)
@@ -100,10 +89,10 @@ class OfferController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('offer_edit', array('id' => $offer->getId()));
+            return $this->redirectToRoute('admin_offer_edit', array('id' => $offer->getId()));
         }
 
-        return $this->render('offer/edit.html.twig', array(
+        return $this->render('adminOffer/edit.html.twig', array(
             'offer' => $offer,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -113,7 +102,7 @@ class OfferController extends Controller
     /**
      * Deletes a offer entity.
      *
-     * @Route("/{id}", name="offer_delete")
+     * @Route("/{id}", name="admin_offer_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Offer $offer)
@@ -127,7 +116,7 @@ class OfferController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('offer_index');
+        return $this->redirectToRoute('admin_offer_index');
     }
 
     /**

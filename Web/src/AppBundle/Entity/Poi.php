@@ -62,6 +62,13 @@ class Poi implements JsonSerializable
     private $type;
 
     /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="pois")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+
+     */
+    private $userId;
+
+    /**
      * @ORM\OneToMany(targetEntity="Offer", mappedBy="poi")
      */
     private $offers;
@@ -253,5 +260,21 @@ class Poi implements JsonSerializable
     public function __toString()
     {
         return $this->getName();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param mixed $userId
+     */
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
     }
 }

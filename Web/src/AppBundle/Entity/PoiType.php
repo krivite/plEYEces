@@ -69,6 +69,11 @@ class PoiType implements JsonSerializable
         $this->pois = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
 
     /**
      * Get id

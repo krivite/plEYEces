@@ -6,14 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PoiTypeType extends AbstractType
+class adminPoiType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('placesId')->add('color')->add('icon');
+        $builder->add('name')->add('address')->add('latitude')->add('longitude')->add('details')->add('image')->add('workingHours')->add('type');
     }
     
     /**
@@ -22,7 +22,7 @@ class PoiTypeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\PoiType'
+            'data_class' => 'AppBundle\Entity\Poi'
         ));
     }
 
@@ -31,7 +31,7 @@ class PoiTypeType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_poitype';
+        return 'appbundle_poi';
     }
 
 

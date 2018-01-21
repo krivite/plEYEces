@@ -4,12 +4,10 @@
     <div class="home_title">
         <p>Offers</p>
     </div>
-    <div class="home_title">
-        <p><a href="/poi">Manage</a></p>
-    </div>
+
     <ul class="manage-poi-list" style="list-style: none; padding: 0; float: inherit;">
         <li>
-            <a href="{{ path('offer_new') }}">Create a new offer</a>
+            <a href="{{ path('admin_offer_new') }}">Create a new offer</a>
         </li>
     </ul>
 
@@ -26,7 +24,7 @@
         <tbody>
         {% for offer in offers %}
             <tr>
-                <td><a style="font-size: 25px; font-weight: lighter;" href="{{ path('offer_edit', { 'id': offer.id }) }}">Edit this offer</a></td>
+                <td><a style="font-size: 25px; font-weight: lighter;" href="{{ path('admin_offer_edit', { 'id': offer.id }) }}">Edit this offer</a></td>
                 <td style="font-size: 13px; font-weight: lighter">{{ offer.description }}</td>
                 <td style="font-size: 13px; font-weight: bold">Starting: {% if offer.startDate %}{{ offer.startDate|date('Y-m-d') }}{% endif %}</td>
                 <td style="font-size: 13px; font-weight: bold">Ending: {% if offer.endDate %}{{ offer.endDate|date('Y-m-d') }}{% endif %}</td>

@@ -1,9 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="home_title">
-        <p><a href="/offer">Offers</a></p>
-    </div>
+
 
 
     <div class="home_title">
@@ -15,7 +13,7 @@
         <tbody>
         {% for poi in pois %}
             <tr>
-                <td><a href="{{ path('admin_poi_edit', { 'id': poi.id }) }}">{{ poi.name }}</a></td>
+                <td><a href="{{ path('admin_admin_poi_edit', { 'id': poi.id }) }}">{{ poi.name }}</a></td>
             </tr>
         {% endfor %}
         </tbody>
@@ -23,7 +21,7 @@
 
     <ul class="manage-poi-list" style="list-style: none; padding: 0;">
         <li>
-            <a href="{{ path('admin_poi_new') }}">Create a new POI</a>
+            <a href="{{ path('admin_admin_poi_new') }}">Create a new POI</a>
         </li>
     </ul>
 {% endblock %}

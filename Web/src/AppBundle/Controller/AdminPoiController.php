@@ -8,30 +8,27 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Poi controller.
+ * adminPoi controller.
  *
- * @Route("/poi")
+ * @Route("admin/poi")
  */
-class PoiController extends Controller
+class AdminPoiController extends Controller
 {
 
     private $poiJSONResponse;
     /**
      * Lists all poi entities.
      *
-     * @Route("/", name="admin_poi_index")
+     * @Route("/", name="admin_admin_poi_index")
      * @Method("GET")
      */
     public function indexAction()
     {
 
-        $user = $this->container->get('security.token_storage')->getToken()->getUser();
-        $userId = $user->getId();
-        $em = $this->getDoctrine()->getEntityManager();
-        $sql="select p from AppBundle:Poi as p where p.userId='{$userId}'";
-        $pois= $em->createQuery($sql)->getResult();
+        $em = $this->getDoctrine()->getManager();
 
-        return $this->render('poi/index.html.twig', array(
+        $pois = $em->getRepository('AppBundle:Poi')->findAll();
+        return $this->render('adminPoi/index.html.twig', array(
             'pois' => $pois,
         ));
     }
@@ -39,13 +36,13 @@ class PoiController extends Controller
     /**
      * Creates a new poi entity.
      *
-     * @Route("/new", name="admin_poi_new")
+     * @Route("/new", name="admin_admin_poi_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
         $poi = new Poi();
-        $form = $this->createForm('AppBundle\Form\PoiType', $poi);
+        $form = $this->createForm('AppBundle\Form\adminPoiType', $poi);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -56,7 +53,7 @@ class PoiController extends Controller
             return $this->redirectToRoute('admin_poi_show', array('id' => $poi->getId()));
         }
 
-        return $this->render('poi/new.html.twig', array(
+        return $this->render('adminPoi/new.html.twig', array(
             'poi' => $poi,
             'form' => $form->createView(),
         ));
@@ -65,14 +62,14 @@ class PoiController extends Controller
     /**
      * Finds and displays a poi entity.
      *
-     * @Route("/{id}", name="admin_poi_show")
+     * @Route("/{id}", name="admin_admin_poi_show")
      * @Method("GET")
      */
     public function showAction(Poi $poi)
     {
         $deleteForm = $this->createDeleteForm($poi);
 
-        return $this->render('poi/show.html.twig', array(
+        return $this->render('adminPoi/show.html.twig', array(
             'poi' => $poi,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -81,22 +78,22 @@ class PoiController extends Controller
     /**
      * Displays a form to edit an existing poi entity.
      *
-     * @Route("/{id}/edit", name="admin_poi_edit")
+     * @Route("/{id}/edit", name="admin_admin_poi_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Poi $poi)
     {
         $deleteForm = $this->createDeleteForm($poi);
-        $editForm = $this->createForm('AppBundle\Form\PoiType', $poi);
+        $editForm = $this->createForm('AppBundle\Form\adminPoiType', $poi);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_poi_edit', array('id' => $poi->getId()));
+            return $this->redirectToRoute('admin_admin_poi_edit', array('id' => $poi->getId()));
         }
 
-        return $this->render('poi/edit.html.twig', array(
+        return $this->render('adminPoi/edit.html.twig', array(
             'poi' => $poi,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -106,7 +103,7 @@ class PoiController extends Controller
     /**
      * Deletes a poi entity.
      *
-     * @Route("/{id}", name="admin_poi_delete")
+     * @Route("/{id}", name="admin_admin_poi_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Poi $poi)

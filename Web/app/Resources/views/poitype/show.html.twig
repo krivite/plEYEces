@@ -1,9 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Poitype</h1>
 
-    <table>
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+
+        <div class="home_title">
+            <p>POI Type</p>
+        </div>
+
+        <div id="profile_container">
+
+    <table class="cruds">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -12,6 +20,18 @@
             <tr>
                 <th>Name</th>
                 <td>{{ poiType.name }}</td>
+            </tr>
+            <tr>
+                <th>Placesid</th>
+                <td>{{ poiType.placesId }}</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>{{ poiType.color }}</td>
+            </tr>
+            <tr>
+                <th>Icon</th>
+                <td>{{ poiType.icon }}</td>
             </tr>
         </tbody>
     </table>
@@ -29,4 +49,7 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+        </div>
+    </div>
+</div>
 {% endblock %}

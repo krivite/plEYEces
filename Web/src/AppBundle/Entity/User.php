@@ -101,6 +101,11 @@ class User implements UserInterface, GroupableInterface
     protected $roles;
 
     /**
+     * @ORM\OneToMany(targetEntity="Poi", mappedBy="type")
+     */
+    private $pois;
+
+    /**
      * User constructor.
      */
     public function __construct()
@@ -554,6 +559,24 @@ class User implements UserInterface, GroupableInterface
     public function __toString()
     {
         return (string) $this->getUsername();
+    }
+
+    /**
+     * @param mixed $pois
+     * @return User
+     */
+    public function setPois($pois)
+    {
+        $this->pois = $pois;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPois()
+    {
+        return $this->pois;
     }
 
 }

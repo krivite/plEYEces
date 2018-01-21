@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="home_title">
+        <p>Edit offer</p>
+    </div>
+
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form) }}
+    <input class="edit_offer" type="submit" value="Save changes" />
+    {{ form_end(edit_form) }}
+
+    {{ form_start(delete_form) }}
+    <input class="edit_offer" type="submit" value="Delete">
+    {{ form_end(delete_form) }}
+
+    {#<ul>#}
+    {#<li>#}
+    {#<a href="{{ path('offer_index') }}">Back to the list</a>#}
+    {#</li>#}
+    {#<li class="edit_offer">#}
+    {#{{ form_start(delete_form) }}#}
+    {#<input class="edit_offer" type="submit" value="Delete">#}
+    {#{{ form_end(delete_form) }}#}
+    {#</li>#}
+    {#</ul>#}
+{% endblock %}

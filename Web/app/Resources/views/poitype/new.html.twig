@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Poitype creation</h1>
+
+        <div class="home_title">
+            <p>POI Type creation</p>
+        </div>
+
+
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input class="edit_poi" type="submit" value="Create" />
     {{ form_end(form) }}
 
     <ul>
@@ -13,4 +18,5 @@
             <a href="{{ path('admin_poitype_index') }}">Back to the list</a>
         </li>
     </ul>
+
 {% endblock %}
