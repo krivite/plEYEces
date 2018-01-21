@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		485B89CE2014A7E800DAE6C1 /* BottomMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B89CD2014A7E800DAE6C1 /* BottomMapViewController.swift */; };
+		485B89D22014AD0500DAE6C1 /* BottomMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 485B89D12014AD0500DAE6C1 /* BottomMapViewController.xib */; };
+		485B89D42014D91500DAE6C1 /* POIMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B89D32014D91500DAE6C1 /* POIMapAnnotation.swift */; };
 		487BA9FD2010FF7500C549C8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */; };
 		487BA9FF2011051000C549C8 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487BA9FE2011051000C549C8 /* PreferencesViewController.swift */; };
 		48825D4D20111BB000753E0D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48825D4C20111BB000753E0D /* MapViewController.swift */; };
@@ -17,6 +20,10 @@
 		48A944231F98A86D00FD5B2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A944221F98A86D00FD5B2E /* Assets.xcassets */; };
 		48A944261F98A86D00FD5B2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A944241F98A86D00FD5B2E /* LaunchScreen.storyboard */; };
 		48B738A020121AE100FE1DEE /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B7389F20121AE100FE1DEE /* RootPageViewController.swift */; };
+		48B738A72012639700FE1DEE /* PreferencesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B738A62012639700FE1DEE /* PreferencesCell.swift */; };
+		BD27BF832013E0CE00115503 /* PoiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27BF822013E0CE00115503 /* PoiTableViewCell.swift */; };
+		BD27BF852013E36E00115503 /* PoiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27BF842013E36E00115503 /* PoiTableViewController.swift */; };
+		BDF994A320129245001754C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF994A220129245001754C7 /* LocationService.swift */; };
 		D700F19C2011FA6400CB0BE8 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700F19B2011FA6400CB0BE8 /* Offer.swift */; };
 		D700F19F2011FB9D00CB0BE8 /* OfferMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700F19E2011FB9D00CB0BE8 /* OfferMapper.swift */; };
 		D7188FD22014E02500CE2EED /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7188FD12014E02500CE2EED /* ColorTests.swift */; };
@@ -32,6 +39,7 @@
 		D7ECB64C1F9A06F0009FDD71 /* DistantPOIBubbleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7ECB64B1F9A06F0009FDD71 /* DistantPOIBubbleView.xib */; };
 		E4334A8520110F1900C059FD /* ExplorePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4334A8420110F1900C059FD /* ExplorePageController.swift */; };
 		E4334A892011140800C059FD /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4334A882011140800C059FD /* CategoryCell.swift */; };
+		E4F7D33420138C66005C3ECF /* StorageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7D33320138C66005C3ECF /* StorageController.swift */; };
 		FFFF1B21D04EB634E08A0EBB /* Pods_Pleyeces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A151DE6E781E4EE9804C3C1F /* Pods_Pleyeces.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		485B89CD2014A7E800DAE6C1 /* BottomMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMapViewController.swift; sourceTree = "<group>"; };
+		485B89D12014AD0500DAE6C1 /* BottomMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomMapViewController.xib; sourceTree = "<group>"; };
+		485B89D32014D91500DAE6C1 /* POIMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIMapAnnotation.swift; sourceTree = "<group>"; };
 		487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		487BA9FE2011051000C549C8 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		48825D4C20111BB000753E0D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -58,8 +69,12 @@
 		48A944251F98A86D00FD5B2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48A944271F98A86D00FD5B2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48B7389F20121AE100FE1DEE /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
+		48B738A62012639700FE1DEE /* PreferencesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesCell.swift; sourceTree = "<group>"; };
 		7FF148AC3BC566BAC99F5EFD /* Pods-Pleyeces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pleyeces.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces.release.xcconfig"; sourceTree = "<group>"; };
 		A151DE6E781E4EE9804C3C1F /* Pods_Pleyeces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pleyeces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD27BF822013E0CE00115503 /* PoiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiTableViewCell.swift; sourceTree = "<group>"; };
+		BD27BF842013E36E00115503 /* PoiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiTableViewController.swift; sourceTree = "<group>"; };
+		BDF994A220129245001754C7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		BEEAD955A833B2BBE0D233F9 /* Pods-Pleyeces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pleyeces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces.debug.xcconfig"; sourceTree = "<group>"; };
 		D700F19B2011FA6400CB0BE8 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		D700F19E2011FB9D00CB0BE8 /* OfferMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferMapper.swift; sourceTree = "<group>"; };
@@ -79,6 +94,7 @@
 		D7ECB64B1F9A06F0009FDD71 /* DistantPOIBubbleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistantPOIBubbleView.xib; sourceTree = "<group>"; };
 		E4334A8420110F1900C059FD /* ExplorePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePageController.swift; sourceTree = "<group>"; };
 		E4334A882011140800C059FD /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		E4F7D33320138C66005C3ECF /* StorageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +116,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		485B89D52014DFE200DAE6C1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				485B89D82014E05A00DAE6C1 /* Annotations */,
+				485B89D72014E04300DAE6C1 /* Views */,
+				485B89D62014DFFF00DAE6C1 /* Controllers */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		485B89D62014DFFF00DAE6C1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				485B89CD2014A7E800DAE6C1 /* BottomMapViewController.swift */,
+				48825D4C20111BB000753E0D /* MapViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		485B89D72014E04300DAE6C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				485B89D12014AD0500DAE6C1 /* BottomMapViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		485B89D82014E05A00DAE6C1 /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				485B89D32014D91500DAE6C1 /* POIMapAnnotation.swift */,
+			);
+			path = Annotations;
+			sourceTree = "<group>";
+		};
 		48A9440F1F98A86D00FD5B2E = {
 			isa = PBXGroup;
 			children = (
@@ -124,21 +175,41 @@
 			isa = PBXGroup;
 			children = (
 				D703D3C520127D570059ABB5 /* Pleyeces.entitlements */,
+				485B89D52014DFE200DAE6C1 /* Map */,
+				E4F7D33220138C40005C3ECF /* Storage */,
+				48B738A42012635600FE1DEE /* Preferences */,
 				E4334A86201113D300C059FD /* Explore */,
 				D7ECB63F1F991809009FDD71 /* Common */,
 				D7ECB6381F991634009FDD71 /* AugumentedReality */,
 				48A9441B1F98A86D00FD5B2E /* AppDelegate.swift */,
 				48A9441F1F98A86D00FD5B2E /* Main.storyboard */,
+				BD27BF822013E0CE00115503 /* PoiTableViewCell.swift */,
+				BD27BF842013E36E00115503 /* PoiTableViewController.swift */,
 				48A944221F98A86D00FD5B2E /* Assets.xcassets */,
 				48A944241F98A86D00FD5B2E /* LaunchScreen.storyboard */,
 				48A944271F98A86D00FD5B2E /* Info.plist */,
 				4898C0EB1FAA5D9B00D4B081 /* POIDetailViewController.swift */,
 				487BA9FC2010FF7500C549C8 /* WelcomeViewController.swift */,
-				487BA9FE2011051000C549C8 /* PreferencesViewController.swift */,
-				48825D4C20111BB000753E0D /* MapViewController.swift */,
 				48B7389F20121AE100FE1DEE /* RootPageViewController.swift */,
 			);
 			path = Pleyeces;
+			sourceTree = "<group>";
+		};
+		48B738A42012635600FE1DEE /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				48B738A52012636700FE1DEE /* Controller */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		48B738A52012636700FE1DEE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				487BA9FE2011051000C549C8 /* PreferencesViewController.swift */,
+				48B738A62012639700FE1DEE /* PreferencesCell.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		64778807E5553A2BBC838AFC /* Frameworks */ = {
@@ -230,6 +301,7 @@
 			children = (
 				D7ECB6471F99F404009FDD71 /* POIFetcher.swift */,
 				D795606520110649007B75AA /* PoiTypeFetcher.swift */,
+				BDF994A220129245001754C7 /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -249,6 +321,14 @@
 				E4334A882011140800C059FD /* CategoryCell.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E4F7D33220138C40005C3ECF /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				E4F7D33320138C66005C3ECF /* StorageController.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +422,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				485B89D22014AD0500DAE6C1 /* BottomMapViewController.xib in Resources */,
 				48A944261F98A86D00FD5B2E /* LaunchScreen.storyboard in Resources */,
 				48A944231F98A86D00FD5B2E /* Assets.xcassets in Resources */,
 				D7ECB63C1F991691009FDD71 /* POIBubbleView.xib in Resources */,
@@ -370,12 +451,14 @@
 				"${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARCL.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -412,7 +495,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -422,15 +505,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				485B89CE2014A7E800DAE6C1 /* BottomMapViewController.swift in Sources */,
+				48B738A72012639700FE1DEE /* PreferencesCell.swift in Sources */,
 				487BA9FD2010FF7500C549C8 /* WelcomeViewController.swift in Sources */,
+				485B89D42014D91500DAE6C1 /* POIMapAnnotation.swift in Sources */,
+				BD27BF852013E36E00115503 /* PoiTableViewController.swift in Sources */,
+				BDF994A320129245001754C7 /* LocationService.swift in Sources */,
 				D700F19F2011FB9D00CB0BE8 /* OfferMapper.swift in Sources */,
 				D7ECB64A1F9A06DB009FDD71 /* DistantPOIBubbleView.swift in Sources */,
+				E4F7D33420138C66005C3ECF /* StorageController.swift in Sources */,
 				D700F19C2011FA6400CB0BE8 /* Offer.swift in Sources */,
 				48A9441E1F98A86D00FD5B2E /* ARViewController.swift in Sources */,
 				D795606420110417007B75AA /* PoiType.swift in Sources */,
 				4898C0EC1FAA5D9B00D4B081 /* POIDetailViewController.swift in Sources */,
 				D795606620110649007B75AA /* PoiTypeFetcher.swift in Sources */,
 				D7ECB6421F99181B009FDD71 /* Color.swift in Sources */,
+				BD27BF832013E0CE00115503 /* PoiTableViewCell.swift in Sources */,
 				487BA9FF2011051000C549C8 /* PreferencesViewController.swift in Sources */,
 				D7ECB6451F991B21009FDD71 /* PointOfInterest.swift in Sources */,
 				48A9441C1F98A86D00FD5B2E /* AppDelegate.swift in Sources */,
@@ -597,7 +687,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2Z8J357DK;
+				DEVELOPMENT_TEAM = B2D896836D;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.pleyec;
@@ -616,7 +706,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2Z8J357DK;
+				DEVELOPMENT_TEAM = B2D896836D;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.pleyec;

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        LocationService.sharedInstance.startUpdatingLocation()
         // Override point for customization after application launch.
+        if (!Defaults.hasKey(.radius)) {
+            Defaults[.radius] = 1000
+        }
+        
+      
+        if (!Defaults.hasKey(.launchedBefore)) {
+            Defaults[.launchedBefore] = true
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            let nav = storyboard.instantiateViewController(withIdentifier: "WelcomeViewController")
+            
+            
+            self.window?.rootViewController = nav
+        }
         return true
     }
 

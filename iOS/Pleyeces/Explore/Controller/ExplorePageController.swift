@@ -44,7 +44,6 @@ class ExplorePageController: UIViewController, UICollectionViewDelegate,UICollec
             self.collectionView.reloadData()
         }
         
-        
         // Do any additional setup after loading the view.
     }
     
@@ -53,14 +52,10 @@ class ExplorePageController: UIViewController, UICollectionViewDelegate,UICollec
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let type = types[indexPath.item]
+        let destinationViewController = storyboard?.instantiateViewController(withIdentifier: "PoiTableViewController")  as! PoiTableViewController
+        destinationViewController.typeId = type.id
+        navigationController?.pushViewController(destinationViewController, animated: true)
+    }
 }

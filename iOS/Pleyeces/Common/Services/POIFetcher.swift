@@ -8,6 +8,8 @@
 
 import Foundation
 import Alamofire
+import SwiftyUserDefaults
+
 
 class POIFetcher {
     
@@ -35,13 +37,21 @@ class POIFetcher {
         }
     }
     
+    class func fetchByType(typeId: Int, success: @escaping (Array<PointOfInterest>) -> ()) {
+        let parameters: Parameters = ["type": typeId]
+        Alamofire.request("https://16e2a2a9.ngrok.io/api/pois/type",method: .get, parameters: parameters,  encoding: URLEncoding(destination: .queryString))
+            .responseJSON { response in
+                success(mapToModel(resp: response))
+        }
+    }
+    
     class func mapToModel(resp: DataResponse<Any>) -> Array<PointOfInterest> {
         var poiList = [PointOfInterest]()
         
         guard resp.result.value != nil else {
             return []
         }
-        
+        var deactivatedCategory:Bool = false
         let responseJson = resp.result.value as! NSArray
         for poi in responseJson {
             let unpackedPoi = poi as! NSDictionary
@@ -57,7 +67,16 @@ class POIFetcher {
             let type = unpackedPoi.value(forKey: "type") as! NSDictionary;
             model.type = PoiTypeFetcher.mapToModel(data: type)
             model.offers = OfferMapper.mapToModelArray(data: unpackedPoi.value(forKey: "offers") as! NSArray)
-            poiList.append(model)
+            for id in Defaults[.disabledCategoryIds]
+            {
+                if (id==model.type!.id){
+                    deactivatedCategory=true
+                }
+            }
+            if (deactivatedCategory==false){
+                poiList.append(model)
+            }
+            deactivatedCategory = false
         }
         
         return poiList

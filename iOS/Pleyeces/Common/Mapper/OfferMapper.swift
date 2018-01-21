@@ -24,7 +24,7 @@ class OfferMapper {
         
         let model = Offer(
             id: data.value(forKey: "id") as! Int,
-            text: data.value(forKey: "name") as! String
+            text: data.value(forKey: "description") as! String
         )
         
         return model

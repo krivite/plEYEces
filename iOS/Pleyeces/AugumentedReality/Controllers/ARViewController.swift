@@ -9,6 +9,8 @@
 import UIKit
 import ARCL
 import CoreLocation
+import SwiftyUserDefaults
+
 
 extension UIImage {
     class func imageWithView(view: UIView) -> UIImage? {
@@ -53,7 +55,7 @@ class ARViewController: UIViewController {
         POIFetcher.fetchByGeolocation(
             lat: sceneLocationView.currentLocation()!.coordinate.latitude,
             lng: sceneLocationView.currentLocation()!.coordinate.longitude,
-            radius: 1000
+            radius: Float(Defaults[DefaultsKeys.radius])
         ) { (nearbyPois) in
             self.nearbyPois = nearbyPois
             self.drawPOIs(pois: self.nearbyPois)
@@ -123,6 +125,7 @@ class ARViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        loadNearbyPOIs()
         
         self.navigationController?.isNavigationBarHidden = true
     }
