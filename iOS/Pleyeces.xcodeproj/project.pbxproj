@@ -18,6 +18,8 @@
 		48A944261F98A86D00FD5B2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A944241F98A86D00FD5B2E /* LaunchScreen.storyboard */; };
 		48B738A020121AE100FE1DEE /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B7389F20121AE100FE1DEE /* RootPageViewController.swift */; };
 		48B738A72012639700FE1DEE /* PreferencesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B738A62012639700FE1DEE /* PreferencesCell.swift */; };
+		BD27BF832013E0CE00115503 /* PoiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27BF822013E0CE00115503 /* PoiTableViewCell.swift */; };
+		BD27BF852013E36E00115503 /* PoiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27BF842013E36E00115503 /* PoiTableViewController.swift */; };
 		BDF994A320129245001754C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF994A220129245001754C7 /* LocationService.swift */; };
 		D700F19C2011FA6400CB0BE8 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700F19B2011FA6400CB0BE8 /* Offer.swift */; };
 		D700F19F2011FB9D00CB0BE8 /* OfferMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700F19E2011FB9D00CB0BE8 /* OfferMapper.swift */; };
@@ -52,6 +54,8 @@
 		48B738A62012639700FE1DEE /* PreferencesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesCell.swift; sourceTree = "<group>"; };
 		7FF148AC3BC566BAC99F5EFD /* Pods-Pleyeces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pleyeces.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces.release.xcconfig"; sourceTree = "<group>"; };
 		A151DE6E781E4EE9804C3C1F /* Pods_Pleyeces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pleyeces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD27BF822013E0CE00115503 /* PoiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiTableViewCell.swift; sourceTree = "<group>"; };
+		BD27BF842013E36E00115503 /* PoiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiTableViewController.swift; sourceTree = "<group>"; };
 		BDF994A220129245001754C7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		BEEAD955A833B2BBE0D233F9 /* Pods-Pleyeces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pleyeces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces.debug.xcconfig"; sourceTree = "<group>"; };
 		D700F19B2011FA6400CB0BE8 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 				D7ECB6381F991634009FDD71 /* AugumentedReality */,
 				48A9441B1F98A86D00FD5B2E /* AppDelegate.swift */,
 				48A9441F1F98A86D00FD5B2E /* Main.storyboard */,
+				BD27BF822013E0CE00115503 /* PoiTableViewCell.swift */,
+				BD27BF842013E36E00115503 /* PoiTableViewController.swift */,
 				48A944221F98A86D00FD5B2E /* Assets.xcassets */,
 				48A944241F98A86D00FD5B2E /* LaunchScreen.storyboard */,
 				48A944271F98A86D00FD5B2E /* Info.plist */,
@@ -386,6 +392,7 @@
 			files = (
 				48B738A72012639700FE1DEE /* PreferencesCell.swift in Sources */,
 				487BA9FD2010FF7500C549C8 /* WelcomeViewController.swift in Sources */,
+				BD27BF852013E36E00115503 /* PoiTableViewController.swift in Sources */,
 				BDF994A320129245001754C7 /* LocationService.swift in Sources */,
 				D700F19F2011FB9D00CB0BE8 /* OfferMapper.swift in Sources */,
 				D7ECB64A1F9A06DB009FDD71 /* DistantPOIBubbleView.swift in Sources */,
@@ -396,6 +403,7 @@
 				4898C0EC1FAA5D9B00D4B081 /* POIDetailViewController.swift in Sources */,
 				D795606620110649007B75AA /* PoiTypeFetcher.swift in Sources */,
 				D7ECB6421F99181B009FDD71 /* Color.swift in Sources */,
+				BD27BF832013E0CE00115503 /* PoiTableViewCell.swift in Sources */,
 				487BA9FF2011051000C549C8 /* PreferencesViewController.swift in Sources */,
 				D7ECB6451F991B21009FDD71 /* PointOfInterest.swift in Sources */,
 				48A9441C1F98A86D00FD5B2E /* AppDelegate.swift in Sources */,

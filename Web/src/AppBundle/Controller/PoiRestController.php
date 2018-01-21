@@ -152,7 +152,7 @@ class PoiRestController extends FOSRestController
     }
 
     /**
-     * @Rest\Get("/api/poisByType")
+     * @Rest\Get("/api/pois/type")
      * @SWG\Response(
      *     response=200,
      *     description="Returns pois with certain type from database",
