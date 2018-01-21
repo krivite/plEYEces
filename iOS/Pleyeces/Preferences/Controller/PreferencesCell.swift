@@ -13,22 +13,29 @@ import SwiftyUserDefaults
 class PreferencesCell: UICollectionViewCell {
     
     var poiType: PoiType?
-    var isEnabled: Bool = true
+    private var isEnabled: Bool = true
     
     @IBOutlet weak var poiNameLbl: UILabel!
     @IBOutlet weak var poiBtn: UIButton!
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         if(isEnabled) {
-            isEnabled = false
-            poiBtn.backgroundColor = UIColor.lightGray
             Defaults[.disabledCategoryIds].append((poiType?.id)!)
-            
+            self.setEnabled(isEnabled: !isEnabled)
         }
         else {
-            isEnabled = true
-            poiBtn.backgroundColor = poiType!.color
             Defaults[.disabledCategoryIds].remove(at: Defaults[.disabledCategoryIds].index(of: (poiType?.id)!)!)
+            self.setEnabled(isEnabled: !isEnabled)
+        }
+    }
+    
+    func setEnabled(isEnabled: Bool) {
+        self.isEnabled = isEnabled
+        if(isEnabled) {
+            poiBtn.backgroundColor = poiType!.color
+        }
+        else {
+            poiBtn.backgroundColor = UIColor.lightGray
         }
     }
     

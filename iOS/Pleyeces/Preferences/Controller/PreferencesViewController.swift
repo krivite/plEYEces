@@ -29,8 +29,18 @@ class PreferencesViewController: UIViewController, UICollectionViewDelegate,UICo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "preferencesCell", for: indexPath) as! PreferencesCell
         cell.poiType = types[indexPath.item]
         cell.poiNameLbl.text = types[indexPath.item].name
-        cell.poiBtn.backgroundColor = self.types[indexPath.item].color
+
+        if Defaults[.disabledCategoryIds].contains(types[indexPath.item].id){
+            cell.setEnabled(isEnabled: false)
+        }
+        else{
+            cell.setEnabled(isEnabled: true)
+        }
+        
+        cell.poiBtn.layer.cornerRadius = 0.5 * cell.poiBtn.bounds.size.width
+     
         cell.poiBtn.layer.cornerRadius = 0.5 * cell.poiBtn.frame.size.width
+
         cell.poiBtn.clipsToBounds = true
         
         let imageUrl = URL(string: "\(types[indexPath.item].image)")
