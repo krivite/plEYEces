@@ -22,17 +22,14 @@ extension UIImage {
     }
 }
 
-class ARViewController: UIViewController {
-    var sceneLocationView = SceneLocationView()
+class ARViewController: UIViewController, POIDisplayView {
+    var displayPois: Array<PointOfInterest> = []
     
-    var nearbyPois: Array<PointOfInterest> = []
+    var sceneLocationView = SceneLocationView()
     var shownLocationNodes: Array<LocationNode> = []
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-        Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { (Timer) in
-            self.drawPOIs(pois: self.nearbyPois)
-        })
     }
 
     override func viewDidLoad() {
@@ -40,9 +37,6 @@ class ARViewController: UIViewController {
         
         sceneLocationView.run()
         self.view.insertSubview(sceneLocationView, at: 0)
-        
-        
-        loadNearbyPOIs()
     }
     
     func loadNearbyPOIs() {
@@ -57,8 +51,8 @@ class ARViewController: UIViewController {
             lng: sceneLocationView.currentLocation()!.coordinate.longitude,
             radius: Float(Defaults[DefaultsKeys.radius])
         ) { (nearbyPois) in
-            self.nearbyPois = nearbyPois
-            self.drawPOIs(pois: self.nearbyPois)
+            self.displayPois = nearbyPois
+            self.displayPOIs()
         }
     }
     
@@ -69,9 +63,9 @@ class ARViewController: UIViewController {
         self.shownLocationNodes.removeAll()
     }
     
-    func drawPOIs(pois: Array<PointOfInterest>) {
+    func displayPOIs() {
         self.clearAllDrawnNodes()
-        pois.forEach({ (poi) in
+        self.displayPois.forEach({ (poi) in
             if sceneLocationView.currentLocation() == nil {
                 loadSmallPOIBubble(poi: poi)
                 return
@@ -145,7 +139,7 @@ class ARViewController: UIViewController {
         guard let result = self.sceneLocationView.hitTest(touch.location(in: sceneLocationView), options: nil).first
             else {return}
         
-        for poi in nearbyPois
+        for poi in self.displayPois
         {
             if (poi.arNode?.annotationNode.contains(result.node))!
             {

@@ -177,7 +177,7 @@ class PoiRestController extends FOSRestController
             ->setParameter(":type", $type)
             ->getQuery();
 
-        $result  =$query->getResult();
+        $result = $query->getResult();
         if ($result === null || count($result) === 0) {
             return new View("No POIs found!", Response::HTTP_NOT_FOUND);
         }

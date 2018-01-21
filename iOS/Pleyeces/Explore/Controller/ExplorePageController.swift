@@ -55,7 +55,7 @@ class ExplorePageController: UIViewController, UICollectionViewDelegate,UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let type = types[indexPath.item]
         let destinationViewController = storyboard?.instantiateViewController(withIdentifier: "PoiTableViewController")  as! PoiTableViewController
-        destinationViewController.typeId = type.id
+        destinationViewController.type = type
         navigationController?.pushViewController(destinationViewController, animated: true)
     }
 }

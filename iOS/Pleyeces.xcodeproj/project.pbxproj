@@ -26,6 +26,9 @@
 		BDF994A320129245001754C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF994A220129245001754C7 /* LocationService.swift */; };
 		D700F19C2011FA6400CB0BE8 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700F19B2011FA6400CB0BE8 /* Offer.swift */; };
 		D700F19F2011FB9D00CB0BE8 /* OfferMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700F19E2011FB9D00CB0BE8 /* OfferMapper.swift */; };
+		D7188FD22014E02500CE2EED /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7188FD12014E02500CE2EED /* ColorTests.swift */; };
+		D7188FD42014E65900CE2EED /* WelcomeScreenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7188FD32014E65900CE2EED /* WelcomeScreenTest.swift */; };
+		D73F05102014FF1E005CA0B7 /* POIDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73F050F2014FF1E005CA0B7 /* POIDisplayView.swift */; };
 		D795606420110417007B75AA /* PoiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D795606320110416007B75AA /* PoiType.swift */; };
 		D795606620110649007B75AA /* PoiTypeFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D795606520110649007B75AA /* PoiTypeFetcher.swift */; };
 		D7ECB63C1F991691009FDD71 /* POIBubbleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7ECB63B1F991691009FDD71 /* POIBubbleView.xib */; };
@@ -40,6 +43,16 @@
 		E4F7D33420138C66005C3ECF /* StorageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7D33320138C66005C3ECF /* StorageController.swift */; };
 		FFFF1B21D04EB634E08A0EBB /* Pods_Pleyeces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A151DE6E781E4EE9804C3C1F /* Pods_Pleyeces.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D7188FCC2014DA8200CE2EED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48A944101F98A86D00FD5B2E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48A944171F98A86D00FD5B2E;
+			remoteInfo = Pleyeces;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		485B89CD2014A7E800DAE6C1 /* BottomMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMapViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +79,12 @@
 		BEEAD955A833B2BBE0D233F9 /* Pods-Pleyeces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pleyeces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pleyeces/Pods-Pleyeces.debug.xcconfig"; sourceTree = "<group>"; };
 		D700F19B2011FA6400CB0BE8 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		D700F19E2011FB9D00CB0BE8 /* OfferMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferMapper.swift; sourceTree = "<group>"; };
+		D703D3C520127D570059ABB5 /* Pleyeces.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pleyeces.entitlements; sourceTree = "<group>"; };
+		D7188FC72014DA8200CE2EED /* PleyecesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PleyecesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7188FCB2014DA8200CE2EED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7188FD12014E02500CE2EED /* ColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
+		D7188FD32014E65900CE2EED /* WelcomeScreenTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenTest.swift; sourceTree = "<group>"; };
+		D73F050F2014FF1E005CA0B7 /* POIDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIDisplayView.swift; sourceTree = "<group>"; };
 		D795606320110416007B75AA /* PoiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiType.swift; sourceTree = "<group>"; };
 		D795606520110649007B75AA /* PoiTypeFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiTypeFetcher.swift; sourceTree = "<group>"; };
 		D7ECB63B1F991691009FDD71 /* POIBubbleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = POIBubbleView.xib; sourceTree = "<group>"; };
@@ -86,6 +105,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFFF1B21D04EB634E08A0EBB /* Pods_Pleyeces.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7188FC42014DA8200CE2EED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				48A9441A1F98A86D00FD5B2E /* Pleyeces */,
+				D7188FC82014DA8200CE2EED /* PleyecesTests */,
 				48A944191F98A86D00FD5B2E /* Products */,
 				670993E94E61D72617720039 /* Pods */,
 				64778807E5553A2BBC838AFC /* Frameworks */,
@@ -133,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				48A944181F98A86D00FD5B2E /* Pleyeces.app */,
+				D7188FC72014DA8200CE2EED /* PleyecesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,6 +168,7 @@
 		48A9441A1F98A86D00FD5B2E /* Pleyeces */ = {
 			isa = PBXGroup;
 			children = (
+				D703D3C520127D570059ABB5 /* Pleyeces.entitlements */,
 				485B89D52014DFE200DAE6C1 /* Map */,
 				E4F7D33220138C40005C3ECF /* Storage */,
 				48B738A42012635600FE1DEE /* Preferences */,
@@ -202,6 +231,24 @@
 			path = Mapper;
 			sourceTree = "<group>";
 		};
+		D7188FC82014DA8200CE2EED /* PleyecesTests */ = {
+			isa = PBXGroup;
+			children = (
+				D7188FD32014E65900CE2EED /* WelcomeScreenTest.swift */,
+				D7188FD12014E02500CE2EED /* ColorTests.swift */,
+				D7188FCB2014DA8200CE2EED /* Info.plist */,
+			);
+			path = PleyecesTests;
+			sourceTree = "<group>";
+		};
+		D73F050E2014FF02005CA0B7 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				D73F050F2014FF1E005CA0B7 /* POIDisplayView.swift */,
+			);
+			path = Contract;
+			sourceTree = "<group>";
+		};
 		D7ECB6381F991634009FDD71 /* AugumentedReality */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +280,7 @@
 		D7ECB63F1F991809009FDD71 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D73F050E2014FF02005CA0B7 /* Contract */,
 				D700F19D2011FB8F00CB0BE8 /* Mapper */,
 				D7ECB6461F99F1EC009FDD71 /* Services */,
 				D7ECB6431F991B13009FDD71 /* Models */,
@@ -309,19 +357,47 @@
 			productReference = 48A944181F98A86D00FD5B2E /* Pleyeces.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D7188FC62014DA8200CE2EED /* PleyecesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7188FD02014DA8200CE2EED /* Build configuration list for PBXNativeTarget "PleyecesTests" */;
+			buildPhases = (
+				D7188FC32014DA8200CE2EED /* Sources */,
+				D7188FC42014DA8200CE2EED /* Frameworks */,
+				D7188FC52014DA8200CE2EED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D7188FCD2014DA8200CE2EED /* PBXTargetDependency */,
+			);
+			name = PleyecesTests;
+			productName = PleyecesTests;
+			productReference = D7188FC72014DA8200CE2EED /* PleyecesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		48A944101F98A86D00FD5B2E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Kristiana;
 				TargetAttributes = {
 					48A944171F98A86D00FD5B2E = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
+					};
+					D7188FC62014DA8200CE2EED = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 48A944171F98A86D00FD5B2E;
 					};
 				};
 			};
@@ -339,6 +415,7 @@
 			projectRoot = "";
 			targets = (
 				48A944171F98A86D00FD5B2E /* Pleyeces */,
+				D7188FC62014DA8200CE2EED /* PleyecesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -354,6 +431,13 @@
 				D7ECB63C1F991691009FDD71 /* POIBubbleView.xib in Resources */,
 				D7ECB64C1F9A06F0009FDD71 /* DistantPOIBubbleView.xib in Resources */,
 				48A944211F98A86D00FD5B2E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7188FC52014DA8200CE2EED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,7 +498,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -436,6 +520,7 @@
 				D700F19C2011FA6400CB0BE8 /* Offer.swift in Sources */,
 				48A9441E1F98A86D00FD5B2E /* ARViewController.swift in Sources */,
 				D795606420110417007B75AA /* PoiType.swift in Sources */,
+				D73F05102014FF1E005CA0B7 /* POIDisplayView.swift in Sources */,
 				4898C0EC1FAA5D9B00D4B081 /* POIDetailViewController.swift in Sources */,
 				D795606620110649007B75AA /* PoiTypeFetcher.swift in Sources */,
 				D7ECB6421F99181B009FDD71 /* Color.swift in Sources */,
@@ -452,7 +537,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D7188FC32014DA8200CE2EED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7188FD42014E65900CE2EED /* WelcomeScreenTest.swift in Sources */,
+				D7188FD22014E02500CE2EED /* ColorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D7188FCD2014DA8200CE2EED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48A944171F98A86D00FD5B2E /* Pleyeces */;
+			targetProxy = D7188FCC2014DA8200CE2EED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		48A9441F1F98A86D00FD5B2E /* Main.storyboard */ = {
@@ -589,10 +691,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2D896836D;
+				DEVELOPMENT_TEAM = B2Z8J357DK;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pleyeces;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pleyeces-filip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -608,14 +710,48 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2D896836D;
+				DEVELOPMENT_TEAM = B2Z8J357DK;
 				INFOPLIST_FILE = Pleyeces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pleyeces;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pleyeces-filip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D7188FCE2014DA8200CE2EED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B2Z8J357DK;
+				INFOPLIST_FILE = PleyecesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = es.pleyec.PleyecesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pleyeces.app/Pleyeces";
+			};
+			name = Debug;
+		};
+		D7188FCF2014DA8200CE2EED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B2Z8J357DK;
+				INFOPLIST_FILE = PleyecesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = es.pleyec.PleyecesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pleyeces.app/Pleyeces";
 			};
 			name = Release;
 		};
@@ -636,6 +772,15 @@
 			buildConfigurations = (
 				48A9442B1F98A86D00FD5B2E /* Debug */,
 				48A9442C1F98A86D00FD5B2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7188FD02014DA8200CE2EED /* Build configuration list for PBXNativeTarget "PleyecesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7188FCE2014DA8200CE2EED /* Debug */,
+				D7188FCF2014DA8200CE2EED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
