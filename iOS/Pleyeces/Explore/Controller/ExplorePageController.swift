@@ -51,4 +51,11 @@ class ExplorePageController: UIViewController, UICollectionViewDelegate,UICollec
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let type = types[indexPath.item]
+        let destinationViewController = storyboard?.instantiateViewController(withIdentifier: "PoiTableViewController")  as! PoiTableViewController
+        destinationViewController.typeId = type.id
+        navigationController?.pushViewController(destinationViewController, animated: true)
+    }
 }

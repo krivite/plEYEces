@@ -39,7 +39,7 @@ class POIFetcher {
     
     class func fetchByType(typeId: Int, success: @escaping (Array<PointOfInterest>) -> ()) {
         let parameters: Parameters = ["type": typeId]
-        Alamofire.request("https://fab64704.ngrok.io/api/pois/type",method: .get, parameters: parameters,  encoding: URLEncoding(destination: .queryString))
+        Alamofire.request("https://16e2a2a9.ngrok.io/api/pois/type",method: .get, parameters: parameters,  encoding: URLEncoding(destination: .queryString))
             .responseJSON { response in
                 success(mapToModel(resp: response))
         }

@@ -12,10 +12,13 @@ class PoiTableViewController: UITableViewController {
 
     //MARK: Properties
     var pois = [PointOfInterest]()
+    var typeId: Int = 1
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        POIFetcher.fetchByType(typeId: 1, success: { (pois) in
+        
+        POIFetcher.fetchByType(typeId: typeId, success: { (pois) in
             self.pois = pois
             self.tableView.reloadData()
         })
