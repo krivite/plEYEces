@@ -17,6 +17,13 @@ class PoiType {
     var image: String
     var poiCount: Int?
     
+    init() {
+        self.id = 1
+        self.name = "name"
+        self.color = UIColor()
+        self.image = "image"
+    }
+    
     
     init(id: Int, name: String, color: UIColor, image: String) {
         self.id = id

@@ -90,13 +90,13 @@ class PoiFilterService
     //creates string of working hours
     private function getWorkingHours($details)
     {
-        $workingHours = "";
+        $working_hours = "";
         if(array_key_exists('opening_hours', $details)) {
             foreach ($details['opening_hours']['weekday_text'] as $day) {
-                $workingHours .= $day . " ";
+                $working_hours .= $day . " ";
             }
         }
 
-        return $workingHours;
+        return $working_hours;
     }
 }

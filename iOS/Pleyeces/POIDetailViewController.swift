@@ -19,8 +19,10 @@ class POIDetailViewController: UIViewController {
     @IBOutlet weak var poiHours: UILabel!
     @IBOutlet weak var poiInfo: UITextView!
     @IBOutlet weak var poiOfferInfo: UITextView!
+    @IBOutlet weak var doneButton: UIButton!
     
     var poi: PointOfInterest?
+    var hideButton = false;
     
     
     override func viewDidLoad() {
@@ -29,6 +31,8 @@ class POIDetailViewController: UIViewController {
         self.poiName.text = poi?.name
         self.poiAddress.text = poi?.address
         self.poiHours.text = poi?.workingHours
+        doneButton.isHidden = hideButton
+        
     }
     
     func setPoi(poi: PointOfInterest) {
