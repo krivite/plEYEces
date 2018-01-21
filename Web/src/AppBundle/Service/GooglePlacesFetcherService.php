@@ -81,7 +81,7 @@ class GooglePlacesFetcherService
     {
         $response = $this->getFromAPI([
             'key' => 'AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA',
-            'place_id' => $placeId
+            'placeid' => $placeId
         ], 'https://maps.googleapis.com/maps/api/place/details/json');
 
         if(isset($response['result']) === false) {
