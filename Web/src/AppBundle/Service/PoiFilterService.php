@@ -40,34 +40,35 @@ class PoiFilterService
             $poiType = $this->matchingPoiType($poiTypes, $nearByPoi);
             if($poiType == null)
                 continue;
+            $poi = $this->em->getRepository('AppBundle:Poi')->find($nearByPoi['id']);
+            if(is_null($poi)) {
+                $poi = new Poi();
+                $poi->setId($nearByPoi['id']);
+                $poi->setName($nearByPoi['name']);
 
-            $poi = new Poi();
-            $poi->setId($nearByPoi['id']);
-            $poi->setName($nearByPoi['name']);
+                $details = $this->container->get('app.service.google_places_fetcher_service')->getDetails($nearByPoi['place_id']);
 
-            $details = $this->container->get('app.service.google_places_fetcher_service')->getDetails($nearByPoi['place_id']);
+                $poi->setAddress($details['formatted_address']);
+                $poi->setDetails("");
 
-            $poi->setAddress($details['formatted_address']);
-            $poi->setDetails($details['url']);
+                if (array_key_exists('photos', $details))
+                    $poi->setImage('https://maps.googleapis.com/maps/api/place/photo?' .
+                        'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
+                        '&maxwidth=1920' .
+                        '&photoreference=' . $details['photos'][0]['photo_reference']);
 
-            if(array_key_exists('photos', $details))
-                $poi->setImage('https://maps.googleapis.com/maps/api/place/photo?' .
-                    'key=AIzaSyBYuz2HZWdjthly1NlGKqGA-TPsuHms3ZA' .
-                    '&maxwidth=1920' .
-                    '&photoreference=' . $details['photos'][0]['photo_reference']);
+                $poi->setLatitude($nearByPoi['geometry']['location']['lat']);
+                $poi->setLongitude($nearByPoi['geometry']['location']['lng']);
 
-            $poi->setLatitude($nearByPoi['geometry']['location']['lat']);
-            $poi->setLongitude($nearByPoi['geometry']['location']['lng']);
+                $poi->setWorkingHours($this->getWorkingHours($details));
+                $poi->setType($poiType);
 
-            $poi->setWorkingHours($this->getWorkingHours($details));
-            $poi->setType($poiType);
-
-            $poiFromDatabase = $this->em->getRepository(Poi::class)->findOneBy(array('id' => $poi->getId()));
-            if(!is_null($poiFromDatabase))
-            {
-                $offers = $this->em->getRepository(Offer::class)->findBy(array('poi' => $poi));
-                foreach ($offers as $offer)
-                    $poi->addOffer($offer);
+                $poiFromDatabase = $this->em->getRepository(Poi::class)->findOneBy(array('id' => $poi->getId()));
+                if (!is_null($poiFromDatabase)) {
+                    $offers = $this->em->getRepository(Offer::class)->findBy(array('poi' => $poi));
+                    foreach ($offers as $offer)
+                        $poi->addOffer($offer);
+                }
             }
             array_push($pois, $poi);
         }
@@ -90,13 +91,13 @@ class PoiFilterService
     //creates string of working hours
     private function getWorkingHours($details)
     {
-        $workingHours = "";
+        $working_hours = "";
         if(array_key_exists('opening_hours', $details)) {
             foreach ($details['opening_hours']['weekday_text'] as $day) {
-                $workingHours .= $day . " ";
+                $working_hours .= $day . " ";
             }
         }
 
-        return $workingHours;
+        return $working_hours;
     }
 }

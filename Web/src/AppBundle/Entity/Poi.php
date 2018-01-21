@@ -50,7 +50,7 @@ class Poi implements JsonSerializable
     private $image;
 
     /**
-     * @ORM\Column(name="working_hours", type="text")
+     * @ORM\Column(name="workingHours", type="text")
      */
     private $workingHours;
 
@@ -252,7 +252,7 @@ class Poi implements JsonSerializable
             "longitude" => $this->longitude,
             "details" => $this->details,
             "image" => $this->image,
-            "workingHours" => $this->workingHours,
+            "working_hours" => $this->workingHours,
             "type" => $this->type,
             "offers" => $this->offers->toArray()
         ];

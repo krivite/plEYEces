@@ -39,7 +39,7 @@ class POIFetcher {
     
     class func fetchByType(typeId: Int, success: @escaping (Array<PointOfInterest>) -> ()) {
         let parameters: Parameters = ["type": typeId]
-        Alamofire.request("https://fab64704.ngrok.io/api/pois/type",method: .get, parameters: parameters,  encoding: URLEncoding(destination: .queryString))
+        Alamofire.request("https://pleyec.es/api/pois/type",method: .get, parameters: parameters,  encoding: URLEncoding(destination: .queryString))
             .responseJSON { response in
                 success(mapToModel(resp: response))
         }
@@ -60,16 +60,17 @@ class POIFetcher {
                 id: unpackedPoi.value(forKey: "id") as! String,
                 name: unpackedPoi.value(forKey: "name") as! String,
                 address: unpackedPoi.value(forKey: "address") as! String,
-                details: "",
+                details: unpackedPoi.value(forKey: "details") as! String,
                 lat: unpackedPoi.value(forKey: "latitude") as! Double,
                 lng: unpackedPoi.value(forKey: "longitude") as! Double
             )
             let type = unpackedPoi.value(forKey: "type") as! NSDictionary;
             model.type = PoiTypeFetcher.mapToModel(data: type)
+            model.workingHours = unpackedPoi.value(forKey: "working_hours") as? String
+            model.image = unpackedPoi.value(forKey: "image") as? String
             model.offers = OfferMapper.mapToModelArray(data: unpackedPoi.value(forKey: "offers") as! NSArray)
             for id in Defaults[.disabledCategoryIds]
             {
-                print (id)
                 if (id==model.type!.id){
                     deactivatedCategory=true
                 }
