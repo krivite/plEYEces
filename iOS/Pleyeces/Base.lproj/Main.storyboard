@@ -444,17 +444,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Working hours:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAU-bs-Oyu">
-                                <rect key="frame" x="20" y="398" width="335" height="15"/>
+                                <rect key="frame" x="20" y="398" width="330" height="15"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2g-t0-6sB">
-                                <rect key="frame" x="20" y="479" width="335" height="160"/>
+                                <rect key="frame" x="20" y="479" width="335" height="140"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yng-Sz-oNe">
-                                        <rect key="frame" x="26" y="51" width="277" height="76"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu </string>
+                                        <rect key="frame" x="26" y="51" width="277" height="31"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -468,7 +467,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.11372549019607843" green="0.68235294117647061" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="47Y-ki-eh4"/>
+                                    <constraint firstAttribute="height" constant="140" id="47Y-ki-eh4"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IKL-y8-yB6" secondAttribute="trailing" id="J5H-wu-bBh"/>
                                     <constraint firstItem="Yng-Sz-oNe" firstAttribute="top" secondItem="IKL-y8-yB6" secondAttribute="bottom" constant="10" id="LZ8-pn-WcS"/>
                                     <constraint firstAttribute="trailing" secondItem="Yng-Sz-oNe" secondAttribute="trailing" constant="32" id="bci-cb-1gc"/>
@@ -528,7 +527,7 @@
                             <constraint firstItem="QFq-a1-FYO" firstAttribute="leading" secondItem="cn8-pq-4sU" secondAttribute="leading" constant="20" id="kBN-ta-0gG"/>
                             <constraint firstItem="ARu-K8-7oX" firstAttribute="leading" secondItem="cn8-pq-4sU" secondAttribute="leading" constant="20" id="myY-aE-ci5"/>
                             <constraint firstItem="cn8-pq-4sU" firstAttribute="trailing" secondItem="ARu-K8-7oX" secondAttribute="trailing" constant="20" id="orJ-b1-hxR"/>
-                            <constraint firstItem="cn8-pq-4sU" firstAttribute="trailing" secondItem="aAU-bs-Oyu" secondAttribute="trailing" constant="20" id="rqd-1B-kF0"/>
+                            <constraint firstItem="cn8-pq-4sU" firstAttribute="trailing" secondItem="aAU-bs-Oyu" secondAttribute="trailing" constant="25" id="rqd-1B-kF0"/>
                             <constraint firstItem="M7c-B7-6hn" firstAttribute="top" secondItem="cn8-pq-4sU" secondAttribute="top" constant="8" id="siZ-oo-Yfl"/>
                             <constraint firstItem="cn8-pq-4sU" firstAttribute="trailing" secondItem="QFq-a1-FYO" secondAttribute="trailing" constant="20" id="zJj-Xh-hwk"/>
                         </constraints>

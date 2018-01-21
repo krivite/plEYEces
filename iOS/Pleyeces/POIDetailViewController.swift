@@ -30,11 +30,22 @@ class POIDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.poiName.text = poi?.name
         self.poiAddress.text = poi?.address
         self.poiHours.text = "Working hours: " + (poi?.workingHours)!
         self.poiInfo.text = poi?.description
+        
+        var h = [String]()
+        if(poi?.offers.isEmpty == false){
+            let offersNum = poi?.offers.count
+            for var i in (0 ..< offersNum!) {
+                h.append((poi?.offers[i].text)!)
+            }
+            self.poiOfferInfo.text = h.joined(separator: "\n")
+        } else {
+            self.poiOfferInfo.text = "No current offers."
+        }
 
         let url = URL(string: "\(poi!.image ?? "")")
         let data = try? Data(contentsOf: url!)
