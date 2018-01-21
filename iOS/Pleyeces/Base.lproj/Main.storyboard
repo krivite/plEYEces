@@ -197,7 +197,7 @@
                                 <rect key="frame" x="314" y="40" width="41" height="32"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Done">
-                                    <color key="titleColor" red="0.93965744969999998" green="0.20553562049999999" blue="0.20417791599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.86661988496780396" green="0.27588289976119995" blue="0.24309244751930237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="dismissButton:" destination="swv-Zj-zsz" eventType="touchUpInside" id="csR-6T-uAX"/>
@@ -509,6 +509,7 @@
                         <viewLayoutGuide key="safeArea" id="cn8-pq-4sU"/>
                     </view>
                     <connections>
+                        <outlet property="doneButton" destination="M7c-B7-6hn" id="OuH-iB-zQr"/>
                         <outlet property="poiAddress" destination="XC0-er-TaE" id="0W1-Ef-YdD"/>
                         <outlet property="poiHours" destination="qzu-lg-NoN" id="fAO-Tf-bqP"/>
                         <outlet property="poiImage" destination="6va-fd-c00" id="4dS-mV-jxx"/>
@@ -544,4 +545,5 @@
         <image name="SettingsIcon" width="28" height="28"/>
         <image name="welcome" width="750" height="1334"/>
     </resources>
+    <color key="tintColor" red="0.86661988499999998" green="0.27588289980000003" blue="0.2430924475" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
