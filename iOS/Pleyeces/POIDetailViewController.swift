@@ -22,17 +22,25 @@ class POIDetailViewController: UIViewController {
     
     var poi: PointOfInterest?
     
+    func setPoi(poi: PointOfInterest) {
+        self.poi = poi
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.poiName.text = poi?.name
         self.poiAddress.text = poi?.address
-        self.poiHours.text = poi?.workingHours
-    }
-    
-    func setPoi(poi: PointOfInterest) {
-        self.poi = poi
+        self.poiHours.text = "Working hours: " + (poi?.workingHours)!
+        self.poiInfo.text = poi?.description
+        
+        let url = URL(string: "\(poi!.image ?? "")")
+        let data = try? Data(contentsOf: url!)
+        if(data != nil) {
+        self.poiImage.image = UIImage(data: data!)
+        }
+        
+
     }
 
     override func didReceiveMemoryWarning() {

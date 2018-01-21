@@ -96,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				485B89D82014E05A00DAE6C1 /* Annotations */,
-				485B89D72014E04300DAE6C1 /* Views */,
 				485B89D62014DFFF00DAE6C1 /* Controllers */,
 			);
 			path = Map;
@@ -105,18 +104,11 @@
 		485B89D62014DFFF00DAE6C1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				485B89D12014AD0500DAE6C1 /* BottomMapViewController.xib */,
 				485B89CD2014A7E800DAE6C1 /* BottomMapViewController.swift */,
 				48825D4C20111BB000753E0D /* MapViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		485B89D72014E04300DAE6C1 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				485B89D12014AD0500DAE6C1 /* BottomMapViewController.xib */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		485B89D82014E05A00DAE6C1 /* Annotations */ = {

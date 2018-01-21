@@ -60,12 +60,14 @@ class POIFetcher {
                 id: unpackedPoi.value(forKey: "id") as! String,
                 name: unpackedPoi.value(forKey: "name") as! String,
                 address: unpackedPoi.value(forKey: "address") as! String,
-                details: "",
+                details: unpackedPoi.value(forKey: "details") as! String,
                 lat: unpackedPoi.value(forKey: "latitude") as! Double,
                 lng: unpackedPoi.value(forKey: "longitude") as! Double
             )
             let type = unpackedPoi.value(forKey: "type") as! NSDictionary;
             model.type = PoiTypeFetcher.mapToModel(data: type)
+            model.workingHours = unpackedPoi.value(forKey: "working_hours") as? String
+            model.image = unpackedPoi.value(forKey: "image") as? String
             model.offers = OfferMapper.mapToModelArray(data: unpackedPoi.value(forKey: "offers") as! NSArray)
             for id in Defaults[.disabledCategoryIds]
             {
