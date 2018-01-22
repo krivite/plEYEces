@@ -66,6 +66,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     func displayPOIs() {
+        self.Map.removeAnnotations(self.Map.annotations)
         for poi in self.displayPois {
             let annotation = POIMapAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: poi.lat, longitude: poi.lng)

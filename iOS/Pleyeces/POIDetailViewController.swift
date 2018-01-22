@@ -20,7 +20,8 @@ class POIDetailViewController: UIViewController {
     @IBOutlet weak var poiInfo: UITextView!
     @IBOutlet weak var poiOfferInfo: UITextView!
     @IBOutlet weak var doneButton: UIButton!
-
+    @IBOutlet var scrollView: UIScrollView!
+    
     var poi: PointOfInterest?
     var hideButton = false;
 
@@ -30,6 +31,10 @@ class POIDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DispatchQueue.main.async {
+            self.scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: 1000)
+        }
         
         self.poiName.text = poi?.name
         self.poiAddress.text = poi?.address
