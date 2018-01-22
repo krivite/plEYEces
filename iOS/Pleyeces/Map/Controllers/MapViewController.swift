@@ -61,12 +61,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.loadNearbyPOIs()
+    }
+    
     func displayPOIs() {
         for poi in self.displayPois {
             let annotation = POIMapAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: poi.lat, longitude: poi.lng)
             annotation.title = poi.name
             annotation.poi = poi
+            
             self.Map.addAnnotation(annotation)
         }
     }
@@ -79,7 +84,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         addBottomSheetView(poi: annotation.poi!)
     }
-  
     
     func addBottomSheetView(poi: PointOfInterest) {
         

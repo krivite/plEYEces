@@ -30,13 +30,12 @@ class RootPageViewController: UIPageViewController, UIPageViewControllerDataSour
         let sb = UIStoryboard(name:"Main", bundle: nil)
         
         let vc1 = sb.instantiateViewController(withIdentifier: "Map") as! UIViewController & POIDisplayView
-        vc1.loadNearbyPOIs()
         let vc2 = sb.instantiateViewController(withIdentifier: "AR") as! UIViewController & POIDisplayView
-        vc2.loadNearbyPOIs()
         let vc3 = sb.instantiateViewController(withIdentifier: "Explore")
         
         return [vc1, vc2, vc3]
     }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

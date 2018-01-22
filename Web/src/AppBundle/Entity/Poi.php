@@ -64,7 +64,6 @@ class Poi implements JsonSerializable
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="pois")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-
      */
     private $userId;
 

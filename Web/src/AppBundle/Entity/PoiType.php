@@ -60,7 +60,7 @@ class PoiType implements JsonSerializable
     private $icon;
 
     /**
-     * @ORM\OneToMany(targetEntity="Poi", mappedBy="type")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Poi", mappedBy="type")
      */
     private $pois;
 

@@ -101,7 +101,7 @@ class User implements UserInterface, GroupableInterface
     protected $roles;
 
     /**
-     * @ORM\OneToMany(targetEntity="Poi", mappedBy="type")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Poi", mappedBy="userId")
      */
     private $pois;
 
@@ -112,7 +112,6 @@ class User implements UserInterface, GroupableInterface
     {
         $this->enabled = false;
         $this->roles = array();
-        $this->userOwners = new ArrayCollection();
     }
 
     /**
